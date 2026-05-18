@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import { Agentation } from "agentation";
 import { SITE_URL } from "@/lib/site-url";
 
 const inter = Inter({
@@ -30,35 +29,31 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
   },
   appleWebApp: {
-    title: "Unblocking yourself with AI",
+    title: "Blode Stack",
   },
-  authors: [
-    { name: "Matthew Blode", url: "https://matthewblode.com" },
-    {
-      name: "Mrudula Vysyaraju",
-      url: "https://www.linkedin.com/in/mrudulavysyaraju/",
-    },
-  ],
-  creator: "Matthew Blode and Mrudula Vysyaraju",
+  authors: [{ name: "Matthew Blode", url: "https://matthewblode.com" }],
+  creator: "Matthew Blode",
   description:
-    "Concrete workflows from two engineers shipping with Claude Code, Codex, and Devin. MCPs, plan mode, worktrees, skills, and how to keep up to date.",
+    "A behind-the-scenes look at Done Bear and the Blode Stack: design foundations, agent skills, markdown context, feedback loops, and local-first sync.",
   keywords: [
-    "AI Engineering",
+    "Blode Stack",
+    "Done Bear",
     "Claude Code",
     "Codex",
-    "Devin",
-    "MCP",
-    "Plan Mode",
     "Agent Skills",
-    "Developer Tooling",
+    "Strata Sync",
+    "Blode UI",
+    "Blode Icons",
+    "AllMD",
+    "DiffHub",
   ],
   metadataBase: new URL(BASE_URL),
   openGraph: {
     description:
-      "Concrete workflows from two engineers shipping with Claude Code, Codex, and Devin.",
+      "How to build a to-do list app in 2026: the product demands, the rails, and the tools around Done Bear.",
     locale: "en_US",
-    siteName: "Unblocking yourself with AI",
-    title: "Unblocking yourself with AI",
+    siteName: "Blode Stack",
+    title: "Blode Stack",
     type: "website",
     url: BASE_URL,
   },
@@ -77,15 +72,15 @@ export const metadata: Metadata = {
     index: true,
   },
   title: {
-    default: "Unblocking yourself with AI | Matthew Blode & Mrudula Vysyaraju",
-    template: "%s | Unblocking yourself with AI",
+    default: "Blode Stack | Matthew Blode",
+    template: "%s | Blode Stack",
   },
   twitter: {
     card: "summary_large_image",
     creator: "@mattblode",
     description:
-      "Concrete workflows from two engineers shipping with Claude Code, Codex, and Devin.",
-    title: "Unblocking yourself with AI",
+      "How to build a to-do list app in 2026: the product demands, the rails, and the tools around Done Bear.",
+    title: "Blode Stack",
   },
 };
 
@@ -95,9 +90,8 @@ const jsonLd = {
     {
       "@id": `${BASE_URL}/#website`,
       "@type": "WebSite",
-      description:
-        "Concrete workflows from two engineers shipping with Claude Code, Codex, and Devin.",
-      name: "Unblocking yourself with AI",
+      description: "A behind-the-scenes look at Done Bear and the Blode Stack.",
+      name: "Blode Stack",
       publisher: {
         "@id": `${BASE_URL}/#person`,
       },
@@ -118,21 +112,14 @@ const jsonLd = {
     {
       "@id": `${BASE_URL}/#presentation`,
       "@type": "PresentationDigitalDocument",
-      about: [
-        "AI Engineering",
-        "Claude Code",
-        "Codex",
-        "Devin",
-        "Model Context Protocol",
-        "Agent Skills",
-      ],
+      about: ["AI Engineering", "Claude Code", "Codex", "Done Bear", "Strata Sync", "Agent Skills"],
       author: {
         "@id": `${BASE_URL}/#person`,
       },
       description:
-        "Frameworks for decomposing problems, choosing MCPs, picking between Devin / Claude Code / Codex, and the skills, prompts, and habits we use to keep up to date.",
-      headline: "Concrete workflows from two engineers shipping with AI tools",
-      name: "Unblocking yourself with AI",
+        "How to build a to-do list app in 2026 with sync, defaults, markdown context, and tight feedback loops.",
+      headline: "How to build a to-do list app in 2026",
+      name: "Blode Stack",
       url: BASE_URL,
     },
   ],
@@ -152,7 +139,6 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${editorialNew.variable} ${glide.variable} antialiased`}>
         {children}
-        {process.env.NODE_ENV === "development" && <Agentation />}
       </body>
     </html>
   );

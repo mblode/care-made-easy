@@ -1,10 +1,10 @@
 {
-  "name": "nextjs-preso",
+  "name": "blode-stack-preso",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "portless run next dev",
+    "dev": "portless run next dev --webpack",
     "build": "next build",
     "lint": "oxlint .",
     "lint:fix": "oxlint --fix .",
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.4.1",
-    "agentation": "^2.0.0",
+    "@beautiful-qr-code/react": "^1.0.9",
     "blode-icons-react": "^0.3.10",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -47,5 +47,5 @@
     "typescript": "^5",
     "ultracite": "7.6.2"
   },
-  "portless": "ai-usage-for-engineers"
+  "portless": "blode-stack-preso"
 }
