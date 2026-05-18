@@ -2,14 +2,14 @@ import { ImageResponse } from "next/og";
 import { TOTAL_SLIDES } from "@/lib/slides";
 import type { Palette } from "@/lib/slides";
 
-export const ogImageAlt = "Unblocking yourself with AI";
+export const ogImageAlt = "Blode Stack";
 export const ogImageContentType = "image/png";
 export const ogImageSize = {
   height: 630,
   width: 1200,
 } as const;
 
-const DEFAULT_TITLE = "Unblocking yourself with AI";
+const DEFAULT_TITLE = "Blode Stack";
 const DEFAULT_PALETTE: Palette = "e";
 
 interface FontAsset {
@@ -99,10 +99,10 @@ export async function createOgImage(options: OgImageOptions = {}) {
   const fonts = await loadFonts();
   const titleSize = getTitleSize(title);
 
-  const eyebrow = options.eyebrow ?? "Unblocking yourself with AI";
+  const eyebrow = options.eyebrow ?? "How to build a to-do list app in 2026";
   const counter =
     options.slideNumber === undefined
-      ? "nextjs-preso.blode.co"
+      ? "blode-stack-preso"
       : `${String(options.slideNumber).padStart(2, "0")} / ${String(TOTAL_SLIDES).padStart(2, "0")}`;
 
   return new ImageResponse(
@@ -119,14 +119,15 @@ export async function createOgImage(options: OgImageOptions = {}) {
           style={{
             border: `1.5px solid ${colors.fg}`,
             color: colors.fg,
+            letterSpacing: "0.18em",
           }}
-          tw="flex items-center text-[16px] font-semibold tracking-[0.18em] uppercase rounded-full px-5 py-[10px]"
+          tw="flex items-center text-[16px] font-semibold uppercase rounded-full px-5 py-[10px]"
         >
           {eyebrow}
         </div>
         <div
-          style={{ color: colors.fgSoft }}
-          tw="flex text-[16px] font-semibold tracking-[0.18em] uppercase"
+          style={{ color: colors.fgSoft, letterSpacing: "0.18em" }}
+          tw="flex text-[16px] font-semibold uppercase"
         >
           {counter}
         </div>
@@ -152,12 +153,12 @@ export async function createOgImage(options: OgImageOptions = {}) {
         tw="flex w-full items-end justify-between text-[22px] pt-6"
       >
         <div style={{ color: colors.fg }} tw="flex font-semibold">
-          Matthew Blode &nbsp;+&nbsp; Mrudula Vysyaraju
+          Matthew Blode
         </div>
         <div tw="flex">
           {options.slideNumber === undefined
-            ? "Concrete workflows from two engineers shipping with AI."
-            : "nextjs-preso.blode.co"}
+            ? "Done Bear, agent rails, and the stack around it."
+            : "blode-stack-preso"}
         </div>
       </div>
     </div>,
