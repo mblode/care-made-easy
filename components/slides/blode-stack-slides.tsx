@@ -75,7 +75,14 @@ const STACK_SECTIONS = [
   },
 ] as const;
 
-const SKILL_PHASES = ["Project start", "Design", "Writing", "Pre-ship", "Pre-merge", "Release"];
+const SKILL_EXAMPLES = [
+  "/ui-animation",
+  "/pr-babysitter",
+  "/ui-design",
+  "/autoship",
+  "/typography-audit",
+  "and 20 more…",
+];
 
 const ICON_GRID = [
   { Icon: SearchIcon, name: "Search" },
@@ -154,7 +161,7 @@ export function SlideTitle() {
 
 export function SlideAbout() {
   return (
-    <SlideContainer className="justify-between" palette="b">
+    <SlideContainer className="justify-between" palette="d">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Mark>About me</Mark>
         <Display size="huge">
@@ -231,7 +238,7 @@ export function SlideDoneBear() {
 
 export function SlideNotAList() {
   return (
-    <SlideContainer className="justify-between" palette="a">
+    <SlideContainer className="justify-between" palette="c">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Mark>Beyond the list</Mark>
         <Display className="max-w-[12ch]" size="2xl">
@@ -266,7 +273,7 @@ export function SlideStackMap() {
   let toolIndex = 0;
 
   return (
-    <SlideContainer className="justify-between" palette="d">
+    <SlideContainer className="justify-between" palette="b">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Mark>The system</Mark>
         <Display className="max-w-[14ch]" size="xl">
@@ -314,7 +321,7 @@ export function SlideStackMap() {
 
 export function SlideStrataSync() {
   return (
-    <SlideContainer className="justify-between" palette="d">
+    <SlideContainer className="justify-between" palette="stratasync">
       <header className="flex flex-col gap-[var(--slide-space-5)]">
         <Image
           alt="Strata Sync logo"
@@ -351,7 +358,7 @@ export function SlideStrataSync() {
 
 export function SlideSyncDemo() {
   return (
-    <SlideContainer className="justify-between" palette="d">
+    <SlideContainer className="justify-between" palette="stratasync">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Mark>Strata Sync</Mark>
         <Display className="max-w-[14ch]" size="2xl">
@@ -369,7 +376,7 @@ export function SlideSyncDemo() {
 
 export function SlideGlide() {
   return (
-    <SlideContainer className="justify-between" palette="b">
+    <SlideContainer className="justify-between" palette="glide">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Mark>Glide</Mark>
         <Display className="max-w-[12ch]" size="2xl">
@@ -415,7 +422,7 @@ export function SlideBlodeIcons() {
 
 export function SlideBlodeUi() {
   return (
-    <SlideContainer className="justify-center" palette="a">
+    <SlideContainer className="justify-center" palette="blodeui">
       <div className="grid gap-[var(--slide-space-8)] md:grid-cols-[4fr_5fr] md:items-center">
         <header className="flex flex-col gap-[var(--slide-space-5)]">
           <Image
@@ -455,7 +462,7 @@ export function SlideBlodeUi() {
 
 export function SlideStyleCapture() {
   return (
-    <SlideContainer className="justify-center" palette="e">
+    <SlideContainer className="justify-center" palette="stylecapture">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Mark>Style Capture</Mark>
         <Display className="max-w-[12ch]" size="2xl">
@@ -473,7 +480,7 @@ export function SlideStyleCapture() {
 export function SlideAgentSkills() {
   return (
     <SlideContainer className="justify-between" palette="b">
-      <header className="flex flex-col gap-[var(--slide-space-4)]">
+      <header className="flex flex-col gap-[var(--slide-space-4)] mb-[var(--slide-space-4)]">
         <Mark>Agent Skills</Mark>
         <Display size="2xl">Capture what you know. Make it repeatable.</Display>
         <a
@@ -487,7 +494,7 @@ export function SlideAgentSkills() {
       </header>
 
       <div className="honk-stagger grid flex-1 grid-cols-2 grid-rows-2 gap-[var(--slide-space-4)] md:grid-cols-3">
-        {SKILL_PHASES.map((phase, i) => (
+        {SKILL_EXAMPLES.map((phase, i) => (
           <div
             className="flex min-h-0 items-end rounded-[var(--slide-radius-xl)] border border-[var(--hairline)] p-[var(--slide-space-4)]"
             key={phase}
@@ -503,7 +510,7 @@ export function SlideAgentSkills() {
 
 export function SlideAllMd() {
   return (
-    <SlideContainer className="justify-between" palette="d">
+    <SlideContainer className="justify-between" palette="allmd">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Image
           alt="AllMD logo"
@@ -537,7 +544,7 @@ export function SlideAllMd() {
 
 export function SlideBlodeMd() {
   return (
-    <SlideContainer className="justify-between" palette="c">
+    <SlideContainer className="justify-between" palette="blodemd">
       <header className="flex flex-col gap-[var(--slide-space-5)]">
         <Image
           alt="Blode.md logo"
@@ -574,7 +581,7 @@ export function SlideBlodeMd() {
 
 export function SlideDiffHub() {
   return (
-    <SlideContainer className="justify-between" palette="e">
+    <SlideContainer className="justify-between" palette="diffhub">
       <div className="grid gap-[var(--slide-space-8)] md:grid-cols-[4fr_5fr] md:items-center">
         <header className="flex flex-col gap-[var(--slide-space-5)]">
           <Image
@@ -696,7 +703,9 @@ export function SlideMoreTools() {
             <div className="flex flex-col gap-[var(--slide-space-2)]">
               <div className="flex items-center gap-[var(--slide-space-3)]">
                 <p className="font-heading leading-[1.2] slide-text-lg">{tool.name}</p>
-                {"wip" in tool && tool.wip ? <Mark variant="solid">WIP</Mark> : null}
+                {"wip" in tool && tool.wip ? (
+                  <span className="text-[var(--fg-soft)] opacity-70 slide-text-xs">WIP</span>
+                ) : null}
               </div>
               <p className="text-[var(--fg-soft)] slide-text-sm">{tool.description}</p>
               {"href" in tool ? (
