@@ -533,7 +533,7 @@ export function SlideAllMd() {
 export function SlideBlodeMd() {
   return (
     <SlideContainer className="justify-between" palette="c">
-      <header className="flex flex-col gap-[var(--slide-space-4)]">
+      <header className="flex flex-col gap-[var(--slide-space-5)]">
         <Image
           alt="Blode.md logo"
           className="size-24 rounded-[var(--slide-radius-xl)] object-contain"
@@ -546,8 +546,7 @@ export function SlideBlodeMd() {
           The knowledge layer your AI runs on.
         </Display>
         <SoftText className="max-w-[34ch] slide-text-xl">
-          AI agents learn your product from your docs. Blode.md keeps them in your repo, versioned
-          with the code, readable by people and machines.
+          Build a Mintlify clone because why not.
         </SoftText>
         <a
           className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
@@ -563,9 +562,6 @@ export function SlideBlodeMd() {
         <WordTile>GitHub auto-deploy</WordTile>
         <WordTile>Custom domains</WordTile>
         <WordTile>MDX components</WordTile>
-        <WordTile>Search</WordTile>
-        <WordTile>Content types</WordTile>
-        <WordTile>API reference</WordTile>
       </div>
     </SlideContainer>
   );
