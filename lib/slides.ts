@@ -22,7 +22,7 @@ export const SLIDES = [
   { slug: "allmd", title: "Turn the whole universe into markdown", palette: "d" },
   { slug: "blodemd", title: "The knowledge layer your AI runs on", palette: "c" },
   { slug: "diffhub", title: "Review your branch in cmux", palette: "e" },
-  { slug: "spotlight-testing", title: "Test without rebuilding", palette: "a" },
+  { slug: "spotlight-testing", title: "See changes without rebuilding", palette: "a" },
   { slug: "solve-your-own", title: "Build to solve your own problems", palette: "d" },
   { slug: "questions", title: "Questions?", palette: "e" },
 ] as const satisfies readonly {

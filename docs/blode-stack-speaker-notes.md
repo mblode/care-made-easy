@@ -120,8 +120,8 @@
 
 ## 18. Spotlight Testing
 
-- Test worktree changes in repo root
-- No rebuild, same Docker, same DB
+- See worktree changes in a running dev server without rebuilding
+- Useful when your first build is slow, or your dev environment depends on shared Docker or database setup
 - On, test, off — clean restore
 
 > **Transition to 19:** "That's the last tool. Now zoom out."
