@@ -204,7 +204,7 @@ export function SlideCarelessness() {
 export function SlideDoneBear() {
   return (
     <SlideContainer
-      className="relative gap-[var(--slide-space-5)] !pb-10 !pt-[var(--slide-space-10)]"
+      className="relative gap-[var(--slide-space-5)] !pb-[72px] !pt-[var(--slide-space-10)]"
       palette="c"
     >
       <div className="flex flex-col gap-[var(--slide-space-4)] md:flex-row md:items-start md:justify-between">
@@ -262,9 +262,6 @@ export function SlideThesis() {
       <Display className="mx-auto max-w-[13ch]" size="2xl">
         The bottleneck has changed.
       </Display>
-      <SoftText className="mx-auto mt-[var(--slide-space-4)] max-w-[34ch] slide-text-xl">
-        Code got cheap. Taste didn’t. Build the defaults that close the gap.
-      </SoftText>
     </SlideContainer>
   );
 }
@@ -334,7 +331,7 @@ export function SlideStrataSync() {
         <Display className="max-w-[16ch]" size="xl">
           With the right abstractions, you get a lot for free.
         </Display>
-        <SoftText className="max-w-[34ch] slide-text-xl">
+        <SoftText className="max-w-none slide-text-xl">
           Inspired by Linear’s sync engine. Open-source.
         </SoftText>
         <a
@@ -436,8 +433,9 @@ export function SlideBlodeUi() {
           <Display className="max-w-[12ch]" size="2xl">
             UI you own.
           </Display>
-          <SoftText className="max-w-[32ch] slide-text-xl">
-            A shadcn/ui registry with taste baked in. Agents install from it.
+          <SoftText className="max-w-[42ch] slide-text-xl">
+            An opinionated shadcn/ui registry with beautifully designed components you can
+            customise, extend, and own.
           </SoftText>
           <a
             className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
@@ -524,7 +522,8 @@ export function SlideAllMd() {
           Turn the whole universe into markdown.
         </Display>
         <SoftText className="max-w-[34ch] slide-text-xl">
-          Convert anything to markdown. Web pages, YouTube, PDFs, images, audio, and more.
+          Web pages, YouTube videos, PDFs, Google Docs, video and audio, images, Word docs, EPUBs,
+          CSVs, PowerPoints, tweets, and RSS feeds into markdown.
         </SoftText>
       </header>
 
@@ -611,6 +610,7 @@ export function SlideDiffHub() {
         <Screenshot
           alt="DiffHub showing a branch diff with file sidebar and split view"
           className="min-h-[16rem] md:min-h-[28rem]"
+          objectPosition="object-top"
           src="/research/diffhub.png"
         />
       </div>
@@ -675,7 +675,7 @@ export function SlideMoreTools() {
     <SlideContainer className="justify-between" palette="b">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Mark>And more</Mark>
-        <Display className="max-w-[14ch]" size="xl">
+        <Display className="max-w-[14ch]" size="2xl">
           The rest of the toolkit.
         </Display>
       </header>
