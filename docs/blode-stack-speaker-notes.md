@@ -1,4 +1,4 @@
-# Care Made Easy — Speaker Notes
+# Care made easy — Speaker Notes
 
 ## 1. Care made easy
 
@@ -6,7 +6,7 @@
 - But the app isn't the point. The tools are.
 - By the end of this talk, you'll know how to build your own stack that makes everything you ship from here better.
 
-## 2. Build for an audience of one
+## 2. About me
 
 - I only build things I personally want to use. That principle has held across two startups — VenueSafe and Fingertip, both acquired.
 - Now I run AI at Linktree and I'm an OpenAI Codex Ambassador.
@@ -28,25 +28,18 @@
 
 **[PAUSE]** "You won't use this app" is confrontational on purpose. Own the pause. Then continue: "But everything that built it is open source."
 
-> **Transition to 5:** "Let me show you."
+> **Transition to 5:** "So you saw the list. But the list is the smallest part of what makes this work."
 
-## 5. Live demo
-
-- Walk through Done Bear playground
-- Show sync, surfaces, agent access
-
-> **Transition to 6:** "So you saw the list. But the list is the smallest part of what makes this work."
-
-## 6. The list is the smallest part
+## 5. The list is the smallest part
 
 - Sync: tasks survive offline
 - Surfaces: people and agents enter from different places
 - Agents: the app is agent-native — CLI, MCP, skills all have full access
 - Polish: the app has to feel trustworthy
 
-> **Transition to 7:** "Every one of those has to be simple. And simple is a specific word."
+> **Transition to 6:** "Every one of those has to be simple. And simple is a specific word."
 
-## 7. Easy is nearby. Simple is one fold.
+## 6. Easy is nearby. Simple is one fold.
 
 - Rich Hickey: simple = one fold (Latin sim-plex), no braiding. Easy = nearby (Latin adjacens), familiar.
 - Easy tools let you sprint early, but complexity kills you over the long haul.
@@ -54,7 +47,7 @@
 
 **[PAUSE]** This is the intellectual anchor. Let it breathe.
 
-## 8. The bottleneck has changed
+## 7. The bottleneck has changed
 
 - Agents made code cheaper. The construct is easy. The artifact is what matters.
 - I shipped Done Bear's offline sync in a weekend. It works in airplane mode. That kind of speed is normal now.
@@ -62,78 +55,78 @@
 
 **[PAUSE]** This is the thesis. Slow down before delivering it.
 
-> **Transition to 9:** "Here's what the stack looks like."
+> **Transition to 8:** "Here's what the stack looks like."
 
-## 9. The stack is four rails
+## 8. Introducing the Blode Stack
 
 - Infrastructure makes the app shippable
 - Defaults give agents taste
 - Context gives agents memory
 - Feedback keeps parallel work honest
 
-## 10. Sync is where demos become products
+## 9. Sync is where demos become products
 
 - Before: a task exists on one screen
 - After: order, history, recovery
 - Users never think about sync. That's how you know it works.
 
-## 11. One model. Many ways in.
+## 10. One model. Many ways in.
 
 - Web is only one way in
 - CLI and MCP make the app agent-native
 - Meet users where they work
 
-## 12. Your own typeface
+## 11. Your own typeface
 
 - Variable typeface, 400–900
 - Roman and italic
 - This is the visual voice of everything I ship. When the agent generates UI, it uses my typeface, not a system font. That's taste by default.
 
-## 13. Blode Icons
+## 12. Blode Icons
 
 - 3,754 icons, same API as Lucide
 - The agent already knows Lucide. Same names, same props, so it picks these up without being told.
 - That's what "taste by default" means — the agent reaches for your icons, not generic ones.
 
-## 14. Blode UI
+## 13. Blode UI
 
 - 69 shadcn/ui components in a registry
 - A moodboard dies on deployment. A registry lives in your dependency tree.
 - The agent runs `npx shadcn add button` and gets your button, not the default one.
 
-## 15. Style Capture
+## 14. Style Capture
 
 - Capture computed CSS, map to Tailwind
 - Prompt with evidence, not adjectives
 - Review becomes compare-to-target
 
-## 16. Agent Skills
+## 15. Agent Skills
 
 - 24 skills across planning, design, dev, quality
 - Instructions, examples, and checks travel together
 - Install once, reuse everywhere
 
-## 17. Context starts as markdown
+## 16. Context starts as markdown
 
 - AllMD turns anything into markdown
 - Blode.md turns markdown into docs
 - Same source feeds humans and agents
 
-## 18. DiffHub
+## 17. DiffHub
 
-- Local split-view diff viewer
-- Keyboard-first, opens in browser
-- Review branches without leaving the terminal
+- Opens your branch in a cmux browser split, compares it to the detected base branch
+- Leave notes on any line, copy them as a prompt
+- `npx diffhub@latest cmux` — review before opening a PR without leaving your terminal
 
-## 19. Spotlight Testing
+## 18. Spotlight Testing
 
 - Test worktree changes in repo root
 - No rebuild, same Docker, same DB
 - On, test, off — clean restore
 
-> **Transition to 20:** "That's the last tool. Now zoom out."
+> **Transition to 19:** "That's the last tool. Now zoom out."
 
-## 20. Build to solve your own problems
+## 19. Build to solve your own problems
 
 - None of these is impressive alone. A typeface? Icons? A diff viewer? Small.
 - But each one removes a decision the agent used to get wrong. Stack enough of those and the bottleneck moves again.
@@ -141,7 +134,7 @@
 
 **[SLOW]** This is the callback. Deliver each phrase deliberately.
 
-## 21. Find the problem that bothers you
+## 20. Find the problem that bothers you
 
 - When you own the problem and the solution, you can experiment without asking permission.
 - That headspace is where the best tools come from.
@@ -149,8 +142,6 @@
 
 **[SLOW]** This is the call to action. Make eye contact.
 
-## 22. Questions
+## 21. Questions
 
-- donebear.com for the proof app
-- matthewblode.com/stack for the stack
-- github.com/mblode for source
+- matthewblode.com for the stack and everything else
