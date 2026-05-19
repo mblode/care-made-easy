@@ -2,14 +2,14 @@ import { ImageResponse } from "next/og";
 import { TOTAL_SLIDES } from "@/lib/slides";
 import type { Palette } from "@/lib/slides";
 
-export const ogImageAlt = "Care Made Easy";
+export const ogImageAlt = "Care made easy";
 export const ogImageContentType = "image/png";
 export const ogImageSize = {
   height: 630,
   width: 1200,
 } as const;
 
-const DEFAULT_TITLE = "Care Made Easy";
+const DEFAULT_TITLE = "Care made easy";
 const DEFAULT_PALETTE: Palette = "e";
 
 interface FontAsset {
@@ -99,10 +99,10 @@ export async function createOgImage(options: OgImageOptions = {}) {
   const fonts = await loadFonts();
   const titleSize = getTitleSize(title);
 
-  const eyebrow = options.eyebrow ?? "How to build a to-do list app in 2026";
+  const eyebrow = options.eyebrow ?? "Encoding taste into code";
   const counter =
     options.slideNumber === undefined
-      ? "Care Made Easy"
+      ? "Care made easy"
       : `${String(options.slideNumber).padStart(2, "0")} / ${String(TOTAL_SLIDES).padStart(2, "0")}`;
 
   return new ImageResponse(
@@ -158,7 +158,7 @@ export async function createOgImage(options: OgImageOptions = {}) {
         <div tw="flex">
           {options.slideNumber === undefined
             ? "Strata Sync, Blode UI, Agent Skills, and the rest of the stack."
-            : "Care Made Easy"}
+            : "Care made easy"}
         </div>
       </div>
     </div>,

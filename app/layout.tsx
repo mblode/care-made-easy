@@ -1,14 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { SITE_URL } from "@/lib/site-url";
-
-const inter = Inter({
-  display: "swap",
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
 
 const editorialNew = localFont({
   adjustFontFallback: "Times New Roman",
@@ -32,14 +25,14 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
   },
   appleWebApp: {
-    title: "Care Made Easy",
+    title: "Care made easy",
   },
   authors: [{ name: "Matthew Blode", url: "https://matthewblode.com" }],
   creator: "Matthew Blode",
   description:
     "Agents made code cheap — taste is the bottleneck now. A 22-slide deck on the open-source stack (Strata Sync, Blode UI, Agent Skills) behind Done Bear.",
   keywords: [
-    "Care Made Easy",
+    "Care made easy",
     "Blode Stack",
     "Done Bear",
     "Claude Code",
@@ -60,8 +53,8 @@ export const metadata: Metadata = {
     description:
       "The bottleneck shifted from writing code to encoding taste. 10 open-source tools that let you ship fast without shipping slop.",
     locale: "en_US",
-    siteName: "Care Made Easy",
-    title: "Care Made Easy",
+    siteName: "Care made easy",
+    title: "Care made easy",
     type: "website",
     url: BASE_URL,
   },
@@ -80,15 +73,15 @@ export const metadata: Metadata = {
     index: true,
   },
   title: {
-    default: "Care Made Easy | Matthew Blode",
-    template: "%s | Care Made Easy",
+    default: "Care made easy | Matthew Blode",
+    template: "%s | Care made easy",
   },
   twitter: {
     card: "summary_large_image",
     creator: "@mattblode",
     description:
       "Agents write the code. Taste is what ships. The open-source stack behind Done Bear, in 22 slides.",
-    title: "Care Made Easy",
+    title: "Care made easy",
   },
 };
 
@@ -99,8 +92,8 @@ const jsonLd = {
       "@id": `${BASE_URL}/#website`,
       "@type": "WebSite",
       description:
-        "Care Made Easy is a presentation by Matthew Blode on the open-source primitives — Strata Sync, Blode UI, Glide, Agent Skills — that encode taste into agent-driven development.",
-      name: "Care Made Easy",
+        "Care made easy is a presentation by Matthew Blode on the open-source primitives — Strata Sync, Blode UI, Glide, Agent Skills — that encode taste into agent-driven development.",
+      name: "Care made easy",
       publisher: {
         "@id": `${BASE_URL}/#person`,
       },
@@ -127,8 +120,8 @@ const jsonLd = {
       },
       description:
         "A 22-slide presentation exploring how open-source primitives — sync, design tokens, agent skills, and diff tooling — let solo developers ship production-grade apps at agent speed.",
-      headline: "Care Made Easy: the primitives behind Done Bear",
-      name: "Care Made Easy",
+      headline: "Care made easy: the primitives behind Done Bear",
+      name: "Care made easy",
       url: BASE_URL,
     },
   ],
@@ -146,7 +139,7 @@ export default function RootLayout({
           {JSON.stringify(jsonLd)}
         </script>
       </head>
-      <body className={`${inter.variable} ${editorialNew.variable} ${glide.variable} antialiased`}>
+      <body className={`${editorialNew.variable} ${glide.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
