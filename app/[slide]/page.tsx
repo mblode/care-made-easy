@@ -80,9 +80,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slide: st
     alternates: {
       canonical: slideUrl,
     },
-    description: `Slide ${slideNum} of ${TOTAL_SLIDES}: ${slideData.title}. From "Care Made Easy" by Matthew Blode.`,
+    description: `${slideData.title}. Slide ${slideNum} of ${TOTAL_SLIDES} from Care Made Easy — a talk on the open-source stack behind Done Bear.`,
     openGraph: {
-      description: `Slide ${slideNum} of ${TOTAL_SLIDES} from "Care Made Easy"`,
+      description: `${slideData.title} — slide ${slideNum} of ${TOTAL_SLIDES}. The open-source stack behind Done Bear.`,
       title: slideData.title,
       type: "article",
       url: slideUrl,

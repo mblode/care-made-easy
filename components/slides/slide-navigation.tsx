@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "blode-icons-react";
+import { motion, useReducedMotion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
@@ -23,13 +24,12 @@ export function SlideNavigation({
   children,
 }: SlideNavigationProps) {
   const router = useRouter();
+  const shouldReduceMotion = useReducedMotion();
 
   const goToSlide = useCallback(
     (slideNum: number) => {
       if (slideNum >= 1 && slideNum <= totalSlides) {
-        const url = getSlideUrl(slideNum);
-        window.history.pushState(null, "", url);
-        router.push(url, { scroll: false });
+        router.push(getSlideUrl(slideNum), { scroll: false });
       }
     },
     [router, totalSlides],
@@ -49,24 +49,29 @@ export function SlideNavigation({
   return (
     <section aria-label="Slide navigation area" className="relative min-h-dvh">
       {children}
-      <div
+      <motion.div
+        animate={{ opacity: 1, y: 0 }}
         className="-translate-x-1/2 fixed bottom-4 left-1/2 z-50 flex items-center gap-1 rounded-full p-1 font-medium shadow-[0_8px_28px_rgba(0,0,0,0.22),0_2px_6px_rgba(0,0,0,0.16)]"
         data-palette={palette}
         data-slide-nav
+        initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
         style={{
           background: "var(--fg)",
           color: "var(--bg)",
         }}
+        transition={
+          shouldReduceMotion ? { duration: 0 } : { delay: 0.6, duration: 0.5, ease: [0.6, 0, 0, 1] }
+        }
       >
         <Button
           aria-label="Previous slide"
-          className="cursor-pointer touch-manipulation rounded-full text-[var(--bg)] hover:bg-[color-mix(in_oklab,var(--bg)_12%,transparent)] hover:text-[var(--bg)]"
+          className="cursor-pointer touch-manipulation rounded-full text-[var(--bg)] hover:bg-[color-mix(in_oklab,var(--bg)_12%,transparent)] hover:text-[var(--bg)] active:scale-[0.93]"
           disabled={currentSlide <= 1}
           onClick={goPrev}
           size="sm"
           variant="ghost"
         >
-          <ChevronLeftIcon aria-hidden="true" className="h-4 w-4" />
+          <ChevronLeftIcon aria-hidden="true" className="size-4" />
         </Button>
         <span
           aria-live="polite"
@@ -80,15 +85,15 @@ export function SlideNavigation({
         </span>
         <Button
           aria-label="Next slide"
-          className="cursor-pointer touch-manipulation rounded-full text-[var(--bg)] hover:bg-[color-mix(in_oklab,var(--bg)_12%,transparent)] hover:text-[var(--bg)]"
+          className="cursor-pointer touch-manipulation rounded-full text-[var(--bg)] hover:bg-[color-mix(in_oklab,var(--bg)_12%,transparent)] hover:text-[var(--bg)] active:scale-[0.93]"
           disabled={currentSlide >= totalSlides}
           onClick={goNext}
           size="sm"
           variant="ghost"
         >
-          <ChevronRightIcon aria-hidden="true" className="h-4 w-4" />
+          <ChevronRightIcon aria-hidden="true" className="size-4" />
         </Button>
-      </div>
+      </motion.div>
     </section>
   );
 }

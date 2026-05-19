@@ -7,7 +7,7 @@ export const SLIDES = [
   { slug: "done-bear", title: "You won't use this app", palette: "c" },
   { slug: "live-demo", title: "Open Done Bear", palette: "c" },
   { slug: "not-a-list", title: "The list is the smallest part", palette: "a" },
-  { slug: "simple", title: "Simple as possible, no simpler", palette: "b" },
+  { slug: "simple", title: "Easy is nearby. Simple is one fold.", palette: "b" },
   { slug: "thesis", title: "The bottleneck has changed", palette: "e" },
   { slug: "stack-map", title: "The stack is four rails", palette: "d" },
   { slug: "strata-sync", title: "Sync is where demos become products", palette: "d" },
@@ -21,7 +21,7 @@ export const SLIDES = [
   { slug: "diffhub", title: "See every diff", palette: "e" },
   { slug: "spotlight-testing", title: "Test without rebuilding", palette: "a" },
   { slug: "solve-your-own", title: "Build to solve your own problems", palette: "d" },
-  { slug: "freedom", title: "Freedom to invent", palette: "b" },
+  { slug: "freedom", title: "Find the problem that bothers you", palette: "b" },
   { slug: "questions", title: "Questions?", palette: "e" },
 ] as const satisfies readonly {
   slug: string;
