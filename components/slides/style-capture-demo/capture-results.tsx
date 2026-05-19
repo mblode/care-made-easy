@@ -36,7 +36,7 @@ export const CaptureResults = ({
     (async () => {
       const html = await codeToHtml(capturedExport, {
         lang: "xml",
-        theme: "github-dark",
+        theme: "github-light",
       });
       if (!cancelled) {
         setHighlightedHtml(html);
@@ -73,10 +73,10 @@ export const CaptureResults = ({
       <div style={{ margin: "0 auto", maxWidth: "48rem", padding: "1rem" }}>
         <div
           style={{
-            background: "#1a1a1b",
-            border: "1px solid rgba(255, 255, 255, 0.12)",
+            background: "#ffffff",
+            border: "1px solid rgba(0, 0, 0, 0.12)",
             borderRadius: "16px",
-            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.4)",
+            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.12)",
             overflow: "hidden",
           }}
         >
@@ -84,15 +84,15 @@ export const CaptureResults = ({
           <div
             style={{
               alignItems: "center",
-              borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+              borderBottom: "1px solid rgba(0, 0, 0, 0.08)",
               display: "flex",
               justifyContent: "space-between",
               padding: "12px 20px",
             }}
           >
-            <p style={{ color: "#e4e4e7", fontSize: "14px", margin: 0 }}>
+            <p style={{ color: "#18181b", fontSize: "14px", margin: 0 }}>
               <span style={{ fontWeight: 600 }}>{rootElement?.tagName ?? "element"}</span>
-              <span style={{ color: "#a1a1aa" }}>
+              <span style={{ color: "#71717a" }}>
                 {" · "}
                 {captureResult.summary.elementCount} element
                 {captureResult.summary.elementCount === 1 ? "" : "s"}
@@ -103,10 +103,10 @@ export const CaptureResults = ({
                 onClick={handleCopy}
                 style={{
                   alignItems: "center",
-                  background: "rgba(255, 255, 255, 0.08)",
-                  border: "1px solid rgba(255, 255, 255, 0.12)",
+                  background: "rgba(0, 0, 0, 0.05)",
+                  border: "1px solid rgba(0, 0, 0, 0.12)",
                   borderRadius: "8px",
-                  color: "#e4e4e7",
+                  color: "#18181b",
                   cursor: "pointer",
                   display: "inline-flex",
                   fontSize: "13px",
@@ -126,7 +126,7 @@ export const CaptureResults = ({
                   background: "transparent",
                   border: "none",
                   borderRadius: "6px",
-                  color: "#a1a1aa",
+                  color: "#71717a",
                   cursor: "pointer",
                   display: "inline-flex",
                   padding: "4px",
@@ -144,12 +144,12 @@ export const CaptureResults = ({
               <div
                 // oxlint-disable-next-line eslint-plugin-react(no-danger) -- shiki output is safe
                 dangerouslySetInnerHTML={{ __html: highlightedHtml }}
-                style={{ fontSize: "12px", lineHeight: 1.625 }}
+                style={{ fontSize: "12px", lineHeight: 1.625, padding: "20px" }}
               />
             ) : (
               <pre
                 style={{
-                  color: "#a1a1aa",
+                  color: "#71717a",
                   fontFamily: "monospace",
                   fontSize: "12px",
                   lineHeight: 1.625,

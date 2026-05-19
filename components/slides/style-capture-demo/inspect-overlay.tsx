@@ -260,7 +260,7 @@ export const InspectOverlay = ({
         style={{
           WebkitFontSmoothing: "antialiased",
           display: "none",
-          filter: "drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.3))",
+          filter: "drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.12))",
           fontFamily:
             '"Glide", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
           fontSize: "13px",
@@ -280,9 +280,10 @@ export const InspectOverlay = ({
           ref={tooltipPanelRef}
           style={{
             alignItems: "center",
-            background: "#232425",
+            background: "#ffffff",
+            border: "1px solid rgba(0, 0, 0, 0.12)",
             borderRadius: "8px",
-            color: "#fff",
+            color: "#18181b",
             display: "inline-flex",
             fontWeight: 500,
             padding: "6px 10px",

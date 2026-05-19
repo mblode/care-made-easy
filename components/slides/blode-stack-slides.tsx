@@ -109,7 +109,7 @@ function SoftText({ children, className }: { children: React.ReactNode; classNam
 
 function WordTile({ children }: { children: React.ReactNode }) {
   return (
-    <div className="honk-fade-up flex min-h-[7.5rem] items-end overflow-hidden border-t border-[var(--hairline)] py-[var(--slide-space-4)]">
+    <div className="honk-fade-up flex min-h-[5rem] items-end overflow-hidden border-t border-[var(--hairline)] py-[var(--slide-space-4)] md:min-h-[7.5rem]">
       <p className="font-heading slide-text-3xl leading-[1.05]">{children}</p>
     </div>
   );
@@ -131,7 +131,7 @@ function Screenshot({
   return (
     <div
       className={cn(
-        "relative min-h-[18rem] overflow-hidden rounded-[var(--slide-radius-xl)] outline outline-1 -outline-offset-1 outline-[var(--hairline)]",
+        "relative min-h-[12rem] overflow-hidden rounded-[var(--slide-radius-xl)] outline outline-1 -outline-offset-1 outline-[var(--hairline)] md:min-h-[18rem]",
         className,
       )}
     >
@@ -190,7 +190,7 @@ export function SlideAbout() {
 export function SlideCarelessness() {
   return (
     <SlideContainer className="items-center justify-center text-center" palette="e">
-      <blockquote className="mx-auto flex w-full max-w-[80%] flex-col gap-[var(--slide-space-4)]">
+      <blockquote className="mx-auto flex w-full flex-col gap-[var(--slide-space-4)] md:max-w-[80%]">
         <Mark className="!self-center">Philosophy</Mark>
         <Display className="font-editorial-new" size="xl">
           You can sense carelessness.
@@ -207,7 +207,7 @@ export function SlideDoneBear() {
       className="relative gap-[var(--slide-space-5)] !pb-10 !pt-[var(--slide-space-10)]"
       palette="c"
     >
-      <div className="flex items-start justify-between gap-[var(--slide-space-4)]">
+      <div className="flex flex-col gap-[var(--slide-space-4)] md:flex-row md:items-start md:justify-between">
         <div className="flex flex-col gap-[var(--slide-space-2)]">
           <Mark>Done Bear</Mark>
           <Display size="xl">Every layer built on open source.</Display>
@@ -451,7 +451,7 @@ export function SlideBlodeUi() {
 
         <Screenshot
           alt="Blode UI component registry homepage"
-          className="min-h-[28rem]"
+          className="min-h-[16rem] md:min-h-[28rem]"
           objectPosition="object-top"
           src="/research/blode-ui-registry.png"
         />
@@ -493,7 +493,7 @@ export function SlideAgentSkills() {
         </a>
       </header>
 
-      <div className="honk-stagger grid flex-1 grid-cols-2 grid-rows-2 gap-[var(--slide-space-4)] md:grid-cols-3">
+      <div className="honk-stagger grid flex-1 grid-cols-1 gap-[var(--slide-space-4)] md:grid-cols-3 md:grid-rows-2">
         {SKILL_EXAMPLES.map((phase, i) => (
           <div
             className="flex min-h-0 items-end rounded-[var(--slide-radius-xl)] border border-[var(--hairline)] p-[var(--slide-space-4)]"
@@ -514,7 +514,7 @@ export function SlideAllMd() {
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Image
           alt="AllMD logo"
-          className="size-36 rounded-[var(--slide-radius-xl)] object-contain"
+          className="size-24 rounded-[var(--slide-radius-xl)] object-contain md:size-36"
           height={180}
           src="/stack/allmd.png"
           width={180}
@@ -610,7 +610,7 @@ export function SlideDiffHub() {
 
         <Screenshot
           alt="DiffHub showing a branch diff with file sidebar and split view"
-          className="min-h-[28rem]"
+          className="min-h-[16rem] md:min-h-[28rem]"
           src="/research/diffhub.png"
         />
       </div>
@@ -729,7 +729,7 @@ export function SlideMoreTools() {
 export function SlideSolveYourOwn() {
   return (
     <SlideContainer className="items-center justify-center text-center" palette="d">
-      <Mark className="!self-center">Open source</Mark>
+      <Mark className="!self-center mb-[var(--slide-space-4)]">Open source</Mark>
       <Display className="mx-auto max-w-[14ch]" size="2xl">
         Build to solve your own problems.
       </Display>
