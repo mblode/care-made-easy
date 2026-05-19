@@ -2,15 +2,15 @@
 
 ## 1. Care made easy
 
-- My journey building tools that compound velocity
-- The bottleneck shifted. These are the primitives.
-- Behind the scenes of Done Bear — the app is the proof, the tools are the point
+- Yes, I built a to-do list app in 2026. The most overdone app in software.
+- But the app isn't the point. The tools are.
+- By the end of this talk, you'll know how to build your own stack that makes everything you ship from here better.
 
 ## 2. Build for an audience of one
 
-- I build tools to scratch my own itch
-- AI at Linktree, OpenAI Codex Ambassador
-- Two startups, two exits (VenueSafe, Fingertip)
+- I only build things I personally want to use. That principle has held across two startups — VenueSafe and Fingertip, both acquired.
+- Now I run AI at Linktree and I'm an OpenAI Codex Ambassador.
+- But the principle is the same: audience of one.
 
 ## 3. You can sense carelessness
 
@@ -18,37 +18,51 @@
 - Users can't see your code but they feel care
 - Care is about the user, not vanity
 
+**[PAUSE]** Let it land. Two full beats of silence.
+
 ## 4. You won't use this app
 
-- I won't use your loveable app — be honest
-- But the tools that built it compound velocity
+- You won't use my to-do app. And honestly, I won't use yours either. That's fine.
+- But the tools that built it keep paying dividends.
 - Everything is open source. The tools are the gift.
+
+**[PAUSE]** "You won't use this app" is confrontational on purpose. Own the pause. Then continue: "But everything that built it is open source."
+
+> **Transition to 5:** "Let me show you."
 
 ## 5. Live demo
 
 - Walk through Done Bear playground
 - Show sync, surfaces, agent access
 
+> **Transition to 6:** "So you saw the list. But the list is the smallest part of what makes this work."
+
 ## 6. The list is the smallest part
 
 - Sync: tasks survive offline
 - Surfaces: people and agents enter from different places
+- Agents: the app is agent-native — CLI, MCP, skills all have full access
 - Polish: the app has to feel trustworthy
 
-## 7. Simple as possible, no simpler
+> **Transition to 7:** "Every one of those has to be simple. And simple is a specific word."
+
+## 7. Easy is nearby. Simple is one fold.
 
 - Rich Hickey: simple = one fold (Latin sim-plex), no braiding. Easy = nearby (Latin adjacens), familiar.
-- Simple is objective — you can look and see if things are interleaved. Easy is relative — easy for whom?
-- The speed graph: easy tools let you sprint early, but complexity kills you over the long haul
-- "You can't get smarter. You have to bring things towards you by making them simpler."
-- Juggling analogy: we can only hold a few things. Every intertwining adds combinatorial burden. How many of those balls do you want to be incidental complexity?
+- Easy tools let you sprint early, but complexity kills you over the long haul.
 - "Simplicity is a prerequisite for reliability." — Dijkstra
+
+**[PAUSE]** This is the intellectual anchor. Let it breathe.
 
 ## 8. The bottleneck has changed
 
 - Agents made code cheaper. The construct is easy. The artifact is what matters.
-- Instill knowledge into skills and primitives. Stack them.
-- Move at breakneck pace at world-class quality. Avoid the AI slop we're all allergic to.
+- I shipped Done Bear's offline sync in a weekend. It works in airplane mode. That kind of speed is normal now.
+- The question is: does what you ship have taste? Or does it feel like AI slop?
+
+**[PAUSE]** This is the thesis. Slow down before delivering it.
+
+> **Transition to 9:** "Here's what the stack looks like."
 
 ## 9. The stack is four rails
 
@@ -61,7 +75,7 @@
 
 - Before: a task exists on one screen
 - After: order, history, recovery
-- Users feel reliability, not architecture
+- Users never think about sync. That's how you know it works.
 
 ## 11. One model. Many ways in.
 
@@ -69,23 +83,23 @@
 - CLI and MCP make the app agent-native
 - Meet users where they work
 
-## 12. Glide
+## 12. Your own typeface
 
 - Variable typeface, 400–900
 - Roman and italic
-- The visual voice of everything I ship
+- This is the visual voice of everything I ship. When the agent generates UI, it uses my typeface, not a system font. That's taste by default.
 
 ## 13. Blode Icons
 
-- 3,754 icons, drop-in Lucide replacement
-- Same API, tree-shakeable
-- Agents reach for these instead of Lucide
+- 3,754 icons, same API as Lucide
+- The agent already knows Lucide. Same names, same props, so it picks these up without being told.
+- That's what "taste by default" means — the agent reaches for your icons, not generic ones.
 
 ## 14. Blode UI
 
 - 69 shadcn/ui components in a registry
-- Agents install from the registry directly
-- Packages, tokens, and skills — not a moodboard
+- A moodboard dies on deployment. A registry lives in your dependency tree.
+- The agent runs `npx shadcn add button` and gets your button, not the default one.
 
 ## 15. Style Capture
 
@@ -107,7 +121,7 @@
 
 ## 18. DiffHub
 
-- Local split-view diff viewer for cmux
+- Local split-view diff viewer
 - Keyboard-first, opens in browser
 - Review branches without leaving the terminal
 
@@ -117,17 +131,23 @@
 - No rebuild, same Docker, same DB
 - On, test, off — clean restore
 
+> **Transition to 20:** "That's the last tool. Now zoom out."
+
 ## 20. Build to solve your own problems
 
-- Scratch your own itch. Open-source by default.
-- These tools compound. Each one solves a bottleneck. Together they're a stack.
-- If it helps you, it probably helps someone.
+- None of these is impressive alone. A typeface? Icons? A diff viewer? Small.
+- But each one removes a decision the agent used to get wrong. Stack enough of those and the bottleneck moves again.
+- Give it away for free. If it helps you, it probably helps someone.
 
-## 21. Freedom to invent
+**[SLOW]** This is the callback. Deliver each phrase deliberately.
 
-- When you build for yourself, you can play
-- No stakeholders, no compromise
-- That's where the best ideas live
+## 21. Find the problem that bothers you
+
+- When you own the problem and the solution, you can experiment without asking permission.
+- That headspace is where the best tools come from.
+- Find a problem that bothers you. Build the tool. Ship it tomorrow.
+
+**[SLOW]** This is the call to action. Make eye contact.
 
 ## 22. Questions
 

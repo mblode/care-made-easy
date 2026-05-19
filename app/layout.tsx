@@ -5,17 +5,20 @@ import "./globals.css";
 import { SITE_URL } from "@/lib/site-url";
 
 const inter = Inter({
+  display: "swap",
   subsets: ["latin"],
   variable: "--font-inter",
 });
 
 const editorialNew = localFont({
+  adjustFontFallback: "Times New Roman",
   display: "swap",
   src: "../public/fonts/editorial-new.woff2",
   variable: "--font-editorial-new",
 });
 
 const glide = localFont({
+  adjustFontFallback: "Arial",
   display: "swap",
   src: "../public/fonts/Glide-Variable.woff2",
   variable: "--font-glide",
@@ -34,7 +37,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Matthew Blode", url: "https://matthewblode.com" }],
   creator: "Matthew Blode",
   description:
-    "Care Made Easy: a behind-the-scenes look at Done Bear and the open-source tools that make shipping with care possible.",
+    "Agents made code cheap — taste is the bottleneck now. A 22-slide deck on the open-source stack (Strata Sync, Blode UI, Agent Skills) behind Done Bear.",
   keywords: [
     "Care Made Easy",
     "Blode Stack",
@@ -47,11 +50,15 @@ export const metadata: Metadata = {
     "Blode Icons",
     "AllMD",
     "DiffHub",
+    "Claude Code for Developers",
+    "Melbourne",
+    "agent-driven development",
+    "AI engineering",
   ],
   metadataBase: new URL(BASE_URL),
   openGraph: {
     description:
-      "How to build a to-do list app in 2026: care, simplicity, and the open-source tools behind Done Bear.",
+      "The bottleneck shifted from writing code to encoding taste. 10 open-source tools that let you ship fast without shipping slop.",
     locale: "en_US",
     siteName: "Care Made Easy",
     title: "Care Made Easy",
@@ -59,7 +66,7 @@ export const metadata: Metadata = {
     url: BASE_URL,
   },
   other: {
-    "theme-color": "#f0f0f0",
+    "theme-color": "#211f1e",
   },
   robots: {
     follow: true,
@@ -80,7 +87,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     creator: "@mattblode",
     description:
-      "How to build a to-do list app in 2026: care, simplicity, and the open-source tools behind Done Bear.",
+      "Agents write the code. Taste is what ships. The open-source stack behind Done Bear, in 22 slides.",
     title: "Care Made Easy",
   },
 };
@@ -91,7 +98,8 @@ const jsonLd = {
     {
       "@id": `${BASE_URL}/#website`,
       "@type": "WebSite",
-      description: "Care Made Easy: the open-source tools behind Done Bear.",
+      description:
+        "Care Made Easy is a presentation by Matthew Blode on the open-source primitives — Strata Sync, Blode UI, Glide, Agent Skills — that encode taste into agent-driven development.",
       name: "Care Made Easy",
       publisher: {
         "@id": `${BASE_URL}/#person`,
@@ -118,8 +126,8 @@ const jsonLd = {
         "@id": `${BASE_URL}/#person`,
       },
       description:
-        "How to build a to-do list app in 2026 with care, simplicity, and open-source tools.",
-      headline: "How to build a to-do list app in 2026",
+        "A 22-slide presentation exploring how open-source primitives — sync, design tokens, agent skills, and diff tooling — let solo developers ship production-grade apps at agent speed.",
+      headline: "Care Made Easy: the primitives behind Done Bear",
       name: "Care Made Easy",
       url: BASE_URL,
     },

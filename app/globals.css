@@ -10,14 +10,6 @@
   --font-heading: var(--font-glide);
   --font-glide: var(--font-glide);
   --font-editorial-new: var(--font-editorial-new);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
@@ -73,14 +65,6 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
 }
 
 @layer base {
@@ -98,6 +82,7 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "kern", "liga", "calt", "ss01";
+    overflow-wrap: break-word;
   }
 
   h1,
@@ -121,28 +106,28 @@
 [data-palette="a"] {
   --bg: #e54f11;
   --fg: #ffffc2;
-  --fg-soft: color-mix(in oklab, #ffffc2 65%, #e54f11);
+  --fg-soft: color-mix(in oklab, #ffffc2 80%, #e54f11);
   --hairline: color-mix(in oklab, #ffffc2 35%, transparent);
 }
 
 [data-palette="b"] {
   --bg: #f6ebd9;
   --fg: #514733;
-  --fg-soft: color-mix(in oklab, #514733 60%, #f6ebd9);
+  --fg-soft: color-mix(in oklab, #514733 70%, #f6ebd9);
   --hairline: color-mix(in oklab, #514733 25%, transparent);
 }
 
 [data-palette="c"] {
   --bg: #0c90d2;
   --fg: #aeffff;
-  --fg-soft: color-mix(in oklab, #aeffff 65%, #0c90d2);
+  --fg-soft: color-mix(in oklab, #aeffff 80%, #0c90d2);
   --hairline: color-mix(in oklab, #aeffff 30%, transparent);
 }
 
 [data-palette="d"] {
   --bg: #53f399;
   --fg: #004d00;
-  --fg-soft: color-mix(in oklab, #004d00 55%, #53f399);
+  --fg-soft: color-mix(in oklab, #004d00 70%, #53f399);
   --hairline: color-mix(in oklab, #004d00 25%, transparent);
 }
 
@@ -156,45 +141,22 @@
 /* ------------------------------------------------------------------ */
 /* Motion keyframes                                                    */
 /* ------------------------------------------------------------------ */
-@keyframes accordion-down {
-  from {
-    height: 0;
-  }
-
-  to {
-    height: var(--radix-accordion-content-height);
-  }
-}
-
-@keyframes accordion-up {
-  from {
-    height: var(--radix-accordion-content-height);
-  }
-
-  to {
-    height: 0;
-  }
-}
-
-@keyframes connector-draw {
-  from {
-    stroke-dashoffset: var(--connector-length, 200);
-  }
-
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
 @keyframes display-settle {
-  from {
+  0% {
     font-weight: 360;
     letter-spacing: 0.01em;
     opacity: 0;
     transform: translateY(8px);
   }
 
-  to {
+  60% {
+    font-weight: 720;
+    letter-spacing: -0.025em;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
     font-weight: 720;
     letter-spacing: -0.025em;
     opacity: 1;
@@ -214,16 +176,6 @@
   }
 }
 
-@keyframes timeline-draw {
-  from {
-    transform: scaleX(0);
-  }
-
-  to {
-    transform: scaleX(1);
-  }
-}
-
 /* ------------------------------------------------------------------ */
 /* Fluid typography and spacing                                        */
 /* ------------------------------------------------------------------ */
@@ -239,7 +191,7 @@
   --slide-space-12: clamp(48px, 3vw, 72px);
   --slide-space-16: clamp(64px, 4vw, 96px);
 
-  --slide-text-xs: clamp(10px, 0.65vw, 14px);
+  --slide-text-xs: clamp(12px, 0.75vw, 14px);
   --slide-text-sm: clamp(12px, 0.8vw, 16px);
   --slide-text-base: clamp(14px, 0.95vw, 20px);
   --slide-text-lg: clamp(16px, 1.1vw, 24px);
@@ -257,9 +209,14 @@
   --slide-radius-lg: clamp(8px, 0.5vw, 14px);
   --slide-radius-xl: clamp(12px, 0.75vw, 20px);
   --slide-radius-2xl: clamp(16px, 1vw, 28px);
+
+  --motion-duration-enter: 420ms;
+  --motion-duration-settle: 540ms;
+  --motion-ease: cubic-bezier(0.6, 0, 0, 1);
 }
 
 .slide {
+  contain: layout style paint;
   min-height: 100vh;
   min-height: 100dvh;
   padding: var(--slide-space-8);
@@ -269,50 +226,62 @@
 
 .slide-text-xs {
   font-size: var(--slide-text-xs);
+  line-height: 1.5;
 }
 
 .slide-text-sm {
   font-size: var(--slide-text-sm);
+  line-height: 1.5;
 }
 
 .slide-text-base {
   font-size: var(--slide-text-base);
+  line-height: 1.5;
 }
 
 .slide-text-lg {
   font-size: var(--slide-text-lg);
+  line-height: 1.5;
 }
 
 .slide-text-xl {
   font-size: var(--slide-text-xl);
+  line-height: 1.5;
 }
 
 .slide-text-2xl {
   font-size: var(--slide-text-2xl);
+  line-height: 1.1;
 }
 
 .slide-text-3xl {
   font-size: var(--slide-text-3xl);
+  line-height: 1.1;
 }
 
 .slide-text-4xl {
   font-size: var(--slide-text-4xl);
+  line-height: 1.1;
 }
 
 .slide-text-5xl {
   font-size: var(--slide-text-5xl);
+  line-height: 1.1;
 }
 
 .slide-text-6xl {
   font-size: var(--slide-text-6xl);
+  line-height: 1.1;
 }
 
 .slide-text-7xl {
   font-size: var(--slide-text-7xl);
+  line-height: 1.1;
 }
 
 .slide-text-display {
   font-size: var(--slide-text-display);
+  line-height: 1.1;
 }
 
 .slide-gap-1 {
@@ -458,11 +427,11 @@
   font-weight: 720;
   letter-spacing: -0.025em;
   line-height: 0.95;
-  /* Reserve space for descenders so tight line-height doesn't clip glyphs like g/j/p/y. */
   padding-bottom: 0.15em;
   text-wrap: balance;
   hanging-punctuation: first last;
-  animation: display-settle 540ms cubic-bezier(0.6, 0, 0, 1) both;
+  will-change: transform, opacity;
+  animation: display-settle var(--motion-duration-settle) var(--motion-ease) both;
 }
 
 .honk-mark {
@@ -477,10 +446,11 @@
   font-family: var(--font-sans);
   font-size: var(--slide-text-xs);
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--fg);
   background: transparent;
+  animation: kinetic-rise 400ms var(--motion-ease) both;
 }
 
 .honk-mark[data-variant="solid"] {
@@ -496,8 +466,8 @@
   position: relative;
   background: transparent;
   transition:
-    background 220ms ease,
-    color 220ms ease;
+    background 220ms var(--motion-ease),
+    color 220ms var(--motion-ease);
 }
 
 .honk-block[data-tone="plain"] {
@@ -533,35 +503,28 @@
 
 .honk-stagger > * {
   opacity: 0;
-  animation: kinetic-rise 420ms cubic-bezier(0.6, 0, 0, 1) forwards;
+  will-change: transform, opacity;
+  animation: kinetic-rise var(--motion-duration-enter) var(--motion-ease) forwards;
   animation-delay: calc(var(--stagger-i, 0) * 50ms + 80ms);
 }
 
 .honk-fade-up {
-  animation: kinetic-rise 540ms cubic-bezier(0.6, 0, 0, 1) both;
+  will-change: transform, opacity;
+  animation: kinetic-rise var(--motion-duration-enter) var(--motion-ease) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .honk-display,
+  .honk-mark,
   .honk-stagger > *,
   .honk-fade-up {
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
   }
 }
 
-/* 3D Transform utilities for flip card */
-.perspective-1000 {
-  perspective: 1000px;
-}
-
-.transform-style-3d {
-  transform-style: preserve-3d;
-}
-
-.backface-hidden {
-  backface-visibility: hidden;
-}
-
-.rotate-y-180 {
-  transform: rotateY(180deg);
+[data-palette] a:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 4px;
+  border-radius: 2px;
 }

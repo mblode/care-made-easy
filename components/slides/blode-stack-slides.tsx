@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import {
   BellIcon,
@@ -17,6 +18,7 @@ import {
   UserIcon,
   ZapIcon,
 } from "blode-icons-react";
+import { cn } from "@/lib/utils";
 import { Display } from "@/components/slides/primitives/display";
 import { Mark } from "@/components/slides/primitives/mark";
 import { Numeral } from "@/components/slides/primitives/numeral";
@@ -54,11 +56,7 @@ const ICON_GRID = [
 ] as const;
 
 function SoftText({ children, className }: { children: React.ReactNode; className?: string }) {
-  return (
-    <p className={className} style={{ color: "var(--fg-soft)" }}>
-      {children}
-    </p>
-  );
+  return <p className={cn("max-w-[34ch] text-[var(--fg-soft)]", className)}>{children}</p>;
 }
 
 function LogoTile({ body, name, src }: { body?: string; name: string; src?: string }) {
@@ -66,7 +64,7 @@ function LogoTile({ body, name, src }: { body?: string; name: string; src?: stri
     <div className="honk-fade-up flex min-h-[11rem] flex-col justify-between gap-[var(--slide-space-5)] border-t border-[var(--hairline)] py-[var(--slide-space-5)] md:border-l md:border-t-0 md:px-[var(--slide-space-5)] md:first:border-l-0 md:first:pl-0">
       {src ? (
         <Image
-          alt=""
+          alt={name}
           className="size-14 rounded-[var(--slide-radius-md)] object-contain"
           height={72}
           src={src}
@@ -77,8 +75,8 @@ function LogoTile({ body, name, src }: { body?: string; name: string; src?: stri
           {name.slice(0, 1)}
         </span>
       )}
-      <div className="flex flex-col gap-2">
-        <h3 className="font-heading slide-text-2xl leading-[0.98]">{name}</h3>
+      <div className="flex flex-col gap-[var(--slide-space-2)]">
+        <h2 className="font-heading slide-text-2xl leading-[1.05]">{name}</h2>
         {body ? <SoftText className="slide-text-base">{body}</SoftText> : null}
       </div>
     </div>
@@ -87,33 +85,38 @@ function LogoTile({ body, name, src }: { body?: string; name: string; src?: stri
 
 function WordTile({ children }: { children: React.ReactNode }) {
   return (
-    <div className="honk-fade-up flex min-h-[7.5rem] items-end border-t border-[var(--hairline)] py-[var(--slide-space-4)]">
-      <p className="font-heading slide-text-3xl leading-[0.95]">{children}</p>
+    <div className="honk-fade-up flex min-h-[7.5rem] items-end overflow-hidden border-t border-[var(--hairline)] py-[var(--slide-space-4)]">
+      <p className="font-heading slide-text-3xl leading-[1.05]">{children}</p>
     </div>
   );
 }
 
 function Screenshot({
   alt,
-  className = "",
+  className,
   objectPosition = "object-center",
+  sizes = "(min-width: 768px) 50vw, 100vw",
   src,
 }: {
   alt: string;
   className?: string;
   objectPosition?: string;
+  sizes?: string;
   src: string;
 }) {
   return (
     <div
-      className={`relative min-h-[18rem] overflow-hidden rounded-[var(--slide-radius-xl)] outline outline-1 -outline-offset-1 outline-[var(--hairline)] ${className}`}
+      className={cn(
+        "relative min-h-[18rem] overflow-hidden rounded-[var(--slide-radius-xl)] outline outline-1 -outline-offset-1 outline-[var(--hairline)]",
+        className,
+      )}
     >
       <Image
         alt={alt}
-        className={`object-cover ${objectPosition}`}
+        className={cn("object-cover", objectPosition)}
         fill
         priority={false}
-        sizes="50vw"
+        sizes={sizes}
         src={src}
       />
     </div>
@@ -134,7 +137,7 @@ export function SlideTitle() {
       </header>
 
       <footer className="honk-fade-up flex flex-wrap items-end justify-between gap-[var(--slide-space-5)] border-t border-[var(--hairline)] pt-[var(--slide-space-5)]">
-        <p className="font-heading slide-text-2xl leading-none">Matthew Blode</p>
+        <p className="font-heading slide-text-2xl leading-[1.05]">Matthew Blode</p>
         <SoftText className="slide-text-base">AI at Linktree | OpenAI Codex Ambassador</SoftText>
       </footer>
     </SlideContainer>
@@ -165,7 +168,7 @@ export function SlideCarelessness() {
     <SlideContainer className="items-center justify-center text-center" palette="e">
       <Mark>Philosophy</Mark>
       <blockquote className="mx-auto flex max-w-[22ch] flex-col gap-[var(--slide-space-4)]">
-        <Display className="font-editorial italic" size="xl">
+        <Display className="font-editorial-new italic" size="xl">
           You can sense carelessness.
         </Display>
         <SoftText className="slide-text-xl">— Jony Ive</SoftText>
@@ -180,7 +183,7 @@ export function SlideDoneBear() {
       <div className="grid min-h-[calc(100dvh-var(--slide-space-16))] gap-[var(--slide-space-8)] md:grid-cols-[4fr_5fr] md:items-center">
         <header className="flex flex-col gap-[var(--slide-space-5)]">
           <Image
-            alt=""
+            alt="Done Bear app icon"
             className="size-24 rounded-[var(--slide-radius-xl)] bg-white object-contain p-3"
             height={96}
             priority
@@ -217,9 +220,9 @@ export function SlideLiveDemo() {
             Open Done Bear.
           </Display>
           <a
-            className="w-fit underline-offset-4 slide-text-xl hover:underline"
+            className="w-fit underline-offset-4 slide-text-xl hover:underline focus-visible:underline"
             href="https://donebear.com/playground"
-            rel="noopener"
+            rel="noopener noreferrer"
             target="_blank"
           >
             donebear.com/playground
@@ -241,7 +244,7 @@ export function SlideNotAList() {
   return (
     <SlideContainer className="justify-between" palette="a">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
-        <Mark>The catch</Mark>
+        <Mark>Beyond the list</Mark>
         <Display className="max-w-[12ch]" size="2xl">
           The list is the smallest part.
         </Display>
@@ -262,7 +265,7 @@ export function SlideSimple() {
     <SlideContainer className="items-center justify-center text-center" palette="b">
       <Mark>Principle</Mark>
       <Display className="mx-auto max-w-[14ch]" size="2xl">
-        Simple as possible, no simpler.
+        Easy is nearby. Simple is one fold.
       </Display>
       <SoftText className="mx-auto mt-[var(--slide-space-4)] max-w-[28ch] slide-text-xl">
         Easy is relative. Simple is objective.
@@ -279,7 +282,7 @@ export function SlideThesis() {
         The bottleneck has changed.
       </Display>
       <SoftText className="mx-auto mt-[var(--slide-space-4)] max-w-[34ch] slide-text-xl">
-        Encapsulate taste. Parallelise work. Compound velocity.
+        Code got cheap. Taste didn't. Build the defaults that close the gap.
       </SoftText>
     </SlideContainer>
   );
@@ -295,20 +298,21 @@ export function SlideStackMap() {
         </Display>
       </header>
 
-      <div className="grid gap-[var(--slide-space-5)] md:grid-cols-4">
+      <div className="honk-stagger grid gap-[var(--slide-space-5)] md:grid-cols-4">
         {[
           ["01", "Infrastructure", "Sync and surfaces make it shippable."],
           ["02", "Defaults", "Type, icons, components, pixels."],
           ["03", "Context", "Skills, markdown, docs."],
           ["04", "Feedback", "Parallel runs, diffs, worktrees."],
-        ].map(([number, title, body]) => (
+        ].map(([number, title, body], i) => (
           <div
-            className="honk-fade-up flex min-h-[15rem] flex-col justify-between border-t border-[var(--hairline)] py-[var(--slide-space-5)] md:border-l md:border-t-0 md:px-[var(--slide-space-5)] md:first:border-l-0 md:first:pl-0"
+            className="flex min-h-[15rem] flex-col justify-between border-t border-[var(--hairline)] py-[var(--slide-space-5)] md:border-l md:border-t-0 md:px-[var(--slide-space-5)] md:first:border-l-0 md:first:pl-0"
             key={title}
+            style={{ "--stagger-i": i } as CSSProperties}
           >
             <Numeral value={number} />
-            <div className="flex flex-col gap-3">
-              <h3 className="font-heading slide-text-2xl leading-[0.98]">{title}</h3>
+            <div className="flex flex-col gap-[var(--slide-space-3)]">
+              <h2 className="font-heading slide-text-2xl leading-[1.05]">{title}</h2>
               <SoftText className="slide-text-base">{body}</SoftText>
             </div>
           </div>
@@ -330,7 +334,7 @@ export function SlideStrataSync() {
 
       <div className="grid gap-[var(--slide-space-6)] md:grid-cols-[2fr_3fr] md:items-end">
         <Image
-          alt=""
+          alt="Strata Sync logo"
           className="size-36 rounded-[var(--slide-radius-xl)] object-contain"
           height={180}
           src="/stack/strata-sync.png"
@@ -356,13 +360,14 @@ export function SlideSurfaces() {
         </Display>
       </header>
 
-      <div className="grid grid-cols-2 gap-[var(--slide-space-4)] md:grid-cols-4">
-        {SURFACES.map((surface) => (
+      <div className="honk-stagger grid grid-cols-2 gap-[var(--slide-space-4)] md:grid-cols-4">
+        {SURFACES.map((surface, i) => (
           <div
-            className="honk-fade-up flex aspect-[5/3] items-end rounded-[var(--slide-radius-xl)] border border-[var(--hairline)] p-[var(--slide-space-4)]"
+            className="flex aspect-[5/3] items-end rounded-[var(--slide-radius-xl)] border border-[var(--hairline)] p-[var(--slide-space-4)]"
             key={surface}
+            style={{ "--stagger-i": i } as CSSProperties}
           >
-            <p className="font-heading slide-text-3xl leading-[0.95]">{surface}</p>
+            <p className="font-heading slide-text-3xl leading-[1.05]">{surface}</p>
           </div>
         ))}
       </div>
@@ -383,15 +388,14 @@ export function SlideGlide() {
         </SoftText>
       </header>
 
-      <div className="grid gap-0">
-        {SPECIMEN_WEIGHTS.map(({ weight, label }) => (
+      <div className="honk-stagger grid gap-0">
+        {SPECIMEN_WEIGHTS.map(({ weight, label }, i) => (
           <div
-            className="honk-fade-up flex items-baseline justify-between border-t border-[var(--hairline)] py-[var(--slide-space-3)]"
+            className="flex items-baseline justify-between border-t border-[var(--hairline)] py-[var(--slide-space-3)]"
             key={weight}
+            style={{ "--stagger-i": i, fontWeight: weight } as CSSProperties}
           >
-            <p className="font-heading slide-text-4xl leading-[1.1]" style={{ fontWeight: weight }}>
-              Glide
-            </p>
+            <p className="font-heading slide-text-4xl leading-[1.1]">Glide</p>
             <SoftText className="slide-text-base">
               {label} {weight}
             </SoftText>
@@ -410,14 +414,20 @@ export function SlideBlodeIcons() {
         <Display className="max-w-[12ch]" size="2xl">
           3,754 icons.
         </Display>
-        <SoftText className="max-w-[32ch] slide-text-xl">Drop-in Lucide replacement.</SoftText>
+        <SoftText className="max-w-[32ch] slide-text-xl">
+          Same API as Lucide. Agents reach for yours instead.
+        </SoftText>
       </header>
 
-      <div className="grid grid-cols-4 gap-[var(--slide-space-4)] md:grid-cols-8">
-        {ICON_GRID.map(({ Icon, name }) => (
+      <div
+        aria-hidden="true"
+        className="honk-stagger grid grid-cols-4 gap-[var(--slide-space-4)] md:grid-cols-8"
+      >
+        {ICON_GRID.map(({ Icon, name }, i) => (
           <div
-            className="honk-fade-up flex aspect-square flex-col items-center justify-center gap-2 rounded-[var(--slide-radius-lg)] border border-[var(--hairline)]"
+            className="flex aspect-square flex-col items-center justify-center gap-[var(--slide-space-2)] rounded-[var(--slide-radius-lg)] border border-[var(--hairline)]"
             key={name}
+            style={{ "--stagger-i": i } as CSSProperties}
           >
             <Icon size={32} />
           </div>
@@ -463,7 +473,7 @@ export function SlideStyleCapture() {
 
         <div className="grid gap-[var(--slide-space-5)] md:grid-cols-[1fr_2fr] md:items-end">
           <Image
-            alt=""
+            alt="Style Capture logo"
             className="size-32 rounded-[var(--slide-radius-xl)] object-contain"
             height={160}
             src="/stack/style-capture.png"
@@ -492,7 +502,7 @@ export function SlideAgentSkills() {
 
       <div className="grid gap-[var(--slide-space-6)] md:grid-cols-[2fr_3fr] md:items-end">
         <Image
-          alt=""
+          alt="Agent Skills logo"
           className="size-32 rounded-[var(--slide-radius-xl)] object-contain"
           height={160}
           src="/stack/agent-skills.png"
@@ -564,19 +574,20 @@ export function SlideSpotlightTesting() {
         </SoftText>
       </header>
 
-      <div className="grid gap-[var(--slide-space-5)] md:grid-cols-3">
+      <div className="honk-stagger grid gap-[var(--slide-space-5)] md:grid-cols-3">
         {[
           ["01", "spotlight-testing on", "Sync changes in."],
           ["02", "Run tests in root", "Same Docker, same DB."],
           ["03", "spotlight-testing off", "Restore cleanly."],
-        ].map(([number, title, body]) => (
+        ].map(([number, title, body], i) => (
           <div
-            className="honk-fade-up flex min-h-[11rem] flex-col justify-between border-t border-[var(--hairline)] py-[var(--slide-space-5)] md:border-l md:border-t-0 md:px-[var(--slide-space-5)] md:first:border-l-0 md:first:pl-0"
+            className="flex min-h-[11rem] flex-col justify-between border-t border-[var(--hairline)] py-[var(--slide-space-5)] md:border-l md:border-t-0 md:px-[var(--slide-space-5)] md:first:border-l-0 md:first:pl-0"
             key={title}
+            style={{ "--stagger-i": i } as CSSProperties}
           >
             <Numeral value={number} />
-            <div className="flex flex-col gap-2">
-              <h3 className="font-heading slide-text-2xl leading-[0.98]">{title}</h3>
+            <div className="flex flex-col gap-[var(--slide-space-2)]">
+              <h2 className="font-heading slide-text-2xl leading-[1.05]">{title}</h2>
               <SoftText className="slide-text-base">{body}</SoftText>
             </div>
           </div>
@@ -604,11 +615,11 @@ export function SlideFreedom() {
   return (
     <SlideContainer className="items-center justify-center text-center" palette="b">
       <Mark>Process</Mark>
-      <Display className="mx-auto max-w-[12ch]" size="2xl">
-        Freedom to invent.
+      <Display className="mx-auto max-w-[14ch]" size="2xl">
+        Find the problem that bothers you.
       </Display>
       <SoftText className="mx-auto mt-[var(--slide-space-4)] max-w-[28ch] slide-text-xl">
-        The headspace of play.
+        Build the tool. Ship it tomorrow.
       </SoftText>
     </SlideContainer>
   );
@@ -624,32 +635,38 @@ export function SlideQuestions() {
           <Display size="2xl">Questions?</Display>
           <div className="flex flex-col gap-[var(--slide-space-3)] border-t border-[var(--hairline)] pt-[var(--slide-space-5)] slide-text-xl">
             <a
-              className="underline-offset-4 hover:underline"
+              className="underline-offset-4 hover:underline focus-visible:underline"
               href="https://donebear.com"
-              rel="noopener"
+              rel="noopener noreferrer"
               target="_blank"
             >
               donebear.com
             </a>
             <a
-              className="underline-offset-4 hover:underline"
+              className="underline-offset-4 hover:underline focus-visible:underline"
               href="https://matthewblode.com/stack"
-              rel="noopener"
+              rel="noopener noreferrer"
               target="_blank"
             >
               matthewblode.com/stack
             </a>
             <a
-              className="underline-offset-4 hover:underline"
+              className="underline-offset-4 hover:underline focus-visible:underline"
               href="https://github.com/mblode"
-              rel="noopener"
+              rel="noopener noreferrer"
               target="_blank"
             >
               github.com/mblode
             </a>
           </div>
         </div>
-        <QRCode className="hidden size-40 md:block" data="https://matthewblode.com/stack" />
+        <div
+          aria-label="QR code linking to matthewblode.com/stack"
+          className="hidden md:block"
+          role="img"
+        >
+          <QRCode className="size-40" data="https://matthewblode.com/stack" />
+        </div>
       </div>
     </SlideContainer>
   );
