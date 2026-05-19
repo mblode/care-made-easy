@@ -99,11 +99,11 @@ export async function createOgImage(options: OgImageOptions = {}) {
   const fonts = await loadFonts();
   const titleSize = getTitleSize(title);
 
-  const eyebrow = options.eyebrow ?? "Encoding taste into code";
-  const counter =
-    options.slideNumber === undefined
-      ? "Care made easy"
-      : `${String(options.slideNumber).padStart(2, "0")} / ${String(TOTAL_SLIDES).padStart(2, "0")}`;
+  const isSlide = options.slideNumber !== undefined;
+  const eyebrow = options.eyebrow ?? (isSlide ? "Care made easy" : "Encoding taste into code");
+  const counter = isSlide
+    ? `${String(options.slideNumber).padStart(2, "0")} / ${String(TOTAL_SLIDES).padStart(2, "0")}`
+    : "Matthew Blode";
 
   return new ImageResponse(
     <div
@@ -153,12 +153,10 @@ export async function createOgImage(options: OgImageOptions = {}) {
         tw="flex w-full items-end justify-between text-[22px] pt-6"
       >
         <div style={{ color: colors.fg }} tw="flex font-semibold">
-          Matthew Blode
+          {isSlide ? "Matthew Blode" : "stack.blode.co"}
         </div>
         <div tw="flex">
-          {options.slideNumber === undefined
-            ? "Strata Sync, Blode UI, Agent Skills, and the rest of the stack."
-            : "Care made easy"}
+          {isSlide ? "Encoding taste into code" : "Done Bear and the open-source stack behind it."}
         </div>
       </div>
     </div>,

@@ -444,7 +444,7 @@
   border: 1.5px solid var(--fg);
   border-radius: 999px;
   font-family: var(--font-sans);
-  font-size: var(--slide-text-xs);
+  font-size: var(--slide-text-base);
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;

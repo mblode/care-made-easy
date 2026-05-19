@@ -10,6 +10,7 @@ import {
   SlideDiffHub,
   SlideDoneBear,
   SlideGlide,
+  SlideMoreTools,
   SlideNotAList,
   SlideQuestions,
   SlideSolveYourOwn,
@@ -45,6 +46,7 @@ const slideComponents = [
   SlideBlodeMd,
   SlideDiffHub,
   SlideSpotlightTesting,
+  SlideMoreTools,
   SlideSolveYourOwn,
   SlideQuestions,
 ];
