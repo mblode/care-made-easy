@@ -18,6 +18,7 @@
   "dependencies": {
     "@base-ui/react": "^1.4.1",
     "@beautiful-qr-code/react": "^1.0.9",
+    "@style-capture/core": "^1.2.0",
     "blode-icons-react": "^0.3.10",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -29,6 +30,7 @@
     "react-dom": "19.2.4",
     "react-hotkeys-hook": "^5.2.4",
     "react-tweet": "^3.3.0",
+    "shiki": "^4.0.2",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
