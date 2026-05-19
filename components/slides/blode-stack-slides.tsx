@@ -214,7 +214,7 @@ export function SlideDoneBear() {
             loading="lazy"
             referrerPolicy="strict-origin-when-cross-origin"
             sandbox="allow-scripts allow-same-origin"
-            src="https://donebear.com"
+            src="https://donebear.com/playground"
             title="Done Bear interactive demo"
           />
         </div>
