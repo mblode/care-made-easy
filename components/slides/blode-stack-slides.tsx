@@ -23,7 +23,6 @@ import { Display } from "@/components/slides/primitives/display";
 import { GlidePlayground } from "@/components/slides/glide-playground";
 import { SyncDemo } from "@/components/slides/sync-demo";
 import { Mark } from "@/components/slides/primitives/mark";
-import { Numeral } from "@/components/slides/primitives/numeral";
 import { QRCode } from "@/components/slides/qr-code";
 import { SlideContainer } from "@/components/slides/slide-container";
 
@@ -631,33 +630,22 @@ export function SlideSpotlightTesting() {
     <SlideContainer className="justify-between" palette="a">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Mark>Spotlight Testing</Mark>
-        <Display className="max-w-[13ch]" size="2xl">
-          Test without rebuilding.
+        <Display className="max-w-[15ch]" size="2xl">
+          See changes without rebuilding.
         </Display>
         <SoftText className="max-w-[34ch] slide-text-xl">
-          Sync worktree changes into your repo root.
+          Test worktree code in a running dev server. Same Docker, same DB, no second setup.
         </SoftText>
       </header>
 
-      <div className="honk-stagger grid gap-[var(--slide-space-5)] md:grid-cols-3">
-        {[
-          ["01", "spotlight-testing on", "Sync changes in."],
-          ["02", "Run tests in root", "Same Docker, same DB."],
-          ["03", "spotlight-testing off", "Restore cleanly."],
-        ].map(([number, title, body], i) => (
-          <div
-            className="flex min-h-[11rem] flex-col justify-between border-t border-[var(--hairline)] py-[var(--slide-space-5)] md:border-l md:border-t-0 md:px-[var(--slide-space-5)] md:first:border-l-0 md:first:pl-0"
-            key={title}
-            style={{ "--stagger-i": i } as CSSProperties}
-          >
-            <Numeral value={number} />
-            <div className="flex flex-col gap-[var(--slide-space-2)]">
-              <h2 className="font-heading slide-text-2xl leading-[1.05]">{title}</h2>
-              <SoftText className="slide-text-base">{body}</SoftText>
-            </div>
-          </div>
-        ))}
-      </div>
+      <a
+        className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
+        href="https://github.com/mblode/spotlight-testing"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        github.com/mblode/spotlight-testing
+      </a>
     </SlideContainer>
   );
 }
