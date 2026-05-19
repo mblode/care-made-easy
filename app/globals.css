@@ -125,10 +125,10 @@
 }
 
 [data-palette="d"] {
-  --bg: #53f399;
-  --fg: #004d00;
-  --fg-soft: color-mix(in oklab, #004d00 70%, #53f399);
-  --hairline: color-mix(in oklab, #004d00 25%, transparent);
+  --bg: #211f1e;
+  --fg: #f6ebd9;
+  --fg-soft: color-mix(in oklab, #f6ebd9 60%, #211f1e);
+  --hairline: color-mix(in oklab, #f6ebd9 18%, transparent);
 }
 
 [data-palette="e"] {
@@ -136,6 +136,57 @@
   --fg: #f6ebd9;
   --fg-soft: color-mix(in oklab, #f6ebd9 60%, #211f1e);
   --hairline: color-mix(in oklab, #f6ebd9 18%, transparent);
+}
+
+[data-palette="glide"] {
+  --bg: #fbb6cd;
+  --fg: #e8391c;
+  --fg-soft: color-mix(in oklab, #e8391c 70%, #fbb6cd);
+  --hairline: color-mix(in oklab, #e8391c 25%, transparent);
+}
+
+[data-palette="stratasync"] {
+  --bg: #2e6f40;
+  --fg: #ffffff;
+  --fg-soft: color-mix(in oklab, #ffffff 75%, #2e6f40);
+  --hairline: color-mix(in oklab, #ffffff 25%, transparent);
+}
+
+[data-palette="blodeui"] {
+  --bg: #000000;
+  --fg: #ffffff;
+  --fg-soft: color-mix(in oklab, #ffffff 60%, #000000);
+  --hairline: color-mix(in oklab, #ffffff 18%, transparent);
+}
+
+[data-palette="stylecapture"] {
+  --bg: #ffffff;
+  --fg: #171717;
+  --fg-soft: color-mix(in oklab, #171717 65%, #ffffff);
+  --hairline: color-mix(in oklab, #171717 20%, transparent);
+  --accent: #4389f5;
+}
+
+[data-palette="allmd"] {
+  --bg: #e84c87;
+  --fg: #ffffff;
+  --fg-soft: color-mix(in oklab, #ffffff 80%, #e84c87);
+  --hairline: color-mix(in oklab, #ffffff 30%, transparent);
+}
+
+[data-palette="blodemd"] {
+  --bg: #efee77;
+  --fg: #000000;
+  --fg-soft: color-mix(in oklab, #000000 65%, #efee77);
+  --hairline: color-mix(in oklab, #000000 20%, transparent);
+}
+
+[data-palette="diffhub"] {
+  --bg: #f2f1ed;
+  --fg: #26251e;
+  --fg-soft: color-mix(in oklab, #26251e 65%, #f2f1ed);
+  --hairline: color-mix(in oklab, #26251e 20%, transparent);
+  --accent: #f6783d;
 }
 
 /* ------------------------------------------------------------------ */

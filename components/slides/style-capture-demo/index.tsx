@@ -21,7 +21,7 @@ export function StyleCaptureDemo() {
   return (
     <>
       <button
-        className="inline-flex shrink-0 items-center justify-center gap-1.5 self-start rounded-[10px] border border-transparent bg-[color-mix(in_oklab,var(--fg)_12%,var(--bg))] py-2 pr-2.5 pl-3 text-sm font-medium text-[var(--fg)] leading-5 transition-colors hover:bg-[color-mix(in_oklab,var(--fg)_18%,var(--bg))]"
+        className={`inline-flex shrink-0 items-center justify-center gap-1.5 self-start rounded-[10px] border border-transparent py-2 pr-2.5 pl-3 text-sm font-medium leading-5 transition-colors ${isInspecting ? "bg-[#4389F5] text-white hover:bg-[#3678d8]" : "bg-[color-mix(in_oklab,var(--fg)_12%,var(--bg))] text-[var(--fg)] hover:bg-[color-mix(in_oklab,var(--fg)_18%,var(--bg))]"}`}
         onClick={isInspecting ? deactivate : activate}
         type="button"
       >

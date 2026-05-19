@@ -18,7 +18,6 @@ export default async function Image({ params }: { params: Promise<{ slide: strin
 
   return createOgImage({
     palette: data.palette,
-    slideNumber: slideIndex + 1,
     title: data.title,
   });
 }

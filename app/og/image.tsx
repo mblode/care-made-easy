@@ -1,5 +1,4 @@
 import { ImageResponse } from "next/og";
-import { TOTAL_SLIDES } from "@/lib/slides";
 import type { Palette } from "@/lib/slides";
 
 export const ogImageAlt = "Care made easy";
@@ -23,46 +22,25 @@ interface PaletteColors {
   bg: string;
   fg: string;
   fgSoft: string;
-  hairline: string;
 }
 
 const PALETTES: Record<Palette, PaletteColors> = {
-  a: {
-    bg: "#e54f11",
-    fg: "#ffffc2",
-    fgSoft: "rgba(255, 255, 194, 0.78)",
-    hairline: "rgba(255, 255, 194, 0.32)",
-  },
-  b: {
-    bg: "#f6ebd9",
-    fg: "#514733",
-    fgSoft: "rgba(81, 71, 51, 0.72)",
-    hairline: "rgba(81, 71, 51, 0.24)",
-  },
-  c: {
-    bg: "#0c90d2",
-    fg: "#aeffff",
-    fgSoft: "rgba(174, 255, 255, 0.78)",
-    hairline: "rgba(174, 255, 255, 0.3)",
-  },
-  d: {
-    bg: "#53f399",
-    fg: "#004d00",
-    fgSoft: "rgba(0, 77, 0, 0.7)",
-    hairline: "rgba(0, 77, 0, 0.25)",
-  },
-  e: {
-    bg: "#211f1e",
-    fg: "#f6ebd9",
-    fgSoft: "rgba(246, 235, 217, 0.7)",
-    hairline: "rgba(246, 235, 217, 0.18)",
-  },
+  a: { bg: "#e54f11", fg: "#ffffc2", fgSoft: "rgba(255, 255, 194, 0.78)" },
+  b: { bg: "#f6ebd9", fg: "#514733", fgSoft: "rgba(81, 71, 51, 0.72)" },
+  c: { bg: "#0c90d2", fg: "#aeffff", fgSoft: "rgba(174, 255, 255, 0.78)" },
+  d: { bg: "#211f1e", fg: "#f6ebd9", fgSoft: "rgba(246, 235, 217, 0.7)" },
+  e: { bg: "#211f1e", fg: "#f6ebd9", fgSoft: "rgba(246, 235, 217, 0.7)" },
+  glide: { bg: "#fbb6cd", fg: "#e8391c", fgSoft: "rgba(232, 57, 28, 0.7)" },
+  stratasync: { bg: "#2e6f40", fg: "#ffffff", fgSoft: "rgba(255, 255, 255, 0.75)" },
+  blodeui: { bg: "#000000", fg: "#ffffff", fgSoft: "rgba(255, 255, 255, 0.6)" },
+  stylecapture: { bg: "#ffffff", fg: "#171717", fgSoft: "rgba(23, 23, 23, 0.65)" },
+  allmd: { bg: "#e84c87", fg: "#ffffff", fgSoft: "rgba(255, 255, 255, 0.8)" },
+  blodemd: { bg: "#efee77", fg: "#000000", fgSoft: "rgba(0, 0, 0, 0.65)" },
+  diffhub: { bg: "#f2f1ed", fg: "#26251e", fgSoft: "rgba(38, 37, 30, 0.65)" },
 };
 
 export interface OgImageOptions {
-  eyebrow?: string;
   palette?: Palette;
-  slideNumber?: number;
   title?: string;
 }
 
@@ -99,12 +77,6 @@ export async function createOgImage(options: OgImageOptions = {}) {
   const fonts = await loadFonts();
   const titleSize = getTitleSize(title);
 
-  const isSlide = options.slideNumber !== undefined;
-  const eyebrow = options.eyebrow ?? (isSlide ? "Care made easy" : "Encoding taste into code");
-  const counter = isSlide
-    ? `${String(options.slideNumber).padStart(2, "0")} / ${String(TOTAL_SLIDES).padStart(2, "0")}`
-    : "Matthew Blode";
-
   return new ImageResponse(
     <div
       style={{
@@ -112,27 +84,8 @@ export async function createOgImage(options: OgImageOptions = {}) {
         color: colors.fg,
         fontFamily: "Glide, system-ui, sans-serif",
       }}
-      tw="flex flex-col w-full h-full p-[72px] justify-between"
+      tw="flex flex-col w-full h-full p-[72px] justify-end"
     >
-      <div tw="flex w-full justify-between items-center">
-        <div
-          style={{
-            border: `1.5px solid ${colors.fg}`,
-            color: colors.fg,
-            letterSpacing: "0.18em",
-          }}
-          tw="flex items-center text-[16px] font-semibold uppercase rounded-full px-5 py-[10px]"
-        >
-          {eyebrow}
-        </div>
-        <div
-          style={{ color: colors.fgSoft, letterSpacing: "0.18em" }}
-          tw="flex text-[16px] font-semibold uppercase"
-        >
-          {counter}
-        </div>
-      </div>
-
       <div
         style={{
           color: colors.fg,
@@ -145,19 +98,8 @@ export async function createOgImage(options: OgImageOptions = {}) {
         {title}
       </div>
 
-      <div
-        style={{
-          borderTop: `1px solid ${colors.hairline}`,
-          color: colors.fgSoft,
-        }}
-        tw="flex w-full items-end justify-between text-[22px] pt-6"
-      >
-        <div style={{ color: colors.fg }} tw="flex font-semibold">
-          {isSlide ? "Matthew Blode" : "stack.blode.co"}
-        </div>
-        <div tw="flex">
-          {isSlide ? "Encoding taste into code" : "Done Bear and the open-source stack behind it."}
-        </div>
+      <div style={{ color: colors.fgSoft }} tw="flex text-[22px] mt-6">
+        Matthew Blode
       </div>
     </div>,
     {
