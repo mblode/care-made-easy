@@ -2,14 +2,14 @@ import { ImageResponse } from "next/og";
 import { TOTAL_SLIDES } from "@/lib/slides";
 import type { Palette } from "@/lib/slides";
 
-export const ogImageAlt = "Blode Stack";
+export const ogImageAlt = "Care Made Easy";
 export const ogImageContentType = "image/png";
 export const ogImageSize = {
   height: 630,
   width: 1200,
 } as const;
 
-const DEFAULT_TITLE = "Blode Stack";
+const DEFAULT_TITLE = "Care Made Easy";
 const DEFAULT_PALETTE: Palette = "e";
 
 interface FontAsset {

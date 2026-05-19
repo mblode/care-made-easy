@@ -120,13 +120,13 @@ function Screenshot({
   );
 }
 
-export function Slide01Title() {
+export function SlideTitle() {
   return (
     <SlideContainer className="justify-between" palette="e">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Mark>Claude Code for Developers | Melbourne</Mark>
         <Display className="max-w-[12ch]" size="huge">
-          Blode Stack
+          Care made easy.
         </Display>
         <SoftText className="max-w-[34ch] slide-text-2xl">
           How to build a to-do list app in 2026.
@@ -141,7 +141,7 @@ export function Slide01Title() {
   );
 }
 
-export function Slide02About() {
+export function SlideAbout() {
   return (
     <SlideContainer className="justify-between" palette="b">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
@@ -160,7 +160,21 @@ export function Slide02About() {
   );
 }
 
-export function Slide03DoneBear() {
+export function SlideCarelessness() {
+  return (
+    <SlideContainer className="items-center justify-center text-center" palette="e">
+      <Mark>Philosophy</Mark>
+      <blockquote className="mx-auto flex max-w-[22ch] flex-col gap-[var(--slide-space-4)]">
+        <Display className="font-editorial italic" size="xl">
+          You can sense carelessness.
+        </Display>
+        <SoftText className="slide-text-xl">— Jony Ive</SoftText>
+      </blockquote>
+    </SlideContainer>
+  );
+}
+
+export function SlideDoneBear() {
   return (
     <SlideContainer className="justify-between" palette="c">
       <div className="grid min-h-[calc(100dvh-var(--slide-space-16))] gap-[var(--slide-space-8)] md:grid-cols-[4fr_5fr] md:items-center">
@@ -174,11 +188,11 @@ export function Slide03DoneBear() {
             width={96}
           />
           <Mark>Proof app</Mark>
-          <Display className="max-w-[11ch]" size="2xl">
-            Done Bear is the demo.
+          <Display className="max-w-[14ch]" size="2xl">
+            You won't use this app.
           </Display>
-          <SoftText className="max-w-[32ch] slide-text-xl">
-            Calm. Local-first. Agent-native.
+          <SoftText className="max-w-[34ch] slide-text-xl">
+            But everything that built it is open source.
           </SoftText>
         </header>
 
@@ -223,7 +237,7 @@ export function SlideLiveDemo() {
   );
 }
 
-export function Slide04NotAList() {
+export function SlideNotAList() {
   return (
     <SlideContainer className="justify-between" palette="a">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
@@ -243,7 +257,21 @@ export function Slide04NotAList() {
   );
 }
 
-export function Slide05Thesis() {
+export function SlideSimple() {
+  return (
+    <SlideContainer className="items-center justify-center text-center" palette="b">
+      <Mark>Principle</Mark>
+      <Display className="mx-auto max-w-[14ch]" size="2xl">
+        Simple as possible, no simpler.
+      </Display>
+      <SoftText className="mx-auto mt-[var(--slide-space-4)] max-w-[28ch] slide-text-xl">
+        Easy is relative. Simple is objective.
+      </SoftText>
+    </SlideContainer>
+  );
+}
+
+export function SlideThesis() {
   return (
     <SlideContainer className="items-center justify-center text-center" palette="e">
       <Mark>Thesis</Mark>
@@ -251,13 +279,13 @@ export function Slide05Thesis() {
         The bottleneck has changed.
       </Display>
       <SoftText className="mx-auto mt-[var(--slide-space-4)] max-w-[34ch] slide-text-xl">
-        Now it's encapsulating taste and parallelising work.
+        Encapsulate taste. Parallelise work. Compound velocity.
       </SoftText>
     </SlideContainer>
   );
 }
 
-export function Slide06StackMap() {
+export function SlideStackMap() {
   return (
     <SlideContainer className="justify-between" palette="d">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
@@ -290,7 +318,7 @@ export function Slide06StackMap() {
   );
 }
 
-export function Slide14StrataSync() {
+export function SlideStrataSync() {
   return (
     <SlideContainer className="justify-between" palette="d">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
@@ -318,37 +346,25 @@ export function Slide14StrataSync() {
   );
 }
 
-export function Slide15Surfaces() {
+export function SlideSurfaces() {
   return (
     <SlideContainer className="justify-between" palette="c">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
-        <Mark>Done Bear</Mark>
+        <Mark>Surfaces</Mark>
         <Display className="max-w-[12ch]" size="xl">
-          Done Bear lives on every surface.
+          One model. Many ways in.
         </Display>
       </header>
 
-      <div className="grid gap-[var(--slide-space-6)] md:grid-cols-[1.2fr_4fr] md:items-center">
-        <div className="honk-fade-up flex flex-col gap-[var(--slide-space-4)] border-t border-[var(--hairline)] pt-[var(--slide-space-5)]">
-          <Image
-            alt=""
-            className="size-28 rounded-[var(--slide-radius-xl)] bg-white object-contain p-3"
-            height={112}
-            src="/donebear/icon.png"
-            width={112}
-          />
-          <SoftText className="slide-text-xl">One model. Many ways in.</SoftText>
-        </div>
-        <div className="grid grid-cols-2 gap-[var(--slide-space-4)] md:grid-cols-4">
-          {SURFACES.map((surface) => (
-            <div
-              className="honk-fade-up flex aspect-[5/3] items-end rounded-[var(--slide-radius-xl)] border border-[var(--hairline)] p-[var(--slide-space-4)]"
-              key={surface}
-            >
-              <p className="font-heading slide-text-3xl leading-[0.95]">{surface}</p>
-            </div>
-          ))}
-        </div>
+      <div className="grid grid-cols-2 gap-[var(--slide-space-4)] md:grid-cols-4">
+        {SURFACES.map((surface) => (
+          <div
+            className="honk-fade-up flex aspect-[5/3] items-end rounded-[var(--slide-radius-xl)] border border-[var(--hairline)] p-[var(--slide-space-4)]"
+            key={surface}
+          >
+            <p className="font-heading slide-text-3xl leading-[0.95]">{surface}</p>
+          </div>
+        ))}
       </div>
     </SlideContainer>
   );
@@ -411,7 +427,7 @@ export function SlideBlodeIcons() {
   );
 }
 
-export function Slide08BlodeUi() {
+export function SlideBlodeUi() {
   return (
     <SlideContainer className="justify-between" palette="a">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
@@ -433,7 +449,7 @@ export function Slide08BlodeUi() {
   );
 }
 
-export function Slide09StyleCapture() {
+export function SlideStyleCapture() {
   return (
     <SlideContainer className="justify-between" palette="c">
       <div className="grid gap-[var(--slide-space-8)] md:grid-cols-[5fr_4fr] md:items-end">
@@ -464,7 +480,7 @@ export function Slide09StyleCapture() {
   );
 }
 
-export function Slide10AgentSkills() {
+export function SlideAgentSkills() {
   return (
     <SlideContainer className="justify-between" palette="b">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
@@ -492,7 +508,7 @@ export function Slide10AgentSkills() {
   );
 }
 
-export function Slide11MarkdownLayer() {
+export function SlideMarkdownLayer() {
   return (
     <SlideContainer className="justify-between" palette="d">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
@@ -570,80 +586,30 @@ export function SlideSpotlightTesting() {
   );
 }
 
-export function Slide16BuildOrder() {
-  const steps = [
-    ["1", "Model the work"],
-    ["2", "Sync the truth"],
-    ["3", "Choose the surfaces"],
-    ["4", "Teach the agent"],
-    ["5", "Close the loop"],
-  ] as const;
-
+export function SlideSolveYourOwn() {
   return (
-    <SlideContainer className="justify-between" palette="d">
-      <header className="flex flex-col gap-[var(--slide-space-4)]">
-        <Mark>Build order</Mark>
-        <Display className="max-w-[18ch]" size="lg">
-          Build the primitives before the screens.
-        </Display>
-      </header>
-
-      <ol className="grid grid-cols-2 gap-[var(--slide-space-4)] md:grid-cols-5" role="list">
-        {steps.map(([number, title]) => (
-          <li
-            className="honk-fade-up flex min-h-[8rem] flex-col justify-between border-t border-[var(--hairline)] py-[var(--slide-space-4)]"
-            key={title}
-          >
-            <Numeral className="!text-[clamp(48px,6vw,96px)]" value={number} />
-            <h3 className="font-heading slide-text-2xl leading-[0.96]">{title}</h3>
-          </li>
-        ))}
-      </ol>
+    <SlideContainer className="items-center justify-center text-center" palette="d">
+      <Mark>Open source</Mark>
+      <Display className="mx-auto max-w-[14ch]" size="2xl">
+        Build to solve your own problems.
+      </Display>
+      <SoftText className="mx-auto mt-[var(--slide-space-4)] max-w-[28ch] slide-text-xl">
+        Give it away for free.
+      </SoftText>
     </SlideContainer>
   );
 }
 
-export function Slide17FullStack() {
+export function SlideFreedom() {
   return (
-    <SlideContainer className="justify-between" palette="b">
-      <div className="grid gap-[var(--slide-space-8)] md:grid-cols-[4fr_5fr] md:items-center">
-        <header className="flex flex-col gap-[var(--slide-space-4)]">
-          <Mark>The Blode Stack</Mark>
-          <Display className="max-w-[12ch]" size="xl">
-            Small tools became a stack.
-          </Display>
-          <SoftText className="max-w-[34ch] slide-text-xl">
-            Building blocks I use every day, packaged to scratch my own itch.
-          </SoftText>
-        </header>
-
-        <Screenshot
-          alt="Matthew Blode all projects screenshot"
-          className="min-h-[32rem]"
-          objectPosition="object-top"
-          src="/research/matthewblode-all.png"
-        />
-      </div>
-    </SlideContainer>
-  );
-}
-
-export function Slide18Takeaways() {
-  return (
-    <SlideContainer className="justify-between" palette="e">
-      <header className="flex flex-col gap-[var(--slide-space-4)]">
-        <Mark>Takeaways</Mark>
-        <Display className="max-w-[12ch]" size="2xl">
-          Better rails make better agents.
-        </Display>
-      </header>
-
-      <div className="grid gap-[var(--slide-space-6)] md:grid-cols-4">
-        <WordTile>Sync</WordTile>
-        <WordTile>Defaults</WordTile>
-        <WordTile>Context</WordTile>
-        <WordTile>Feedback</WordTile>
-      </div>
+    <SlideContainer className="items-center justify-center text-center" palette="b">
+      <Mark>Process</Mark>
+      <Display className="mx-auto max-w-[12ch]" size="2xl">
+        Freedom to invent.
+      </Display>
+      <SoftText className="mx-auto mt-[var(--slide-space-4)] max-w-[28ch] slide-text-xl">
+        The headspace of play.
+      </SoftText>
     </SlideContainer>
   );
 }
