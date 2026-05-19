@@ -4,7 +4,7 @@ export const SLIDES = [
   { slug: "intro", title: "Care made easy", palette: "e" },
   { slug: "about", title: "Matthew Blode", palette: "b" },
   { slug: "carelessness", title: "You can sense carelessness", palette: "e" },
-  { slug: "done-bear", title: "Scratch your own itch", palette: "c" },
+  { slug: "done-bear", title: "Every layer built on open source", palette: "c" },
   { slug: "not-a-list", title: "The list is the smallest part", palette: "a" },
   { slug: "thesis", title: "The bottleneck has changed", palette: "e" },
   { slug: "stack-map", title: "Introducing the Blode Stack", palette: "d" },
