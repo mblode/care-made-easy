@@ -20,21 +20,43 @@ import {
 } from "blode-icons-react";
 import { cn } from "@/lib/utils";
 import { Display } from "@/components/slides/primitives/display";
+import { GlidePlayground } from "@/components/slides/glide-playground";
+import { SyncDemo } from "@/components/slides/sync-demo";
 import { Mark } from "@/components/slides/primitives/mark";
 import { Numeral } from "@/components/slides/primitives/numeral";
 import { QRCode } from "@/components/slides/qr-code";
 import { SlideContainer } from "@/components/slides/slide-container";
 
-const SURFACES = ["Web", "Desktop", "iOS", "Raycast", "CLI", "GraphQL", "MCP", "Skills"];
-
-const SPECIMEN_WEIGHTS = [
-  { weight: 400, label: "Regular" },
-  { weight: 500, label: "Medium" },
-  { weight: 600, label: "Semibold" },
-  { weight: 700, label: "Bold" },
-  { weight: 800, label: "Extrabold" },
-  { weight: 900, label: "Black" },
+const STACK_SECTIONS = [
+  {
+    label: "Design",
+    tools: [
+      { name: "Glide", logo: "/stack/glide.png" },
+      { name: "Blode Icons", logo: "/stack/blode-icons.png" },
+      { name: "Blode UI", logo: "/stack/blode-ui.png" },
+      { name: "Style Capture", logo: "/stack/style-capture.png" },
+    ],
+  },
+  {
+    label: "Developer Tools",
+    tools: [
+      { name: "Agent Skills", logo: "/stack/agent-skills.png" },
+      { name: "AllMD", logo: "/stack/allmd.png" },
+      { name: "Commandment", logo: "/stack/commandment.png" },
+      { name: "DiffHub", logo: "/stack/diffhub.png" },
+      { name: "Rubber Duck", logo: "/stack/rubber-duck.png" },
+    ],
+  },
+  {
+    label: "Platform",
+    tools: [
+      { name: "Blode.md", logo: "/stack/blode-md.png" },
+      { name: "Strata Sync", logo: "/stack/strata-sync.png" },
+    ],
+  },
 ] as const;
+
+const SKILL_PHASES = ["Project start", "Design", "Writing", "Pre-ship", "Pre-merge", "Release"];
 
 const ICON_GRID = [
   { Icon: SearchIcon, name: "Search" },
@@ -57,30 +79,6 @@ const ICON_GRID = [
 
 function SoftText({ children, className }: { children: React.ReactNode; className?: string }) {
   return <p className={cn("max-w-[34ch] text-[var(--fg-soft)]", className)}>{children}</p>;
-}
-
-function LogoTile({ body, name, src }: { body?: string; name: string; src?: string }) {
-  return (
-    <div className="honk-fade-up flex min-h-[11rem] flex-col justify-between gap-[var(--slide-space-5)] border-t border-[var(--hairline)] py-[var(--slide-space-5)] md:border-l md:border-t-0 md:px-[var(--slide-space-5)] md:first:border-l-0 md:first:pl-0">
-      {src ? (
-        <Image
-          alt={name}
-          className="size-14 rounded-[var(--slide-radius-md)] object-contain"
-          height={72}
-          src={src}
-          width={72}
-        />
-      ) : (
-        <span className="flex size-14 items-center justify-center rounded-[var(--slide-radius-md)] border border-[var(--hairline)] font-heading slide-text-lg">
-          {name.slice(0, 1)}
-        </span>
-      )}
-      <div className="flex flex-col gap-[var(--slide-space-2)]">
-        <h2 className="font-heading slide-text-2xl leading-[1.05]">{name}</h2>
-        {body ? <SoftText className="slide-text-base">{body}</SoftText> : null}
-      </div>
-    </div>
-  );
 }
 
 function WordTile({ children }: { children: React.ReactNode }) {
@@ -128,12 +126,8 @@ export function SlideTitle() {
     <SlideContainer className="justify-between" palette="e">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Mark>Claude Code for Developers | Melbourne</Mark>
-        <Display className="max-w-[12ch]" size="huge">
-          Care made easy.
-        </Display>
-        <SoftText className="max-w-[34ch] slide-text-2xl">
-          How to build a to-do list app in 2026.
-        </SoftText>
+        <Display size="huge">Care made easy.</Display>
+        <SoftText className="max-w-none slide-text-2xl">Encoding taste into code.</SoftText>
       </header>
 
       <footer className="honk-fade-up flex flex-wrap items-end justify-between gap-[var(--slide-space-5)] border-t border-[var(--hairline)] pt-[var(--slide-space-5)]">
@@ -149,16 +143,25 @@ export function SlideAbout() {
     <SlideContainer className="justify-between" palette="b">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Mark>About me</Mark>
-        <Display className="max-w-[13ch]" size="2xl">
-          Build for an audience of one.
-        </Display>
+        <Display size="huge">Matthew Blode</Display>
       </header>
 
-      <div className="grid gap-[var(--slide-space-6)] md:grid-cols-3">
-        <WordTile>AI at Linktree</WordTile>
-        <WordTile>Codex Ambassador</WordTile>
-        <WordTile>Two startups, two exits</WordTile>
-      </div>
+      <footer className="flex flex-col gap-[var(--slide-space-6)]">
+        <div className="grid gap-[var(--slide-space-6)] md:grid-cols-4">
+          <WordTile>AI at Linktree</WordTile>
+          <WordTile>Two startups, two exits</WordTile>
+          <WordTile>Codex Ambassador</WordTile>
+          <WordTile>Forbes 30 Under 30</WordTile>
+        </div>
+        <a
+          className="honk-fade-up w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
+          href="https://matthewblode.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          matthewblode.com
+        </a>
+      </footer>
     </SlideContainer>
   );
 }
@@ -166,12 +169,12 @@ export function SlideAbout() {
 export function SlideCarelessness() {
   return (
     <SlideContainer className="items-center justify-center text-center" palette="e">
-      <Mark>Philosophy</Mark>
-      <blockquote className="mx-auto flex max-w-[22ch] flex-col gap-[var(--slide-space-4)]">
-        <Display className="font-editorial-new italic" size="xl">
+      <blockquote className="mx-auto flex w-full max-w-[80%] flex-col gap-[var(--slide-space-4)]">
+        <Mark className="!self-center">Philosophy</Mark>
+        <Display className="font-editorial-new" size="xl">
           You can sense carelessness.
         </Display>
-        <SoftText className="slide-text-xl">— Jony Ive</SoftText>
+        <SoftText className="mx-auto slide-text-xl">— Jony Ive</SoftText>
       </blockquote>
     </SlideContainer>
   );
@@ -180,7 +183,7 @@ export function SlideCarelessness() {
 export function SlideDoneBear() {
   return (
     <SlideContainer className="justify-between" palette="c">
-      <div className="grid min-h-[calc(100dvh-var(--slide-space-16))] gap-[var(--slide-space-8)] md:grid-cols-[4fr_5fr] md:items-center">
+      <div className="grid min-h-[calc(100dvh-var(--slide-space-16))] gap-[var(--slide-space-8)] md:grid-cols-[3fr_5fr] md:items-center">
         <header className="flex flex-col gap-[var(--slide-space-5)]">
           <Image
             alt="Done Bear app icon"
@@ -190,51 +193,33 @@ export function SlideDoneBear() {
             src="/donebear/icon.png"
             width={96}
           />
-          <Mark>Proof app</Mark>
+          <Mark>Done Bear</Mark>
           <Display className="max-w-[14ch]" size="2xl">
-            You won't use this app.
+            Scratch your own itch.
           </Display>
           <SoftText className="max-w-[34ch] slide-text-xl">
-            But everything that built it is open source.
+            A to-do app. Every layer that built it is open source.
           </SoftText>
-        </header>
-
-        <Screenshot
-          alt="Done Bear playground screenshot"
-          className="min-h-[28rem]"
-          objectPosition="object-top"
-          src="/research/donebear-playground.png"
-        />
-      </div>
-    </SlideContainer>
-  );
-}
-
-export function SlideLiveDemo() {
-  return (
-    <SlideContainer className="justify-between" palette="c">
-      <div className="grid gap-[var(--slide-space-8)] md:grid-cols-[3fr_5fr] md:items-center">
-        <header className="flex flex-col gap-[var(--slide-space-4)]">
-          <Mark>Live demo</Mark>
-          <Display className="max-w-[10ch]" size="2xl">
-            Open Done Bear.
-          </Display>
           <a
-            className="w-fit underline-offset-4 slide-text-xl hover:underline focus-visible:underline"
-            href="https://donebear.com/playground"
+            className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
+            href="https://donebear.com"
             rel="noopener noreferrer"
             target="_blank"
           >
-            donebear.com/playground
+            donebear.com
           </a>
         </header>
 
-        <Screenshot
-          alt="Done Bear playground screenshot"
-          className="min-h-[30rem]"
-          objectPosition="object-top"
-          src="/research/donebear-playground.png"
-        />
+        <div className="relative min-h-[20rem] overflow-hidden rounded-[var(--slide-radius-xl)] outline outline-1 -outline-offset-1 outline-[var(--hairline)] md:min-h-[28rem]">
+          <iframe
+            className="h-full w-full absolute inset-0 border-0"
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+            sandbox="allow-scripts allow-same-origin"
+            src="https://donebear.com"
+            title="Done Bear interactive demo"
+          />
+        </div>
       </div>
     </SlideContainer>
   );
@@ -260,60 +245,59 @@ export function SlideNotAList() {
   );
 }
 
-export function SlideSimple() {
-  return (
-    <SlideContainer className="items-center justify-center text-center" palette="b">
-      <Mark>Principle</Mark>
-      <Display className="mx-auto max-w-[14ch]" size="2xl">
-        Easy is nearby. Simple is one fold.
-      </Display>
-      <SoftText className="mx-auto mt-[var(--slide-space-4)] max-w-[28ch] slide-text-xl">
-        Easy is relative. Simple is objective.
-      </SoftText>
-    </SlideContainer>
-  );
-}
-
 export function SlideThesis() {
   return (
     <SlideContainer className="items-center justify-center text-center" palette="e">
-      <Mark>Thesis</Mark>
+      <Mark className="!self-center">Thesis</Mark>
       <Display className="mx-auto max-w-[13ch]" size="2xl">
         The bottleneck has changed.
       </Display>
       <SoftText className="mx-auto mt-[var(--slide-space-4)] max-w-[34ch] slide-text-xl">
-        Code got cheap. Taste didn't. Build the defaults that close the gap.
+        Code got cheap. Taste didn’t. Build the defaults that close the gap.
       </SoftText>
     </SlideContainer>
   );
 }
 
 export function SlideStackMap() {
+  let toolIndex = 0;
+
   return (
     <SlideContainer className="justify-between" palette="d">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Mark>The system</Mark>
         <Display className="max-w-[14ch]" size="xl">
-          The stack is four rails.
+          Introducing the Blode Stack.
         </Display>
       </header>
 
-      <div className="honk-stagger grid gap-[var(--slide-space-5)] md:grid-cols-4">
-        {[
-          ["01", "Infrastructure", "Sync and surfaces make it shippable."],
-          ["02", "Defaults", "Type, icons, components, pixels."],
-          ["03", "Context", "Skills, markdown, docs."],
-          ["04", "Feedback", "Parallel runs, diffs, worktrees."],
-        ].map(([number, title, body], i) => (
-          <div
-            className="flex min-h-[15rem] flex-col justify-between border-t border-[var(--hairline)] py-[var(--slide-space-5)] md:border-l md:border-t-0 md:px-[var(--slide-space-5)] md:first:border-l-0 md:first:pl-0"
-            key={title}
-            style={{ "--stagger-i": i } as CSSProperties}
-          >
-            <Numeral value={number} />
-            <div className="flex flex-col gap-[var(--slide-space-3)]">
-              <h2 className="font-heading slide-text-2xl leading-[1.05]">{title}</h2>
-              <SoftText className="slide-text-base">{body}</SoftText>
+      <div className="flex flex-col gap-[var(--slide-space-6)]">
+        {STACK_SECTIONS.map((section) => (
+          <div className="flex flex-col gap-[var(--slide-space-3)]" key={section.label}>
+            <p className="font-heading uppercase tracking-widest text-[var(--fg-soft)] slide-text-sm">
+              {section.label}
+            </p>
+            <div className="honk-stagger grid grid-cols-2 gap-[var(--slide-space-3)] md:grid-cols-4">
+              {section.tools.map((tool) => {
+                const i = toolIndex;
+                toolIndex += 1;
+                return (
+                  <div
+                    className="flex items-center gap-[var(--slide-space-3)] rounded-[var(--slide-radius-lg)] border border-[var(--hairline)] p-[var(--slide-space-3)]"
+                    key={tool.name}
+                    style={{ "--stagger-i": i } as CSSProperties}
+                  >
+                    <Image
+                      alt={`${tool.name} logo`}
+                      className="size-8 shrink-0 rounded-[var(--slide-radius-sm)] object-contain"
+                      height={32}
+                      src={tool.logo}
+                      width={32}
+                    />
+                    <p className="font-heading leading-[1.2] slide-text-base">{tool.name}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         ))}
@@ -325,52 +309,54 @@ export function SlideStackMap() {
 export function SlideStrataSync() {
   return (
     <SlideContainer className="justify-between" palette="d">
-      <header className="flex flex-col gap-[var(--slide-space-4)]">
-        <Mark>Strata Sync</Mark>
-        <Display className="max-w-[13ch]" size="2xl">
-          Sync is where demos become products.
-        </Display>
-      </header>
-
-      <div className="grid gap-[var(--slide-space-6)] md:grid-cols-[2fr_3fr] md:items-end">
+      <header className="flex flex-col gap-[var(--slide-space-5)]">
         <Image
           alt="Strata Sync logo"
-          className="size-36 rounded-[var(--slide-radius-xl)] object-contain"
-          height={180}
+          className="size-24 rounded-[var(--slide-radius-xl)] object-contain"
+          height={96}
           src="/stack/strata-sync.png"
-          width={180}
+          width={96}
         />
-        <div className="grid gap-[var(--slide-space-5)] md:grid-cols-3">
-          <WordTile>Offline</WordTile>
-          <WordTile>Server order</WordTile>
-          <WordTile>Realtime</WordTile>
-        </div>
+        <Mark>Strata Sync</Mark>
+        <Display className="max-w-[16ch]" size="xl">
+          With the right abstractions, you get a lot for free.
+        </Display>
+        <SoftText className="max-w-[34ch] slide-text-xl">
+          Inspired by Linear’s sync engine. Open-source.
+        </SoftText>
+        <a
+          className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
+          href="https://stratasync.dev"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          stratasync.dev
+        </a>
+      </header>
+
+      <div className="grid gap-[var(--slide-space-5)] md:grid-cols-3">
+        <WordTile>Offline</WordTile>
+        <WordTile>Server order</WordTile>
+        <WordTile>Realtime</WordTile>
       </div>
     </SlideContainer>
   );
 }
 
-export function SlideSurfaces() {
+export function SlideSyncDemo() {
   return (
-    <SlideContainer className="justify-between" palette="c">
+    <SlideContainer className="justify-between" palette="d">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
-        <Mark>Surfaces</Mark>
-        <Display className="max-w-[12ch]" size="xl">
-          One model. Many ways in.
+        <Mark>Strata Sync</Mark>
+        <Display className="max-w-[14ch]" size="2xl">
+          Apps that just work.
         </Display>
+        <SoftText className="max-w-[38ch] slide-text-xl">
+          Tick off items and reorder lists instantly, even in aeroplane mode.
+        </SoftText>
       </header>
 
-      <div className="honk-stagger grid grid-cols-2 gap-[var(--slide-space-4)] md:grid-cols-4">
-        {SURFACES.map((surface, i) => (
-          <div
-            className="flex aspect-[5/3] items-end rounded-[var(--slide-radius-xl)] border border-[var(--hairline)] p-[var(--slide-space-4)]"
-            key={surface}
-            style={{ "--stagger-i": i } as CSSProperties}
-          >
-            <p className="font-heading slide-text-3xl leading-[1.05]">{surface}</p>
-          </div>
-        ))}
-      </div>
+      <SyncDemo />
     </SlideContainer>
   );
 }
@@ -388,20 +374,7 @@ export function SlideGlide() {
         </SoftText>
       </header>
 
-      <div className="honk-stagger grid gap-0">
-        {SPECIMEN_WEIGHTS.map(({ weight, label }, i) => (
-          <div
-            className="flex items-baseline justify-between border-t border-[var(--hairline)] py-[var(--slide-space-3)]"
-            key={weight}
-            style={{ "--stagger-i": i, fontWeight: weight } as CSSProperties}
-          >
-            <p className="font-heading slide-text-4xl leading-[1.1]">Glide</p>
-            <SoftText className="slide-text-base">
-              {label} {weight}
-            </SoftText>
-          </div>
-        ))}
-      </div>
+      <GlidePlayground />
     </SlideContainer>
   );
 }
@@ -440,20 +413,38 @@ export function SlideBlodeIcons() {
 export function SlideBlodeUi() {
   return (
     <SlideContainer className="justify-between" palette="a">
-      <header className="flex flex-col gap-[var(--slide-space-4)]">
-        <Mark>Blode UI</Mark>
-        <Display className="max-w-[12ch]" size="2xl">
-          69 components.
-        </Display>
-        <SoftText className="max-w-[32ch] slide-text-xl">
-          shadcn/ui registry. Agents install from it.
-        </SoftText>
-      </header>
+      <div className="grid gap-[var(--slide-space-8)] md:grid-cols-[4fr_5fr] md:items-center">
+        <header className="flex flex-col gap-[var(--slide-space-5)]">
+          <Image
+            alt="Blode UI logo"
+            className="size-24 rounded-[var(--slide-radius-xl)] object-contain"
+            height={96}
+            src="/stack/blode-ui.png"
+            width={96}
+          />
+          <Mark>Blode UI</Mark>
+          <Display className="max-w-[12ch]" size="2xl">
+            UI you own.
+          </Display>
+          <SoftText className="max-w-[32ch] slide-text-xl">
+            A shadcn/ui registry with taste baked in. Agents install from it.
+          </SoftText>
+          <a
+            className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
+            href="https://ui.blode.co"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            ui.blode.co
+          </a>
+        </header>
 
-      <div className="grid gap-[var(--slide-space-6)] md:grid-cols-3">
-        <WordTile>Registry</WordTile>
-        <WordTile>Tokens</WordTile>
-        <WordTile>Skills</WordTile>
+        <Screenshot
+          alt="Blode UI component registry homepage"
+          className="min-h-[28rem]"
+          objectPosition="object-top"
+          src="/research/blode-ui-registry.png"
+        />
       </div>
     </SlideContainer>
   );
@@ -462,28 +453,28 @@ export function SlideBlodeUi() {
 export function SlideStyleCapture() {
   return (
     <SlideContainer className="justify-between" palette="c">
-      <div className="grid gap-[var(--slide-space-8)] md:grid-cols-[5fr_4fr] md:items-end">
-        <header className="flex flex-col gap-[var(--slide-space-4)]">
-          <Mark>Style Capture</Mark>
-          <Display className="max-w-[12ch]" size="2xl">
-            Give the agent evidence.
-          </Display>
-          <SoftText className="max-w-[34ch] slide-text-xl">Pixels beat adjectives.</SoftText>
-        </header>
+      <header className="flex flex-col gap-[var(--slide-space-4)]">
+        <Mark>Style Capture</Mark>
+        <Display className="max-w-[12ch]" size="2xl">
+          Point at any UI.
+        </Display>
+        <SoftText className="max-w-[38ch] slide-text-xl">
+          A Chrome extension that gives your agent computed styles and Tailwind mappings.
+        </SoftText>
+      </header>
 
-        <div className="grid gap-[var(--slide-space-5)] md:grid-cols-[1fr_2fr] md:items-end">
-          <Image
-            alt="Style Capture logo"
-            className="size-32 rounded-[var(--slide-radius-xl)] object-contain"
-            height={160}
-            src="/stack/style-capture.png"
-            width={160}
-          />
-          <div className="grid gap-[var(--slide-space-4)]">
-            <WordTile>Capture pixels</WordTile>
-            <WordTile>Prompt with evidence</WordTile>
-            <WordTile>Review the match</WordTile>
-          </div>
+      <div className="grid gap-[var(--slide-space-6)] md:grid-cols-[2fr_3fr] md:items-end">
+        <Image
+          alt="Style Capture logo"
+          className="size-32 rounded-[var(--slide-radius-xl)] object-contain"
+          height={160}
+          src="/stack/style-capture.png"
+          width={160}
+        />
+        <div className="grid gap-[var(--slide-space-5)] md:grid-cols-3">
+          <WordTile>Ground truth</WordTile>
+          <WordTile>Tailwind mapping</WordTile>
+          <WordTile>Agent-ready</WordTile>
         </div>
       </div>
     </SlideContainer>
@@ -496,42 +487,98 @@ export function SlideAgentSkills() {
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Mark>Agent Skills</Mark>
         <Display className="max-w-[12ch]" size="2xl">
-          Package the way you work.
+          23 skills.
         </Display>
+        <SoftText className="max-w-[34ch] slide-text-xl">
+          Capture what you know. Make it repeatable.
+        </SoftText>
       </header>
 
-      <div className="grid gap-[var(--slide-space-6)] md:grid-cols-[2fr_3fr] md:items-end">
-        <Image
-          alt="Agent Skills logo"
-          className="size-32 rounded-[var(--slide-radius-xl)] object-contain"
-          height={160}
-          src="/stack/agent-skills.png"
-          width={160}
-        />
-        <div className="grid gap-[var(--slide-space-5)] md:grid-cols-3">
-          <WordTile>Instructions</WordTile>
-          <WordTile>Examples</WordTile>
-          <WordTile>Checks</WordTile>
-        </div>
+      <div className="honk-stagger grid grid-cols-2 gap-[var(--slide-space-4)] md:grid-cols-3">
+        {SKILL_PHASES.map((phase, i) => (
+          <div
+            className="flex aspect-[5/3] items-end rounded-[var(--slide-radius-xl)] border border-[var(--hairline)] p-[var(--slide-space-4)]"
+            key={phase}
+            style={{ "--stagger-i": i } as CSSProperties}
+          >
+            <p className="font-heading slide-text-3xl leading-[1.05]">{phase}</p>
+          </div>
+        ))}
       </div>
     </SlideContainer>
   );
 }
 
-export function SlideMarkdownLayer() {
+export function SlideAllMd() {
   return (
     <SlideContainer className="justify-between" palette="d">
       <header className="flex flex-col gap-[var(--slide-space-4)]">
-        <Mark>Context</Mark>
-        <Display className="max-w-[13ch]" size="2xl">
-          Context starts as markdown.
+        <Image
+          alt="AllMD logo"
+          className="size-36 rounded-[var(--slide-radius-xl)] object-contain"
+          height={180}
+          src="/stack/allmd.png"
+          width={180}
+        />
+        <Mark>AllMD</Mark>
+        <Display className="max-w-[14ch]" size="2xl">
+          Turn the whole universe into markdown.
         </Display>
+        <SoftText className="max-w-[34ch] slide-text-xl">
+          Convert anything to markdown. Web pages, YouTube, PDFs, images, audio, and more.
+        </SoftText>
       </header>
 
-      <div className="grid gap-0 md:grid-cols-3">
-        <LogoTile body="Links, files, notes." name="Sources" />
-        <LogoTile body="Everything to markdown." name="AllMD" src="/stack/allmd.png" />
-        <LogoTile body="Markdown to docs." name="Blode.md" src="/stack/blode-md.png" />
+      <div className="honk-fade-up flex flex-col gap-[var(--slide-space-3)] border-t border-[var(--hairline)] pt-[var(--slide-space-5)]">
+        <a
+          className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
+          href="https://allmd.blode.co/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          allmd.blode.co
+        </a>
+      </div>
+    </SlideContainer>
+  );
+}
+
+export function SlideBlodeMd() {
+  return (
+    <SlideContainer className="justify-between" palette="c">
+      <header className="flex flex-col gap-[var(--slide-space-4)]">
+        <Image
+          alt="Blode.md logo"
+          className="size-24 rounded-[var(--slide-radius-xl)] object-contain"
+          height={96}
+          src="/stack/blode-md.png"
+          width={96}
+        />
+        <Mark>Blode.md</Mark>
+        <Display className="max-w-[14ch]" size="2xl">
+          The knowledge layer your AI runs on.
+        </Display>
+        <SoftText className="max-w-[34ch] slide-text-xl">
+          AI agents learn your product from your docs. Blode.md keeps them in your repo, versioned
+          with the code, readable by people and machines.
+        </SoftText>
+        <a
+          className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
+          href="https://blode.md/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          blode.md
+        </a>
+      </header>
+
+      <div className="grid gap-[var(--slide-space-6)] md:grid-cols-3">
+        <WordTile>GitHub auto-deploy</WordTile>
+        <WordTile>Custom domains</WordTile>
+        <WordTile>MDX components</WordTile>
+        <WordTile>Search</WordTile>
+        <WordTile>Content types</WordTile>
+        <WordTile>API reference</WordTile>
       </div>
     </SlideContainer>
   );
@@ -541,18 +588,36 @@ export function SlideDiffHub() {
   return (
     <SlideContainer className="justify-between" palette="e">
       <div className="grid gap-[var(--slide-space-8)] md:grid-cols-[4fr_5fr] md:items-center">
-        <header className="flex flex-col gap-[var(--slide-space-4)]">
+        <header className="flex flex-col gap-[var(--slide-space-5)]">
+          <Image
+            alt="DiffHub logo"
+            className="size-24 rounded-[var(--slide-radius-xl)] object-contain"
+            height={96}
+            src="/stack/diffhub.png"
+            width={96}
+          />
           <Mark>DiffHub</Mark>
-          <Display className="max-w-[11ch]" size="2xl">
-            See every diff.
+          <Display className="max-w-[14ch]" size="2xl">
+            Review your branch in cmux.
           </Display>
-          <SoftText className="max-w-[32ch] slide-text-xl">
-            Local. Split-view. Keyboard-first.
+          <SoftText className="max-w-[34ch] slide-text-xl">
+            Compare against the detected base branch. Leave notes. Copy them as a prompt.
           </SoftText>
+          <div className="flex flex-col gap-[var(--slide-space-2)]">
+            <code className="font-mono slide-text-lg">npx diffhub@latest cmux</code>
+            <a
+              className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
+              href="https://diffhub.blode.co"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              diffhub.blode.co
+            </a>
+          </div>
         </header>
 
         <Screenshot
-          alt="DiffHub split-view diff screenshot"
+          alt="DiffHub showing a branch diff with file sidebar and split view"
           className="min-h-[28rem]"
           src="/research/diffhub.png"
         />
@@ -600,26 +665,12 @@ export function SlideSpotlightTesting() {
 export function SlideSolveYourOwn() {
   return (
     <SlideContainer className="items-center justify-center text-center" palette="d">
-      <Mark>Open source</Mark>
+      <Mark className="!self-center">Open source</Mark>
       <Display className="mx-auto max-w-[14ch]" size="2xl">
         Build to solve your own problems.
       </Display>
-      <SoftText className="mx-auto mt-[var(--slide-space-4)] max-w-[28ch] slide-text-xl">
+      <SoftText className="mx-auto mt-[var(--slide-space-4)] max-w-[28ch] slide-text-2xl">
         Give it away for free.
-      </SoftText>
-    </SlideContainer>
-  );
-}
-
-export function SlideFreedom() {
-  return (
-    <SlideContainer className="items-center justify-center text-center" palette="b">
-      <Mark>Process</Mark>
-      <Display className="mx-auto max-w-[14ch]" size="2xl">
-        Find the problem that bothers you.
-      </Display>
-      <SoftText className="mx-auto mt-[var(--slide-space-4)] max-w-[28ch] slide-text-xl">
-        Build the tool. Ship it tomorrow.
       </SoftText>
     </SlideContainer>
   );
@@ -636,36 +687,20 @@ export function SlideQuestions() {
           <div className="flex flex-col gap-[var(--slide-space-3)] border-t border-[var(--hairline)] pt-[var(--slide-space-5)] slide-text-xl">
             <a
               className="underline-offset-4 hover:underline focus-visible:underline"
-              href="https://donebear.com"
+              href="https://matthewblode.com"
               rel="noopener noreferrer"
               target="_blank"
             >
-              donebear.com
-            </a>
-            <a
-              className="underline-offset-4 hover:underline focus-visible:underline"
-              href="https://matthewblode.com/stack"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              matthewblode.com/stack
-            </a>
-            <a
-              className="underline-offset-4 hover:underline focus-visible:underline"
-              href="https://github.com/mblode"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              github.com/mblode
+              matthewblode.com
             </a>
           </div>
         </div>
         <div
-          aria-label="QR code linking to matthewblode.com/stack"
+          aria-label="QR code linking to matthewblode.com"
           className="hidden md:block"
           role="img"
         >
-          <QRCode className="size-40" data="https://matthewblode.com/stack" />
+          <QRCode className="size-40" data="https://matthewblode.com" />
         </div>
       </div>
     </SlideContainer>
