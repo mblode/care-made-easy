@@ -129,9 +129,8 @@ export function SlideTitle() {
         <SoftText className="max-w-none slide-text-2xl">Encoding taste into code.</SoftText>
       </header>
 
-      <footer className="honk-fade-up flex flex-wrap items-end justify-between gap-[var(--slide-space-5)] border-t border-[var(--hairline)] pt-[var(--slide-space-5)]">
+      <footer className="honk-fade-up border-t border-[var(--hairline)] pt-[var(--slide-space-5)]">
         <p className="font-heading slide-text-2xl leading-[1.05]">Matthew Blode</p>
-        <SoftText className="slide-text-base">AI at Linktree | OpenAI Codex Ambassador</SoftText>
       </footer>
     </SlideContainer>
   );
@@ -675,7 +674,7 @@ export function SlideQuestions() {
           <div className="flex flex-col gap-[var(--slide-space-3)] border-t border-[var(--hairline)] pt-[var(--slide-space-5)] slide-text-xl">
             <a
               className="underline-offset-4 hover:underline focus-visible:underline"
-              href="https://matthewblode.com"
+              href="https://matthewblode.com?ref=blode-stack-preso"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -688,7 +687,7 @@ export function SlideQuestions() {
           className="hidden md:block"
           role="img"
         >
-          <QRCode className="size-40" data="https://matthewblode.com" />
+          <QRCode className="size-40" data="https://matthewblode.com?ref=blode-stack-preso" />
         </div>
       </div>
     </SlideContainer>
