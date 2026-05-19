@@ -153,7 +153,14 @@ export function SlideTitle() {
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Display size="huge">Care made easy.</Display>
         <SoftText className="max-w-none slide-text-2xl">Encoding taste into code.</SoftText>
-        <p className="text-[var(--fg-soft)] slide-text-lg">by Matthew Blode</p>
+        <a
+          className="w-fit text-[var(--fg-soft)] underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
+          href="https://matthewblode.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          by Matthew Blode
+        </a>
       </header>
     </SlideContainer>
   );
@@ -162,8 +169,18 @@ export function SlideTitle() {
 export function SlideAbout() {
   return (
     <SlideContainer className="justify-between" palette="d">
-      <header className="flex flex-col gap-[var(--slide-space-4)]">
+      <div className="flex items-start justify-between">
         <Mark>About me</Mark>
+        <a
+          className="text-[var(--fg-soft)] underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
+          href="https://matthewblode.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          matthewblode.com
+        </a>
+      </div>
+      <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Display size="huge">
           <a
             className="underline-offset-[0.15em] hover:underline focus-visible:underline"
