@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 
@@ -9,13 +9,9 @@ interface MotionRootProps {
   children: React.ReactNode;
 }
 
-/**
- * Wraps a slide. Crossfade with a small directional translate based on
- * whether we're moving forward or backward through the deck. Honors
- * `prefers-reduced-motion`.
- */
 export function MotionRoot({ slideKey, children }: MotionRootProps) {
   const pathname = usePathname();
+  const shouldReduceMotion = useReducedMotion();
   const prevSlide = useRef<number>(typeof slideKey === "number" ? slideKey : 1);
 
   const current = typeof slideKey === "number" ? slideKey : Number.parseInt(String(slideKey), 10);
@@ -25,15 +21,19 @@ export function MotionRoot({ slideKey, children }: MotionRootProps) {
     prevSlide.current = current;
   }, [current]);
 
+  const transition = shouldReduceMotion
+    ? { duration: 0.01 }
+    : { duration: 0.36, ease: [0.6, 0, 0, 1] as const };
+
   return (
     <AnimatePresence initial={false} mode="sync">
       <motion.div
         animate={{ opacity: 1, x: 0 }}
         className="min-h-dvh"
-        exit={{ opacity: 0, x: -direction * 32 }}
-        initial={{ opacity: 0, x: direction * 32 }}
+        exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -direction * 32 }}
+        initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: direction * 32 }}
         key={pathname}
-        transition={{ duration: 0.36, ease: [0.6, 0, 0, 1] }}
+        transition={transition}
       >
         {children}
       </motion.div>

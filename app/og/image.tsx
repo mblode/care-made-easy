@@ -102,7 +102,7 @@ export async function createOgImage(options: OgImageOptions = {}) {
   const eyebrow = options.eyebrow ?? "How to build a to-do list app in 2026";
   const counter =
     options.slideNumber === undefined
-      ? "blode-stack-preso"
+      ? "Care Made Easy"
       : `${String(options.slideNumber).padStart(2, "0")} / ${String(TOTAL_SLIDES).padStart(2, "0")}`;
 
   return new ImageResponse(
@@ -157,8 +157,8 @@ export async function createOgImage(options: OgImageOptions = {}) {
         </div>
         <div tw="flex">
           {options.slideNumber === undefined
-            ? "Done Bear, agent rails, and the stack around it."
-            : "blode-stack-preso"}
+            ? "Strata Sync, Blode UI, Agent Skills, and the rest of the stack."
+            : "Care Made Easy"}
         </div>
       </div>
     </div>,
