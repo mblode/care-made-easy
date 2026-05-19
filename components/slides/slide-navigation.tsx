@@ -1,7 +1,6 @@
 "use client";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "blode-icons-react";
-import { motion, useReducedMotion } from "motion/react";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
@@ -24,7 +23,6 @@ export function SlideNavigation({
   children,
 }: SlideNavigationProps) {
   const router = useRouter();
-  const shouldReduceMotion = useReducedMotion();
 
   const goToSlide = useCallback(
     (slideNum: number) => {
@@ -49,19 +47,14 @@ export function SlideNavigation({
   return (
     <section aria-label="Slide navigation area" className="relative min-h-dvh">
       {children}
-      <motion.div
-        animate={{ opacity: 1, y: 0 }}
+      <div
         className="-translate-x-1/2 fixed bottom-4 left-1/2 z-50 flex items-center gap-1 rounded-full p-1 font-medium shadow-[0_8px_28px_rgba(0,0,0,0.22),0_2px_6px_rgba(0,0,0,0.16)]"
         data-palette={palette}
         data-slide-nav
-        initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
         style={{
           background: "var(--fg)",
           color: "var(--bg)",
         }}
-        transition={
-          shouldReduceMotion ? { duration: 0 } : { delay: 0.6, duration: 0.5, ease: [0.6, 0, 0, 1] }
-        }
       >
         <Button
           aria-label="Previous slide"
@@ -93,7 +86,7 @@ export function SlideNavigation({
         >
           <ChevronRightIcon aria-hidden="true" className="size-4" />
         </Button>
-      </motion.div>
+      </div>
     </section>
   );
 }

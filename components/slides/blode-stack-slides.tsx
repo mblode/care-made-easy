@@ -180,44 +180,34 @@ export function SlideCarelessness() {
 
 export function SlideDoneBear() {
   return (
-    <SlideContainer className="justify-between" palette="c">
-      <div className="grid min-h-[calc(100dvh-var(--slide-space-16))] gap-[var(--slide-space-8)] md:grid-cols-[3fr_5fr] md:items-center">
-        <header className="flex flex-col gap-[var(--slide-space-5)]">
-          <Image
-            alt="Done Bear app icon"
-            className="size-24 rounded-[var(--slide-radius-xl)] bg-white object-contain p-3"
-            height={96}
-            priority
-            src="/donebear/icon.png"
-            width={96}
-          />
+    <SlideContainer
+      className="relative gap-[var(--slide-space-5)] !pb-10 !pt-[var(--slide-space-10)]"
+      palette="c"
+    >
+      <div className="flex items-start justify-between gap-[var(--slide-space-4)]">
+        <div className="flex flex-col gap-[var(--slide-space-2)]">
           <Mark>Done Bear</Mark>
-          <Display className="max-w-[14ch]" size="2xl">
-            Scratch your own itch.
-          </Display>
-          <SoftText className="max-w-[34ch] slide-text-xl">
-            A to-do app. Every layer that built it is open source.
-          </SoftText>
-          <a
-            className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
-            href="https://donebear.com"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            donebear.com
-          </a>
-        </header>
-
-        <div className="relative min-h-[20rem] overflow-hidden rounded-[var(--slide-radius-xl)] outline outline-1 -outline-offset-1 outline-[var(--hairline)] md:min-h-[28rem]">
-          <iframe
-            className="h-full w-full absolute inset-0 border-0"
-            loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
-            sandbox="allow-scripts allow-same-origin"
-            src="https://donebear.com/playground"
-            title="Done Bear interactive demo"
-          />
+          <Display size="xl">Every layer built on open source.</Display>
         </div>
+        <a
+          className="shrink-0 underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
+          href="https://donebear.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          donebear.com
+        </a>
+      </div>
+
+      <div className="relative flex-1 overflow-hidden rounded-[var(--slide-radius-xl)] outline outline-1 -outline-offset-1 outline-[var(--hairline)]">
+        <iframe
+          className="absolute inset-0 h-full w-full border-0"
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          sandbox="allow-scripts allow-same-origin"
+          src="https://donebear.com/playground"
+          title="Done Bear interactive demo"
+        />
       </div>
     </SlideContainer>
   );
@@ -233,11 +223,10 @@ export function SlideNotAList() {
         </Display>
       </header>
 
-      <div className="grid gap-[var(--slide-space-6)] md:grid-cols-4">
-        <WordTile>Sync</WordTile>
-        <WordTile>Surfaces</WordTile>
-        <WordTile>Agents</WordTile>
-        <WordTile>Polish</WordTile>
+      <div className="grid gap-[var(--slide-space-6)] md:grid-cols-3">
+        <WordTile>Design foundations</WordTile>
+        <WordTile>Developer tools</WordTile>
+        <WordTile>Platform</WordTile>
       </div>
     </SlideContainer>
   );
