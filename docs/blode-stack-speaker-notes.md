@@ -1,10 +1,10 @@
-# Blode Stack Speaker Notes
+# Care Made Easy — Speaker Notes
 
-## 1. Blode Stack
+## 1. Care made easy
 
-- Systems talk, not a to-do tutorial
-- Behind the scenes of Done Bear
-- The stack around it is the real subject
+- My journey building tools that compound velocity
+- The bottleneck shifted. These are the primitives.
+- Behind the scenes of Done Bear — the app is the proof, the tools are the point
 
 ## 2. Build for an audience of one
 
@@ -12,17 +12,17 @@
 - AI at Linktree, OpenAI Codex Ambassador
 - Two startups, two exits (VenueSafe, Fingertip)
 
-## 3. Small tools became a stack
+## 3. You can sense carelessness
 
-- Each tool started as a fix for my own workflow
-- What survived repeated use got packaged
-- Done Bear is where all the pieces meet
+- Jony Ive, Patrick Collison interview
+- Users can't see your code but they feel care
+- Care is about the user, not vanity
 
-## 4. Done Bear is the demo
+## 4. You won't use this app
 
-- Calm, local-first task manager
-- Web, desktop, CLI, MCP, Raycast, skills
-- The interesting part is what sits under a plain list
+- I won't use your loveable app — be honest
+- But the tools that built it compound velocity
+- Everything is open source. The tools are the gift.
 
 ## 5. Live demo
 
@@ -35,92 +35,101 @@
 - Surfaces: people and agents enter from different places
 - Polish: the app has to feel trustworthy
 
-## 7. The bottleneck has changed
+## 7. Simple as possible, no simpler
 
-- Agents made code cheaper
-- Now it's encapsulating taste and parallelising work
-- Better defaults, context, and feedback raise the floor
+- Rich Hickey: simple = one fold (Latin sim-plex), no braiding. Easy = nearby (Latin adjacens), familiar.
+- Simple is objective — you can look and see if things are interleaved. Easy is relative — easy for whom?
+- The speed graph: easy tools let you sprint early, but complexity kills you over the long haul
+- "You can't get smarter. You have to bring things towards you by making them simpler."
+- Juggling analogy: we can only hold a few things. Every intertwining adds combinatorial burden. How many of those balls do you want to be incidental complexity?
+- "Simplicity is a prerequisite for reliability." — Dijkstra
 
-## 8. The stack is four rails
+## 8. The bottleneck has changed
+
+- Agents made code cheaper. The construct is easy. The artifact is what matters.
+- Instill knowledge into skills and primitives. Stack them.
+- Move at breakneck pace at world-class quality. Avoid the AI slop we're all allergic to.
+
+## 9. The stack is four rails
 
 - Infrastructure makes the app shippable
 - Defaults give agents taste
 - Context gives agents memory
 - Feedback keeps parallel work honest
 
-## 9. Sync is where demos become products
+## 10. Sync is where demos become products
 
 - Before: a task exists on one screen
 - After: order, history, recovery
 - Users feel reliability, not architecture
 
-## 10. Done Bear lives on every surface
+## 11. One model. Many ways in.
 
 - Web is only one way in
 - CLI and MCP make the app agent-native
-- Raycast and desktop meet users where they work
+- Meet users where they work
 
-## 11. Glide
+## 12. Glide
 
 - Variable typeface, 400–900
 - Roman and italic
 - The visual voice of everything I ship
 
-## 12. Blode Icons
+## 13. Blode Icons
 
 - 3,754 icons, drop-in Lucide replacement
 - Same API, tree-shakeable
 - Agents reach for these instead of Lucide
 
-## 13. Blode UI
+## 14. Blode UI
 
 - 69 shadcn/ui components in a registry
 - Agents install from the registry directly
 - Packages, tokens, and skills — not a moodboard
 
-## 14. Style Capture
+## 15. Style Capture
 
 - Capture computed CSS, map to Tailwind
 - Prompt with evidence, not adjectives
 - Review becomes compare-to-target
 
-## 15. Agent Skills
+## 16. Agent Skills
 
 - 24 skills across planning, design, dev, quality
 - Instructions, examples, and checks travel together
 - Install once, reuse everywhere
 
-## 16. Context starts as markdown
+## 17. Context starts as markdown
 
 - AllMD turns anything into markdown
 - Blode.md turns markdown into docs
 - Same source feeds humans and agents
 
-## 17. DiffHub
+## 18. DiffHub
 
 - Local split-view diff viewer for cmux
 - Keyboard-first, opens in browser
 - Review branches without leaving the terminal
 
-## 18. Spotlight Testing
+## 19. Spotlight Testing
 
 - Test worktree changes in repo root
 - No rebuild, same Docker, same DB
 - On, test, off — clean restore
 
-## 19. Build the primitives before the screens
+## 20. Build to solve your own problems
 
-- Model the work
-- Sync the truth
-- Choose surfaces, teach agents, close the loop
+- Scratch your own itch. Open-source by default.
+- These tools compound. Each one solves a bottleneck. Together they're a stack.
+- If it helps you, it probably helps someone.
 
-## 20. Better rails make better agents
+## 21. Freedom to invent
 
-- Sync makes the product real
-- Defaults keep taste close
-- Context and feedback make agents useful
+- When you build for yourself, you can play
+- No stakeholders, no compromise
+- That's where the best ideas live
 
-## 21. Questions
+## 22. Questions
 
 - donebear.com for the proof app
 - matthewblode.com/stack for the stack

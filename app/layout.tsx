@@ -29,13 +29,14 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
   },
   appleWebApp: {
-    title: "Blode Stack",
+    title: "Care Made Easy",
   },
   authors: [{ name: "Matthew Blode", url: "https://matthewblode.com" }],
   creator: "Matthew Blode",
   description:
-    "A behind-the-scenes look at Done Bear and the Blode Stack: design foundations, agent skills, markdown context, feedback loops, and local-first sync.",
+    "Care Made Easy: a behind-the-scenes look at Done Bear and the open-source tools that make shipping with care possible.",
   keywords: [
+    "Care Made Easy",
     "Blode Stack",
     "Done Bear",
     "Claude Code",
@@ -50,10 +51,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   openGraph: {
     description:
-      "How to build a to-do list app in 2026: the product demands, the rails, and the tools around Done Bear.",
+      "How to build a to-do list app in 2026: care, simplicity, and the open-source tools behind Done Bear.",
     locale: "en_US",
-    siteName: "Blode Stack",
-    title: "Blode Stack",
+    siteName: "Care Made Easy",
+    title: "Care Made Easy",
     type: "website",
     url: BASE_URL,
   },
@@ -72,15 +73,15 @@ export const metadata: Metadata = {
     index: true,
   },
   title: {
-    default: "Blode Stack | Matthew Blode",
-    template: "%s | Blode Stack",
+    default: "Care Made Easy | Matthew Blode",
+    template: "%s | Care Made Easy",
   },
   twitter: {
     card: "summary_large_image",
     creator: "@mattblode",
     description:
-      "How to build a to-do list app in 2026: the product demands, the rails, and the tools around Done Bear.",
-    title: "Blode Stack",
+      "How to build a to-do list app in 2026: care, simplicity, and the open-source tools behind Done Bear.",
+    title: "Care Made Easy",
   },
 };
 
@@ -90,8 +91,8 @@ const jsonLd = {
     {
       "@id": `${BASE_URL}/#website`,
       "@type": "WebSite",
-      description: "A behind-the-scenes look at Done Bear and the Blode Stack.",
-      name: "Blode Stack",
+      description: "Care Made Easy: the open-source tools behind Done Bear.",
+      name: "Care Made Easy",
       publisher: {
         "@id": `${BASE_URL}/#person`,
       },
@@ -117,9 +118,9 @@ const jsonLd = {
         "@id": `${BASE_URL}/#person`,
       },
       description:
-        "How to build a to-do list app in 2026 with sync, defaults, markdown context, and tight feedback loops.",
+        "How to build a to-do list app in 2026 with care, simplicity, and open-source tools.",
       headline: "How to build a to-do list app in 2026",
-      name: "Blode Stack",
+      name: "Care Made Easy",
       url: BASE_URL,
     },
   ],
