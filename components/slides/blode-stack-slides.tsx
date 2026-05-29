@@ -770,17 +770,17 @@ export function SlideQuestions() {
               Slides available at{" "}
               <a
                 className="underline underline-offset-4 hover:no-underline focus-visible:no-underline"
-                href="https://stack.blode.co"
+                href="https://care.blode.co"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                stack.blode.co
+                care.blode.co
               </a>
             </p>
           </div>
         </div>
-        <div aria-label="QR code linking to stack.blode.co" className="hidden md:block" role="img">
-          <QRCode className="size-40" data="https://stack.blode.co" />
+        <div aria-label="QR code linking to care.blode.co" className="hidden md:block" role="img">
+          <QRCode className="size-40" data="https://care.blode.co" />
         </div>
       </div>
     </SlideContainer>
