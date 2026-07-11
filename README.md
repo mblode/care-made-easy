@@ -1,4 +1,4 @@
-# Blode Stack Preso
+# Care Made Easy Preso
 
 Next.js slide deck for Matthew Blode's "Blode Stack" talk.
 
