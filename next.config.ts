@@ -12,6 +12,9 @@ const nextConfig: NextConfig = {
     ],
   },
   reactCompiler: true,
+  // Next's inline type checker cannot load TypeScript 7's relocated compiler
+  // API. `npm run check-types` remains the authoritative type gate.
+  typescript: { ignoreBuildErrors: true },
 };
 
 export default nextConfig;
