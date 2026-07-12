@@ -1,6 +1,6 @@
 // oxlint-disable eslint(class-methods-use-this) -- StorageAdapter interface requires instance methods
 import type { ModelPersistenceMeta, StorageAdapter, StorageMeta } from "@stratasync/client";
-import type { SyncAction, Transaction } from "@stratasync/core";
+import type { SyncAction, SyncId, Transaction } from "@stratasync/core";
 
 export class InMemoryStorage implements StorageAdapter {
   private readonly data = new Map<string, Map<string, Record<string, unknown>>>();
@@ -173,6 +173,12 @@ export class InMemoryStorage implements StorageAdapter {
       return Promise.resolve(filtered.slice(0, limit));
     }
     return Promise.resolve(filtered);
+  }
+
+  pruneSyncActions(beforeSyncId: SyncId): Promise<void> {
+    const retained = this.syncActions.filter((action) => action.id >= beforeSyncId);
+    this.syncActions.splice(0, this.syncActions.length, ...retained);
+    return Promise.resolve();
   }
 
   clearSyncActions(): Promise<void> {
