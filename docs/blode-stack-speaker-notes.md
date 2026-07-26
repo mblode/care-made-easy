@@ -137,4 +137,4 @@
 
 ## 20. Questions
 
-- matthewblode.com for the stack and everything else
+- blode.co for the stack and everything else

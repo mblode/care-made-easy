@@ -218,7 +218,7 @@ The nav bar's `borderRadius: "35px"` literal becomes `var(--slide-radius-pill)`.
 │                                                            │
 │                                                            │
 │  MATTHEW BLODE  +  MRU                          LINKTREE   │  ← Inter eyebrow caps, bottom strip
-│  matthewblode.com                               OCT 2026   │
+│  blode.co                               OCT 2026   │
 └────────────────────────────────────────────────────────────┘
 ```
 
@@ -253,7 +253,7 @@ Vibe: **editorial, confident, set**.
 │                                        └──────────────┘    │
 │                                          Scan for slides   │
 │                                                            │
-│  Matthew Blode  +  Mru   ·   matthewblode.com              │  ← single bio line, --slide-text-lg
+│  Matthew Blode  +  Mru   ·   blode.co              │  ← single bio line, --slide-text-lg
 │                                                            │
 │  ─────────────                                             │  ← second accent rule
 │  agent-skills    ·    allmd    ·    spotlight-testing      │  ← inline links, --muted-fg w/ hover

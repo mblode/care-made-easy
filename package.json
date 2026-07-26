@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "portless run next dev --webpack",
+    "dev": "portless run next dev",
     "build": "next build",
     "lint": "oxlint .",
     "lint:fix": "oxlint --fix .",
@@ -13,7 +13,7 @@
     "check-types": "tsc --noEmit",
     "check": "ultracite check",
     "fix": "ultracite fix",
-    "prepare": "lefthook install"
+    "prepare": "if [ -z \"$VERCEL\" ]; then lefthook install; fi"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     title: "Care made easy",
   },
-  authors: [{ name: "Matthew Blode", url: "https://matthewblode.com" }],
+  authors: [{ name: "Matthew Blode", url: "https://blode.co" }],
   creator: "Matthew Blode",
   description:
     "Agents made code cheap — taste is the bottleneck now. A 22-slide deck on the open-source stack (Strata Sync, Blode UI, Agent Skills) behind Done Bear.",
@@ -109,7 +109,7 @@ const jsonLd = {
         "https://x.com/mattblode",
         "https://twitter.com/mattblode",
       ],
-      url: "https://matthewblode.com",
+      url: "https://blode.co",
     },
     {
       "@id": `${BASE_URL}/#presentation`,

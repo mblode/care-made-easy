@@ -32,12 +32,16 @@ const STACK_SECTIONS = [
   {
     label: "Design",
     tools: [
-      { name: "Glide", logo: "/stack/glide.png", href: "https://glide.blode.co" },
-      { name: "Blode Icons", logo: "/stack/blode-icons.png", href: "https://icons.blode.co" },
-      { name: "Blode UI", logo: "/stack/blode-ui.png", href: "https://ui.blode.co" },
+      { name: "Glide", logo: "/care/stack/glide.png", href: "https://blode.co/glide" },
+      {
+        name: "Blode Icons",
+        logo: "/care/stack/blode-icons.png",
+        href: "https://blode.co/icons",
+      },
+      { name: "Blode UI", logo: "/care/stack/blode-ui.png", href: "https://blode.co/ui" },
       {
         name: "Style Capture",
-        logo: "/stack/style-capture.png",
+        logo: "/care/stack/style-capture.png",
         href: "https://github.com/mblode/style-capture",
       },
     ],
@@ -47,20 +51,24 @@ const STACK_SECTIONS = [
     tools: [
       {
         name: "Agent Skills",
-        logo: "/stack/agent-skills.png",
+        logo: "/care/stack/agent-skills.png",
         href: "https://github.com/mblode/agent-skills",
       },
-      { name: "AllMD", logo: "/stack/allmd.png", href: "https://allmd.blode.co" },
+      { name: "AllMD", logo: "/care/stack/allmd.png", href: "https://blode.co/allmd" },
       {
         name: "Commandment",
-        logo: "/stack/commandment.png",
+        logo: "/care/stack/commandment.png",
         href: "https://github.com/mblode/commandment",
       },
-      { name: "DiffHub", logo: "/stack/diffhub.png", href: "https://diffhub.blode.co" },
-      { name: "Reel", logo: "/stack/reel.png", href: "https://github.com/mblode/reel" },
+      {
+        name: "DiffHub",
+        logo: "/care/stack/diffhub.png",
+        href: "https://blode.co/diffhub",
+      },
+      { name: "Reel", logo: "/care/stack/reel.png", href: "https://github.com/mblode/reel" },
       {
         name: "Rubber Duck",
-        logo: "/stack/rubber-duck.png",
+        logo: "/care/stack/rubber-duck.png",
         href: "https://github.com/mblode/rubber-duck",
       },
     ],
@@ -68,9 +76,17 @@ const STACK_SECTIONS = [
   {
     label: "Platform",
     tools: [
-      { name: "Blode.md", logo: "/stack/blode-md.png", href: "https://blode.md" },
-      { name: "Convene", logo: "/stack/convene.png", href: "https://github.com/mblode/convene" },
-      { name: "Strata Sync", logo: "/stack/strata-sync.png", href: "https://stratasync.dev" },
+      { name: "Blode.md", logo: "/care/stack/blode-md.png", href: "https://blode.md" },
+      {
+        name: "Convene",
+        logo: "/care/stack/convene.png",
+        href: "https://github.com/mblode/convene",
+      },
+      {
+        name: "Strata Sync",
+        logo: "/care/stack/strata-sync.png",
+        href: "https://stratasync.dev",
+      },
     ],
   },
 ] as const;
@@ -155,7 +171,7 @@ export function SlideTitle() {
         <SoftText className="max-w-none slide-text-2xl">Encoding taste into code.</SoftText>
         <a
           className="w-fit text-[var(--fg-soft)] underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
-          href="https://matthewblode.com"
+          href="https://blode.co"
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -173,18 +189,18 @@ export function SlideAbout() {
         <Mark>About me</Mark>
         <a
           className="text-[var(--fg-soft)] underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
-          href="https://matthewblode.com"
+          href="https://blode.co"
           rel="noopener noreferrer"
           target="_blank"
         >
-          matthewblode.com
+          blode.co
         </a>
       </div>
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Display size="huge">
           <a
             className="underline-offset-[0.15em] hover:underline focus-visible:underline"
-            href="https://matthewblode.com"
+            href="https://blode.co"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -341,7 +357,7 @@ export function SlideStrataSync() {
           alt="Strata Sync logo"
           className="size-24 rounded-[var(--slide-radius-xl)] object-contain"
           height={96}
-          src="/stack/strata-sync.png"
+          src="/care/stack/strata-sync.png"
           width={96}
         />
         <Mark>Strata Sync</Mark>
@@ -443,7 +459,7 @@ export function SlideBlodeUi() {
             alt="Blode UI logo"
             className="size-24 rounded-[var(--slide-radius-xl)] object-contain"
             height={96}
-            src="/stack/blode-ui.png"
+            src="/care/stack/blode-ui.png"
             width={96}
           />
           <Mark>Blode UI</Mark>
@@ -456,11 +472,11 @@ export function SlideBlodeUi() {
           </SoftText>
           <a
             className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
-            href="https://ui.blode.co"
+            href="https://blode.co/ui"
             rel="noopener noreferrer"
             target="_blank"
           >
-            ui.blode.co
+            blode.co/ui
           </a>
         </header>
 
@@ -468,7 +484,7 @@ export function SlideBlodeUi() {
           alt="Blode UI component registry homepage"
           className="min-h-[16rem] md:min-h-[28rem]"
           objectPosition="object-top"
-          src="/research/blode-ui-registry.png"
+          src="/care/research/blode-ui-registry.png"
         />
       </div>
     </SlideContainer>
@@ -531,7 +547,7 @@ export function SlideAllMd() {
           alt="AllMD logo"
           className="size-24 rounded-[var(--slide-radius-xl)] object-contain md:size-36"
           height={180}
-          src="/stack/allmd.png"
+          src="/care/stack/allmd.png"
           width={180}
         />
         <Mark>AllMD</Mark>
@@ -547,11 +563,11 @@ export function SlideAllMd() {
       <div className="honk-fade-up flex flex-col gap-[var(--slide-space-3)] border-t border-[var(--hairline)] pt-[var(--slide-space-5)]">
         <a
           className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
-          href="https://allmd.blode.co/"
+          href="https://blode.co/allmd"
           rel="noopener noreferrer"
           target="_blank"
         >
-          allmd.blode.co
+          blode.co/allmd
         </a>
       </div>
     </SlideContainer>
@@ -566,7 +582,7 @@ export function SlideBlodeMd() {
           alt="Blode.md logo"
           className="size-24 rounded-[var(--slide-radius-xl)] object-contain"
           height={96}
-          src="/stack/blode-md.png"
+          src="/care/stack/blode-md.png"
           width={96}
         />
         <Mark>Blode.md</Mark>
@@ -604,7 +620,7 @@ export function SlideDiffHub() {
             alt="DiffHub logo"
             className="size-24 rounded-[var(--slide-radius-xl)] object-contain"
             height={96}
-            src="/stack/diffhub.png"
+            src="/care/stack/diffhub.png"
             width={96}
           />
           <Mark>DiffHub</Mark>
@@ -616,11 +632,11 @@ export function SlideDiffHub() {
           </SoftText>
           <a
             className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
-            href="https://diffhub.blode.co"
+            href="https://blode.co/diffhub"
             rel="noopener noreferrer"
             target="_blank"
           >
-            diffhub.blode.co
+            blode.co/diffhub
           </a>
         </header>
 
@@ -628,7 +644,7 @@ export function SlideDiffHub() {
           alt="DiffHub showing a branch diff with file sidebar and split view"
           className="min-h-[16rem] md:min-h-[28rem]"
           objectPosition="object-top"
-          src="/research/diffhub.png"
+          src="/care/research/diffhub.png"
         />
       </div>
     </SlideContainer>
@@ -663,15 +679,15 @@ export function SlideSpotlightTesting() {
 const MORE_TOOLS = [
   {
     name: "Commandment",
-    logo: "/stack/commandment.png",
+    logo: "/care/stack/commandment.png",
     description: "Voice to text, instantly. BYO OpenAI API key.",
-    href: "https://commandment.blode.co/",
+    href: "https://blode.co/commandment",
   },
   {
     name: "Rubber Duck",
-    logo: "/stack/rubber-duck.png",
+    logo: "/care/stack/rubber-duck.png",
     description: "Talk through your code with AI. Hear answers back.",
-    href: "https://rubber-duck.blode.co/",
+    href: "https://blode.co/rubber-duck",
   },
   {
     name: "Reel",
@@ -681,7 +697,7 @@ const MORE_TOOLS = [
   },
   {
     name: "Convene",
-    logo: "/stack/convene.png",
+    logo: "/care/stack/convene.png",
     description: "macOS meeting transcription. A Granola alternative.",
     wip: true,
   },
@@ -770,7 +786,7 @@ export function SlideQuestions() {
               Slides available at{" "}
               <a
                 className="underline underline-offset-4 hover:no-underline focus-visible:no-underline"
-                href="https://care.blode.co"
+                href="https://blode.co/care"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -780,7 +796,7 @@ export function SlideQuestions() {
           </div>
         </div>
         <div aria-label="QR code linking to care.blode.co" className="hidden md:block" role="img">
-          <QRCode className="size-40" data="https://care.blode.co" />
+          <QRCode className="size-40" data="https://blode.co/care" />
         </div>
       </div>
     </SlideContainer>
