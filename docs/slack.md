@@ -100,7 +100,7 @@ Matthew Blode
 11:54 AM
 Sounds good! I'm Melbourne based but my day is fairly free and I wake up early
 11:57
-This was a slideshow I made in the past that could be slightly relevant: https://app.chroniclehq.com/share/8460b971-930c-4f97-b0bb-7f6e1b683693/561d15f0-33df-446a-b89b-b36438ad31fb
+This was a slideshow I made in the past that could be slightly relevant: https://blode.co/ship-fast
 But my workflow is mainly using cmux
 I use Claude Code with plan mode or for any UI work
 I use Codex 5.5 xhigh for everything else
@@ -143,12 +143,12 @@ I think our presentation will be the best
 10:48
 This might be slightly rogue but I can vibe code the presentation and it will be easier
 10:49
-I can fork https://nextjs-preso.blode.co/
+I can fork https://blode.co/nextjs-preso/
 
 nextjs-preso.blode.co
 Matthew Blode
 Slide 1 of 9 from "You Can Sense Carelessness"
-https://nextjs-preso.blode.co/
+https://blode.co/nextjs-preso/
 
 mrudula (mru)
 10:50 AM
@@ -173,12 +173,12 @@ ran the cowork job
 did great
 Matthew Blode
 9:20 PM
-https://ai-usage-for-engineers.vercel.app/
+https://blode.co/ai-usage
 
-ai-usage-for-engineers.vercel.app
+blode.co/ai-usage
 AI usage for engineers
 Slide 1 of 34 from "AI usage for engineers"
-https://ai-usage-for-engineers.vercel.app/
+https://blode.co/ai-usage
 
 Matthew Blode
 9:20 PM
