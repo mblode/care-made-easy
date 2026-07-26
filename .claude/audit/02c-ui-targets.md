@@ -283,7 +283,7 @@ Phase 1 flagged it as "currently OK but flat" and noted the hero type uses arbit
 │  └────────────────────────────────────────────────────────┘        │
 │                                                                    │
 │  ┌─ presenters row (left-aligned, not centred + clutter) ─┐        │
-│  │  [M] Matthew Blode → matthewblode.com                  │        │
+│  │  [M] Matthew Blode → blode.co                  │        │
 │  │  [M] Mru                                               │        │
 │  └────────────────────────────────────────────────────────┘        │
 │                                                                    │
@@ -296,7 +296,7 @@ Add an eyebrow (small caps "Linktree · Internal Talk" or similar) that anchors 
 
 ### What stays the same
 
-- The h1 string, subtitle string, both presenter names, link to matthewblode.com, QR corner.
+- The h1 string, subtitle string, both presenter names, link to blode.co, QR corner.
 - Vertical centring of the slide.
 
 ### What changes
