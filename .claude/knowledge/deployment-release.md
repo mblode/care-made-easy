@@ -5,7 +5,7 @@ How code gets to production. Release processes, environment promotion, rollback 
 ## Vercel project
 
 - Linked to `blode/ai-usage-for-engineers` (project id `prj_xLFTZrwkcIs2YRvVA8krWVGmGFJf`).
-- Canonical production URL: `https://blode.co/ai-usage/1`.
+- Canonical production URL: `https://blode.co/care`.
 - The app is mounted below `/ai-usage`; do not publish a `vercel.app` URL or a subdomain as its canonical URL.
 
 ## CLI deploys must use --prebuilt
@@ -31,7 +31,7 @@ After any deploy that touches metadata or `app/og/**`:
 
 ```bash
 curl -sI https://blode.co/ai-usage/opengraph-image | grep -E "HTTP|content-type"
-curl -sL https://blode.co/ai-usage/1 | grep -oE 'og:image"[^>]*content="[^"]+"'
+curl -sL https://blode.co/care | grep -oE 'og:image"[^>]*content="[^"]+"'
 ```
 
 Expect `HTTP/2 200`, `content-type: image/png`, and an `og:image` URL on `blode.co`.

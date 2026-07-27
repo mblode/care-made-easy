@@ -72,7 +72,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slide: st
   }
 
   const slideData = SLIDES[slideNum - 1];
-  const slideUrl = `${BASE_URL}/${slideNum}`;
+  const slideUrl = slideNum === 1 ? BASE_URL : `${BASE_URL}/${slideNum}`;
 
   return {
     alternates: {

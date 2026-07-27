@@ -135,6 +135,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link href="https://us.i.posthog.com" rel="preconnect" />
+        <link href="https://us-assets.i.posthog.com" rel="dns-prefetch" />
         <script id="json-ld" type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>
