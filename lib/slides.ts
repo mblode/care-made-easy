@@ -45,3 +45,8 @@ export const SLIDES = [
 }[];
 
 export const TOTAL_SLIDES = SLIDES.length;
+
+/** Deck-level copy, shared by the root metadata and the slide outline. */
+export const DECK_TITLE = "Care made easy";
+export const DECK_SUMMARY =
+  "Agents made code cheap — taste is the bottleneck now. A 22-slide deck on the open-source stack (Strata Sync, Blode UI, Agent Skills) behind Done Bear.";

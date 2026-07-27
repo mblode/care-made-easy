@@ -75,8 +75,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slide: st
   const slideUrl = slideNum === 1 ? BASE_URL : `${BASE_URL}/${slideNum}`;
 
   return {
+    // Every slide canonicalises to the deck root, not to itself. One slide is
+    // thin and near-duplicate of its neighbours, so the deck is a single
+    // indexable document rather than N competing ones.
     alternates: {
-      canonical: slideUrl,
+      canonical: BASE_URL,
     },
     description: `${slideData.title}. Slide ${slideNum} of ${TOTAL_SLIDES} from Care made easy — a talk on the open-source stack behind Done Bear.`,
     openGraph: {
@@ -85,6 +88,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slide: st
       type: "article",
       url: slideUrl,
     },
+    // `follow` so the outline on the root still passes crawlers through the
+    // deck; `index: false` keeps the thin slide routes out of the index.
+    robots: { follow: true, index: false },
     title: slideData.title,
   };
 }
