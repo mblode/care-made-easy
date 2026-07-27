@@ -135,7 +135,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link href="https://r.blode.co" rel="preconnect" />
+        <link href={process.env.NEXT_PUBLIC_POSTHOG_HOST} rel="preconnect" />
         <script id="json-ld" type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>
