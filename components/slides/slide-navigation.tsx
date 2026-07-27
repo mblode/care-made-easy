@@ -14,7 +14,7 @@ interface SlideNavigationProps {
   children: React.ReactNode;
 }
 
-const getSlideUrl = (slideNum: number) => `/${slideNum}`;
+const getSlideUrl = (slideNum: number) => (slideNum === 1 ? "/" : `/${slideNum}`);
 
 export function SlideNavigation({
   currentSlide,
