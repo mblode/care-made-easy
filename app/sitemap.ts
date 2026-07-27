@@ -1,25 +1,20 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site-url";
-import { SLIDES } from "@/lib/slides";
 
-const BASE_URL = SITE_URL;
-
+/**
+ * The deck root is the only indexable URL here.
+ *
+ * The `/<n>` slide routes are `noindex` and canonicalise to the root, so
+ * listing them would contradict the pages themselves — Search Console reports
+ * that as "Submitted URL marked noindex" rather than treating it as a hint.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes: MetadataRoute.Sitemap = [
+  return [
     {
       changeFrequency: "monthly",
       lastModified: new Date(),
       priority: 1,
-      url: BASE_URL,
+      url: SITE_URL,
     },
   ];
-
-  const slideRoutes: MetadataRoute.Sitemap = SLIDES.slice(1).map((_slide, index) => ({
-    changeFrequency: "monthly" as const,
-    lastModified: new Date(),
-    priority: 0.8,
-    url: `${BASE_URL}/${index + 2}`,
-  }));
-
-  return [...staticRoutes, ...slideRoutes];
 }

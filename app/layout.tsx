@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { SITE_URL } from "@/lib/site-url";
+import { DECK_SUMMARY } from "@/lib/slides";
 
 const editorialNew = localFont({
   adjustFontFallback: "Times New Roman",
@@ -29,8 +30,7 @@ export const metadata: Metadata = {
   },
   authors: [{ name: "Matthew Blode", url: "https://blode.co" }],
   creator: "Matthew Blode",
-  description:
-    "Agents made code cheap — taste is the bottleneck now. A 22-slide deck on the open-source stack (Strata Sync, Blode UI, Agent Skills) behind Done Bear.",
+  description: DECK_SUMMARY,
   keywords: [
     "Care made easy",
     "Blode Stack",
