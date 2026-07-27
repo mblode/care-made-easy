@@ -31,6 +31,7 @@
     "mobx": "^6.16.1",
     "motion": "^12.42.2",
     "next": "^16.2.10",
+    "posthog-js": "^1.407.2",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "react-hotkeys-hook": "^5.3.3",

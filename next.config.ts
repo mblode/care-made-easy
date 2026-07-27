@@ -15,24 +15,29 @@ const nextConfig: NextConfig = {
   },
   reactCompiler: true,
   redirects() {
-    return Promise.resolve(
-      ["care.blode.co", "stack.blode.co"].flatMap((host) => [
+    return Promise.resolve([
+      ...["care.blode.co", "stack.blode.co"].flatMap((host) => [
         {
-          basePath: false,
-          destination: "https://blode.co/care/1",
+          basePath: false as const,
+          destination: "https://blode.co/care",
           has: [{ type: "host" as const, value: host }],
-          permanent: true,
+          permanent: true as const,
           source: "/",
         },
         {
-          basePath: false,
+          basePath: false as const,
           destination: "https://blode.co/care/:path*",
           has: [{ type: "host" as const, value: host }],
-          permanent: true,
+          permanent: true as const,
           source: "/:path*",
         },
       ]),
-    );
+      {
+        destination: "/",
+        permanent: true,
+        source: "/1",
+      },
+    ]);
   },
   // Next's inline type checker cannot load TypeScript 7's relocated compiler
   // API. `npm run check-types` remains the authoritative type gate.
