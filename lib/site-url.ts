@@ -1,1 +1,2 @@
-export const SITE_URL = "https://blode.co/care";
+export const BASE_PATH = "/care";
+export const SITE_URL = `https://blode.co${BASE_PATH}`;
