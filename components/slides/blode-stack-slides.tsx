@@ -15,7 +15,6 @@ import {
   ShieldIcon,
   SparklesIcon,
   StarIcon,
-  PlayFilledIcon,
   UserIcon,
   ZapIcon,
 } from "blode-icons-react";
@@ -65,7 +64,6 @@ const STACK_SECTIONS = [
         logo: "/care/stack/diffhub.png",
         href: "https://blode.co/diffhub",
       },
-      { name: "Reel", logo: "/care/stack/reel.png", href: "https://github.com/mblode/reel" },
       {
         name: "Rubber Duck",
         logo: "/care/stack/rubber-duck.png",
@@ -690,12 +688,6 @@ const MORE_TOOLS = [
     href: "https://blode.co/rubber-duck",
   },
   {
-    name: "Reel",
-    Icon: PlayFilledIcon,
-    description: "Record a loom to capture context for agents.",
-    wip: true,
-  },
-  {
     name: "Convene",
     logo: "/care/stack/convene.png",
     description: "macOS meeting transcription. A Granola alternative.",
@@ -720,19 +712,13 @@ export function SlideMoreTools() {
             key={tool.name}
             style={{ "--stagger-i": i } as CSSProperties}
           >
-            {"logo" in tool ? (
-              <Image
-                alt={`${tool.name} logo`}
-                className="size-12 shrink-0 rounded-[var(--slide-radius-lg)] object-contain"
-                height={48}
-                src={tool.logo}
-                width={48}
-              />
-            ) : (
-              <div className="flex size-12 shrink-0 items-center justify-center rounded-[var(--slide-radius-lg)] bg-black text-white">
-                {"Icon" in tool ? <tool.Icon size={28} /> : null}
-              </div>
-            )}
+            <Image
+              alt={`${tool.name} logo`}
+              className="size-12 shrink-0 rounded-[var(--slide-radius-lg)] object-contain"
+              height={48}
+              src={tool.logo}
+              width={48}
+            />
             <div className="flex flex-col gap-[var(--slide-space-2)]">
               <div className="flex items-center gap-[var(--slide-space-3)]">
                 <p className="font-heading leading-[1.2] slide-text-lg">{tool.name}</p>
