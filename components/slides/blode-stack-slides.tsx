@@ -705,7 +705,7 @@ export function SlideMoreTools() {
         </Display>
       </header>
 
-      <div className="honk-stagger grid grid-cols-1 gap-[var(--slide-space-4)] md:grid-cols-2">
+      <div className="honk-stagger grid grid-cols-1 gap-[var(--slide-space-4)] md:grid-cols-3">
         {MORE_TOOLS.map((tool, i) => (
           <div
             className="flex gap-[var(--slide-space-4)] rounded-[var(--slide-radius-xl)] border border-[var(--hairline)] p-[var(--slide-space-5)]"
