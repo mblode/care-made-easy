@@ -776,12 +776,12 @@ export function SlideQuestions() {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                care.blode.co
+                blode.co/care
               </a>
             </p>
           </div>
         </div>
-        <div aria-label="QR code linking to care.blode.co" className="hidden md:block" role="img">
+        <div aria-label="QR code linking to blode.co/care" className="hidden md:block" role="img">
           <QRCode className="size-40" data="https://blode.co/care" />
         </div>
       </div>
