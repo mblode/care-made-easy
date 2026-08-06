@@ -125,6 +125,19 @@ Biome's linter will catch most issues automatically. Focus your attention on:
 
 Most formatting and common issues are automatically fixed by Biome. Run `npm exec -- ultracite fix` before committing to ensure compliance.
 
+## Commands
+
+```bash
+npm run dev           # dev server; left/right arrows move between slides
+npm run build         # production build
+npm run format        # oxfmt --write .
+npm run lint          # oxlint .
+npm run check-types   # tsc --noEmit
+```
+
+Speaker notes live in `docs/blode-stack-speaker-notes.md`. The slide list is
+`lib/slides.ts`; the deck outline and all metadata read from it.
+
 ## Available Context
 
 Additional context is available in the files below. Consult the relevant file when working in a related area — see each description for scope.
