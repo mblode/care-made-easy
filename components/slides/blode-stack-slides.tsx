@@ -170,8 +170,7 @@ export function SlideTitle() {
         <a
           className="w-fit text-[var(--fg-soft)] underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
           href="https://blode.co"
-          rel="noopener noreferrer"
-          target="_blank"
+          rel="author"
         >
           by Matthew Blode
         </a>
@@ -185,22 +184,32 @@ export function SlideAbout() {
     <SlideContainer className="justify-between" palette="d">
       <div className="flex items-start justify-between">
         <Mark>About me</Mark>
-        <a
-          className="text-[var(--fg-soft)] underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
-          href="https://blode.co"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          blode.co
-        </a>
+        {/* Same origin behind a rewrite, so same tab and no cross-origin rel.
+            The projects link is the edge back to the hub: without it this deck
+            links out to individual projects but never to the index of them. See
+            blode-co/apps/web/.claude/knowledge/zone-conventions.md. */}
+        <div className="flex flex-col items-end">
+          <a
+            className="text-[var(--fg-soft)] underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
+            href="https://blode.co"
+            rel="author"
+          >
+            blode.co
+          </a>
+          <a
+            className="text-[var(--fg-soft)] underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
+            href="https://blode.co/projects"
+          >
+            blode.co/projects
+          </a>
+        </div>
       </div>
       <header className="flex flex-col gap-[var(--slide-space-4)]">
         <Display size="huge">
           <a
             className="underline-offset-[0.15em] hover:underline focus-visible:underline"
             href="https://blode.co"
-            rel="noopener noreferrer"
-            target="_blank"
+            rel="author"
           >
             Matthew Blode
           </a>
@@ -471,8 +480,6 @@ export function SlideBlodeUi() {
           <a
             className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
             href="https://blode.co/ui"
-            rel="noopener noreferrer"
-            target="_blank"
           >
             blode.co/ui
           </a>
@@ -562,8 +569,6 @@ export function SlideAllMd() {
         <a
           className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
           href="https://blode.co/allmd"
-          rel="noopener noreferrer"
-          target="_blank"
         >
           blode.co/allmd
         </a>
@@ -631,8 +636,6 @@ export function SlideDiffHub() {
           <a
             className="w-fit underline-offset-4 slide-text-lg hover:underline focus-visible:underline"
             href="https://blode.co/diffhub"
-            rel="noopener noreferrer"
-            target="_blank"
           >
             blode.co/diffhub
           </a>
@@ -773,8 +776,6 @@ export function SlideQuestions() {
               <a
                 className="underline underline-offset-4 hover:no-underline focus-visible:no-underline"
                 href="https://blode.co/care"
-                rel="noopener noreferrer"
-                target="_blank"
               >
                 blode.co/care
               </a>

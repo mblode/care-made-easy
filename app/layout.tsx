@@ -89,40 +89,46 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@id": `${BASE_URL}/#website`,
-      "@type": "WebSite",
+      "@id": `${BASE_URL}/#webpage`,
+      "@type": "WebPage",
+      about: { "@id": `${BASE_URL}/#presentation` },
+      breadcrumb: { "@id": `${BASE_URL}/#breadcrumb` },
+      inLanguage: "en-US",
+      isPartOf: { "@id": "https://blode.co/#website" },
       description:
         "Care made easy is a presentation by Matthew Blode on the open-source primitives — Strata Sync, Blode UI, Glide, Agent Skills — that encode taste into agent-driven development.",
       name: "Care made easy",
-      publisher: {
-        "@id": `${BASE_URL}/#person`,
-      },
+      publisher: { "@id": "https://blode.co/#organization" },
       url: BASE_URL,
-    },
-    {
-      "@id": `${BASE_URL}/#person`,
-      "@type": "Person",
-      email: "m@blode.co",
-      name: "Matthew Blode",
-      sameAs: [
-        "https://github.com/mblode",
-        "https://x.com/mattblode",
-        "https://twitter.com/mattblode",
-      ],
-      url: "https://blode.co",
     },
     {
       "@id": `${BASE_URL}/#presentation`,
       "@type": "PresentationDigitalDocument",
+      isPartOf: { "@id": "https://blode.co/#website" },
+      publisher: { "@id": "https://blode.co/#organization" },
       about: ["AI Engineering", "Claude Code", "Codex", "Done Bear", "Strata Sync", "Agent Skills"],
       author: {
-        "@id": `${BASE_URL}/#person`,
+        "@id": "https://blode.co/#person",
       },
       description:
         "A 22-slide presentation exploring how open-source primitives — sync, design tokens, agent skills, and diff tooling — let solo developers ship production-grade apps at agent speed.",
       headline: "Care made easy: the primitives behind Done Bear",
       name: "Care made easy",
       url: BASE_URL,
+    },
+    {
+      "@id": `${BASE_URL}/#breadcrumb`,
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", item: "https://blode.co/", name: "Home", position: 1 },
+        {
+          "@type": "ListItem",
+          item: "https://blode.co/projects",
+          name: "Projects",
+          position: 2,
+        },
+        { "@type": "ListItem", item: BASE_URL, name: "Care made easy", position: 3 },
+      ],
     },
   ],
 };
