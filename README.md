@@ -14,7 +14,7 @@ Read the deck in the browser. Left and right arrow keys move between slides.
 
 <p>
 <a href="https://blode.co/care">
-<img alt="View demo" src=".github/assets/demo.svg" width="200" />
+<img alt="Watch the talk" src=".github/assets/demo.svg" width="200" />
 </a>
 </p>
 
