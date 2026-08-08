@@ -4,19 +4,22 @@ import "./globals.css";
 import { SITE_URL } from "@/lib/site-url";
 import { DECK_SUMMARY } from "@/lib/slides";
 
-const editorialNew = localFont({
-  adjustFontFallback: "Times New Roman",
-  display: "swap",
-  src: "../public/fonts/editorial-new.woff2",
-  variable: "--font-editorial-new",
-});
-
 const glide = localFont({
   adjustFontFallback: "Arial",
   display: "swap",
-  src: "../public/fonts/Glide-Variable.woff2",
+  src: [
+    { path: "./fonts/glide-variable.woff2", style: "normal" },
+    { path: "./fonts/glide-variable-italic.woff2", style: "italic" },
+  ],
   variable: "--font-glide",
-  weight: "400 900",
+  weight: "100 950",
+});
+
+const glideMono = localFont({
+  display: "swap",
+  src: "./fonts/glide-mono.woff2",
+  variable: "--font-glide-mono",
+  weight: "400",
 });
 
 const BASE_URL = SITE_URL;
@@ -139,16 +142,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html className={`${glide.variable} ${glideMono.variable}`} lang="en">
       <head>
         <link href={process.env.NEXT_PUBLIC_POSTHOG_HOST} rel="preconnect" />
         <script id="json-ld" type="application/ld+json">
           {JSON.stringify(jsonLd)}
         </script>
       </head>
-      <body className={`${editorialNew.variable} ${glide.variable} font-sans antialiased`}>
-        {children}
-      </body>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

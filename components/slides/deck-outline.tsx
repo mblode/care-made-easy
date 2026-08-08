@@ -18,8 +18,9 @@ export function DeckOutline() {
   return (
     <section
       aria-label="Slide outline"
-      // Opacity off the foreground rather than --border/--muted-foreground:
-      // those keep light-theme shadcn defaults here, on a dark --background.
+      // Opacity off the foreground rather than --border/--muted-foreground, so
+      // the rule and the secondary text stay in the deck's warm cream rather
+      // than the neutral grey the shared chrome ramp uses.
       className="border-foreground/15 border-t bg-background px-6 py-12 text-foreground"
     >
       <div className="mx-auto flex w-full max-w-2xl flex-col gap-6">
