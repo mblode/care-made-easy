@@ -232,9 +232,7 @@ export function SlideCarelessness() {
     <SlideContainer className="items-center justify-center text-center" palette="e">
       <blockquote className="mx-auto flex w-full flex-col gap-[var(--slide-space-4)] md:max-w-[80%]">
         <Mark className="!self-center">Philosophy</Mark>
-        <Display className="font-editorial-new" size="xl">
-          You can sense carelessness.
-        </Display>
+        <Display size="xl">You can sense carelessness.</Display>
         <SoftText className="mx-auto slide-text-xl">— Jony Ive</SoftText>
       </blockquote>
     </SlideContainer>
