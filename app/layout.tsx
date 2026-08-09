@@ -56,7 +56,9 @@ export const metadata: Metadata = {
     description:
       "The bottleneck shifted from writing code to encoding taste. 10 open-source tools that let you ship fast without shipping slop.",
     locale: "en_US",
-    siteName: "Care made easy",
+    // Every blode.co path shares one site name. The product is already in
+    // og:title, so this slot says who made it. See zone-conventions.md Rule 9.
+    siteName: "Matthew Blode",
     title: "Care made easy",
     type: "website",
     url: BASE_URL,
@@ -76,12 +78,15 @@ export const metadata: Metadata = {
     index: true,
   },
   title: {
-    default: "Care made easy | Matthew Blode",
+    // `Product: what it does`, colon rather than a pipe, under 60 characters so
+    // it does not truncate in the SERP. The subtitle is the deck's own.
+    default: "Care made easy: encoding taste into code",
     template: "%s | Care made easy",
   },
   twitter: {
     card: "summary_large_image",
     creator: "@mattblode",
+    site: "@mattblode",
     description:
       "Agents write the code. Taste is what ships. The open-source stack behind Done Bear, in 22 slides.",
     title: "Care made easy",
@@ -123,7 +128,14 @@ const jsonLd = {
       "@id": `${BASE_URL}/#breadcrumb`,
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", item: "https://blode.co/", name: "Home", position: 1 },
+        {
+          "@type": "ListItem",
+          item: "https://blode.co/",
+          // Not "Home". This crumb is the one piece of chrome above the fold on
+          // every zone, so it says who made the thing.
+          name: "Matthew Blode",
+          position: 1,
+        },
         {
           "@type": "ListItem",
           item: "https://blode.co/projects",
