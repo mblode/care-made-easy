@@ -51,6 +51,9 @@ export const metadata: Metadata = {
     "agent-driven development",
     "AI engineering",
   ],
+  // The zone URL, not the bare origin (Rule 11). Correct because the card
+  // is a generated `opengraph-image.tsx` route: Next does not prefix those
+  // with `basePath`, so `metadataBase` supplies the prefix exactly once.
   metadataBase: new URL(BASE_URL),
   openGraph: {
     description:
