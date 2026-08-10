@@ -20,7 +20,6 @@ export function KineticList({ children, className, startIndex = 0 }: KineticList
   return (
     <ul className={cn("honk-stagger", className)}>
       {items.map((child, i) => (
-        // biome-ignore lint/suspicious/noArrayIndexKey: stagger index is the identity here
         <li
           className="font-sans"
           key={i}
