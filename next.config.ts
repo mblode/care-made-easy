@@ -40,9 +40,8 @@ const contentSecurityPolicy = [
  * browser rather than overridden. So this zone owns its response headers.
  *
  * No `Cross-Origin-Resource-Policy`: `same-origin` would need a `cross-origin`
- * override on every OG route, `[slide]/opengraph-image` and
- * `[slide]/twitter-image` included, and missing one kills a share card
- * silently. HSTS is already set at the edge.
+ * override on every OG route, `[slide]/opengraph-image` included, and
+ * missing one kills a share card silently. HSTS is already set at the edge.
  */
 const securityHeaders = [
   { key: "Content-Security-Policy", value: contentSecurityPolicy },
