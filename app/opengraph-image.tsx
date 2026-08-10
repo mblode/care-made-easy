@@ -19,7 +19,7 @@ export default function OpengraphImage() {
     eyebrow: "blode.co/care",
     // Shorter than the meta description, which runs long for the SERP. A card
     // is read in a feed, at a glance.
-    subtitle: "Agents made code cheap — taste is the bottleneck now.",
+    subtitle: "Agents made code cheap, so taste is the bottleneck now.",
     title: "Care made easy",
   });
 }
