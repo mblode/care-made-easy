@@ -107,7 +107,7 @@ const jsonLd = {
       inLanguage: "en-US",
       isPartOf: { "@id": "https://blode.co/#website" },
       description:
-        "Care made easy is a presentation by Matthew Blode on the open-source primitives — Strata Sync, Blode UI, Glide, Agent Skills — that encode taste into agent-driven development.",
+        "Care made easy is a presentation by Matthew Blode on the open-source primitives (Strata Sync, Blode UI, Glide, Agent Skills) that encode taste into agent-driven development.",
       name: "Care made easy",
       publisher: { "@id": "https://blode.co/#organization" },
       url: BASE_URL,
@@ -122,7 +122,7 @@ const jsonLd = {
         "@id": "https://blode.co/#person",
       },
       description:
-        "A 22-slide presentation exploring how open-source primitives — sync, design tokens, agent skills, and diff tooling — let solo developers ship production-grade apps at agent speed.",
+        "A 22-slide presentation exploring how open-source primitives (sync, design tokens, agent skills, and diff tooling) let solo developers ship production-grade apps at agent speed.",
       headline: "Care made easy: the primitives behind Done Bear",
       name: "Care made easy",
       url: BASE_URL,
