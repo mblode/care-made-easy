@@ -49,13 +49,6 @@ export default function Home() {
                 Matthew Blode
               </a>
             </span>
-            <span aria-hidden="true">&middot;</span>
-            <a
-              className="underline underline-offset-2 hover:text-foreground"
-              href="https://blode.co/projects"
-            >
-              All projects
-            </a>
           </footer>
         </div>
       </div>
