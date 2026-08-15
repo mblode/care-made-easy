@@ -1,4 +1,5 @@
 import { renderZoneOgImage } from "@/app/og-image-shared";
+import { OgLogo } from "@/app/og-logo";
 
 export { OG_CONTENT_TYPE as contentType, OG_SIZE as size } from "@/app/og-image-shared";
 
@@ -15,11 +16,9 @@ export const alt = "Care made easy";
  */
 export default function OpengraphImage() {
   return renderZoneOgImage({
-    badge: "CARE",
-    eyebrow: "blode.co/care",
-    // Shorter than the meta description, which runs long for the SERP. A card
-    // is read in a feed, at a glance.
-    subtitle: "Agents made code cheap, so taste is the bottleneck now.",
+    background: "#fff7ed",
+    color: "#9a3412",
+    logo: <OgLogo />,
     title: "Care made easy",
   });
 }
