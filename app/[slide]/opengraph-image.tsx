@@ -1,5 +1,7 @@
 import { renderZoneOgImage } from "@/app/og-image-shared";
-import { DECK_TITLE, SLIDES, TOTAL_SLIDES } from "@/lib/slides";
+import { OgLogo } from "@/app/og-logo";
+
+import { SLIDES, TOTAL_SLIDES } from "@/lib/slides";
 
 export { OG_CONTENT_TYPE as contentType, OG_SIZE as size } from "@/app/og-image-shared";
 
@@ -20,9 +22,9 @@ export default async function OpengraphImage({ params }: { params: Promise<{ sli
   const data = SLIDES[slideIndex] ?? SLIDES[0];
 
   return renderZoneOgImage({
-    badge: "CARE",
-    eyebrow: "blode.co/care",
-    subtitle: DECK_TITLE,
+    background: "#fff7ed",
+    color: "#9a3412",
+    logo: <OgLogo />,
     title: data.title,
   });
 }
