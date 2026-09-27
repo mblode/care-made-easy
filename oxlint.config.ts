@@ -15,6 +15,10 @@ export default defineConfig({
     "jsx-a11y/prefer-tag-over-role": "off",
     "max-classes-per-file": "off",
     "no-param-reassign": "off",
+    "no-restricted-imports": [
+      "error",
+      { paths: [{ message: "Icons come from blode-icons-react.", name: "lucide-react" }] },
+    ],
     "no-await-in-loop": "off",
     "no-empty-function": "off",
     "no-shadow": "off",
