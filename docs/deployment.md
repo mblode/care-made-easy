@@ -8,18 +8,11 @@ How code gets to production. Release processes, environment promotion, rollback 
 - Canonical production URL: `https://blode.co/care`.
 - The app is mounted below `/care`; do not publish a `vercel.app` URL or a subdomain as its canonical URL.
 
-## CLI deploys must use --prebuilt
+## CLI deploys no longer need --prebuilt
 
-`package.json` has `"prepare": "lefthook install"`. On `vercel deploy` the CLI uploads the working tree without `.git`, so when Vercel CI runs `npm install` the `prepare` script aborts (`fatal: not a git repository`) and the build fails with `Command "npm install" exited with 1`.
+`vercel deploy` uploads the working tree without `.git`, so a bare `"prepare": "lefthook install"` used to abort Vercel's remote `npm install` (`fatal: not a git repository`), and `vercel deploy --prebuilt --prod --yes` after a local `vercel build --prod --yes` was the workaround.
 
-Workaround:
-
-```bash
-vercel build --prod --yes
-vercel deploy --prebuilt --prod --yes
-```
-
-`vercel build` runs everything locally (where `.git` exists) and `--prebuilt` ships only `.vercel/output`, skipping the broken `npm install` on CI.
+`package.json`'s `prepare` script is now `if [ -z "$VERCEL" ]; then lefthook install; fi`. Vercel's build environment always sets `VERCEL=1` (its own system environment variable, on every build regardless of how the deploy was triggered), so `npm install` on Vercel skips `lefthook install` entirely and no longer needs `.git` to exist. A plain `vercel deploy --prod` now works; there is no known case where `--prebuilt` is still required.
 
 ## Canonical metadata
 
