@@ -27,7 +27,6 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
-    "lucide-react": "^1.24.0",
     "mobx": "^6.16.1",
     "motion": "^12.42.2",
     "next": "^16.3.0",
@@ -54,5 +53,9 @@
     "typescript": "^7.0.2",
     "ultracite": "7.9.3"
   },
+  "engines": {
+    "node": "24.x"
+  },
+  "packageManager": "npm@12.0.2",
   "portless": "blode-stack-preso"
 }
