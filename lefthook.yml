@@ -1,12 +1,25 @@
 pre-commit:
+  parallel: true
   jobs:
-    - run: npx ultracite fix
+    # oxfmt and oxlint directly, not `ultracite fix`: ultracite exits non-zero
+    # when the staged set contains no lintable JS/TS file, so a docs-only or
+    # CSS-only commit would fail the hook outright. Two jobs with their own
+    # globs let lefthook skip whichever one has nothing to do.
+    - name: oxfmt
+      # Matches what `format:check` inspects (`oxfmt --check .`). Markdown is
+      # left out because oxfmt.config.ts ignores it: handing oxfmt only ignored
+      # files exits 2, which failed every docs-only commit.
       glob:
-        - "**/*.js"
-        - "**/*.jsx"
-        - "**/*.ts"
-        - "**/*.tsx"
-        - "**/*.json"
-        - "**/*.jsonc"
-        - "**/*.css"
+        - "*.js"
+        - "*.jsx"
+        - "*.ts"
+        - "*.tsx"
+        - "*.json"
+        - "*.jsonc"
+        - "*.css"
+      run: npx oxfmt --write {staged_files}
+      stage_fixed: true
+    - name: oxlint
+      glob: "*.{js,jsx,ts,tsx}"
+      run: npx oxlint --fix {staged_files}
       stage_fixed: true
