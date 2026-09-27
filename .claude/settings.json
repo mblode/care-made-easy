@@ -1,12 +1,13 @@
 {
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "hooks": {
     "PostToolUse": [
       {
-        "matcher": "Write|Edit",
+        "matcher": "Edit|MultiEdit|Write",
         "hooks": [
           {
             "type": "command",
-            "command": "npx ultracite fix"
+            "command": "f=$(jq -r '.tool_input.file_path // empty'); [ -f \"$f\" ] || exit 0; cd \"$CLAUDE_PROJECT_DIR\" && npx oxfmt --write --no-error-on-unmatched-pattern \"$f\" >/dev/null 2>&1; case \"$f\" in *.js|*.mjs|*.ts|*.tsx) npx oxlint --fix \"$f\" >/dev/null 2>&1 ;; esac; exit 0"
           }
         ]
       }

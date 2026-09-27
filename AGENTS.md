@@ -34,7 +34,7 @@ To add a slide: add an entry to `SLIDES`, write the component, and add it to `sl
 - UI components come from the `@blode` registry (`components.json`) and wrap Base UI.
 - `next.config.ts` owns the zone's response headers, including the CSP. An embed from a new origin needs a `frame-src` entry (the stack slide embeds the Done Bear playground this way).
 - Canonical URLs, `metadataBase`, sitemap and OG image URLs use the fixed `SITE_URL` in `lib/site-url.ts`. Preview and zone-origin hostnames must never reach metadata.
-- Deploys, the `--prebuilt` workaround for the lefthook `prepare` script, and the OG image check after a deploy: `docs/deployment.md`.
+- Deploys, why the lefthook `prepare` script no longer needs a `--prebuilt` workaround, and the OG image check after a deploy: `docs/deployment.md`.
 
 ## Verification
 
