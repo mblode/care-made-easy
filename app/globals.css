@@ -6,10 +6,13 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-glide);
-  --font-mono: var(--font-glide-mono);
-  --font-heading: var(--font-glide);
-  --font-glide: var(--font-glide);
+  --font-sans:
+    var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-heading:
+    var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   --color-chart-5: var(--chart-5);
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
@@ -142,13 +145,6 @@
   --fg: #f6ebd9;
   --fg-soft: color-mix(in oklab, #f6ebd9 60%, #211f1e);
   --hairline: color-mix(in oklab, #f6ebd9 18%, transparent);
-}
-
-[data-palette="glide"] {
-  --bg: #fbb6cd;
-  --fg: #e8391c;
-  --fg-soft: color-mix(in oklab, #e8391c 70%, #fbb6cd);
-  --hairline: color-mix(in oklab, #e8391c 25%, transparent);
 }
 
 [data-palette="stratasync"] {
@@ -479,8 +475,8 @@
 /* Honkish primitives                                                  */
 /* ------------------------------------------------------------------ */
 .honk-display {
-  font-family: var(--font-glide);
-  font-feature-settings: "kern", "ss01", "ss02";
+  font-family: var(--font-heading);
+  font-feature-settings: "kern";
   font-weight: 720;
   letter-spacing: -0.025em;
   line-height: 0.95;
@@ -549,7 +545,7 @@
 }
 
 .honk-numeral {
-  font-family: var(--font-glide);
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: var(--slide-text-7xl);
   line-height: 0.85;

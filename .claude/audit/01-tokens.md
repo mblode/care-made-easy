@@ -23,7 +23,7 @@ Source of truth before audits start. All references point at `app/globals.css` a
 
 - `--font-sans` → Inter (Google Fonts)
 - `--font-heading` → Editorial New (local)
-- `--font-glide` → Glide variable (local)
+- local variable font token (since removed; see `app/layout.tsx`)
 - Fluid type scale `--slide-text-xs` → `--slide-text-5xl` (`globals.css:227-237`) using `clamp(min, vw, max)` — well-designed.
 
 ### Spacing (`globals.css:215-225`)
@@ -131,5 +131,5 @@ Deferred to Phase 2a — the `ui-audit` agent will start the dev server and capt
 ## 6. Open questions for Phase 2b
 
 - Keep light bg `#D1D7DC` (slightly cool gray) or swap to a warmer paper tone, or flip to dark? `#D1D7DC` is unusual — most decks use either pure white or near-black. The off-white is intentional and works, but reads "muted" rather than "premium". Phase 2b decides.
-- `Glide` variable font is loaded but never used — drop it or actually use it (display accents)?
+- The local variable font was loaded but never used — since removed.
 - Editorial New for headings is strong. Inter for body is fine but generic. Could pair with a more distinctive monospace for code/tags.

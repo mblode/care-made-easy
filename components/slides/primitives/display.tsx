@@ -18,8 +18,8 @@ const SIZE_CLASS: Record<Size, string> = {
 };
 
 /**
- * Kinetic display headline. Glide variable font animates weight/tracking
- * on enter (`display-settle` keyframes). Use sparingly — one per slide.
+ * Kinetic display headline. Animates weight/tracking on enter
+ * (`display-settle` keyframes). Use sparingly — one per slide.
  */
 export function Display({ children, as: As = "h1", size = "lg", className }: DisplayProps) {
   return <As className={cn("honk-display", SIZE_CLASS[size], className)}>{children}</As>;

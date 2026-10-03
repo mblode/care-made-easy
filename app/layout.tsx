@@ -1,25 +1,19 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { SITE_URL } from "@/lib/site-url";
 import { DECK_SUMMARY } from "@/lib/slides";
 
-const glide = localFont({
-  adjustFontFallback: "Arial",
+const inter = Inter({
   display: "swap",
-  src: [
-    { path: "./fonts/glide-variable.woff2", style: "normal" },
-    { path: "./fonts/glide-variable-italic.woff2", style: "italic" },
-  ],
-  variable: "--font-glide",
-  weight: "100 950",
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
-const glideMono = localFont({
+const geistMono = Geist_Mono({
   display: "swap",
-  src: "./fonts/glide-mono.woff2",
-  variable: "--font-glide-mono",
-  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
 });
 
 const BASE_URL = SITE_URL;
@@ -107,7 +101,7 @@ const jsonLd = {
       inLanguage: "en-US",
       isPartOf: { "@id": "https://blode.co/#website" },
       description:
-        "Care made easy is a presentation by Matthew Blode on the open-source primitives (Strata Sync, Blode UI, Glide, Agent Skills) that encode taste into agent-driven development.",
+        "Care made easy is a presentation by Matthew Blode on the open-source primitives (Strata Sync, Blode UI, Agent Skills) that encode taste into agent-driven development.",
       name: "Care made easy",
       publisher: { "@id": "https://blode.co/#organization" },
       url: BASE_URL,
@@ -157,7 +151,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={`${glide.variable} ${glideMono.variable}`} lang="en">
+    <html className={`${inter.variable} ${geistMono.variable}`} lang="en">
       <head>
         <link href={process.env.NEXT_PUBLIC_POSTHOG_HOST} rel="preconnect" />
         <script id="json-ld" type="application/ld+json">
