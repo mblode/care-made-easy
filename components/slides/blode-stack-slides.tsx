@@ -20,7 +20,6 @@ import {
 } from "blode-icons-react";
 import { cn } from "@/lib/utils";
 import { Display } from "@/components/slides/primitives/display";
-import { GlidePlayground } from "@/components/slides/glide-playground";
 import { StyleCaptureDemo } from "@/components/slides/style-capture-demo";
 import { SyncDemo } from "@/components/slides/sync-demo";
 import { Mark } from "@/components/slides/primitives/mark";
@@ -31,7 +30,6 @@ const STACK_SECTIONS = [
   {
     label: "Design",
     tools: [
-      { name: "Glide", logo: "/care/stack/glide.png", href: "https://blode.co/glide" },
       {
         name: "Blode Icons",
         logo: "/care/stack/blode-icons.png",
@@ -405,21 +403,6 @@ export function SlideSyncDemo() {
       </header>
 
       <SyncDemo />
-    </SlideContainer>
-  );
-}
-
-export function SlideGlide() {
-  return (
-    <SlideContainer className="justify-between" palette="glide">
-      <header className="flex flex-col gap-[var(--slide-space-4)]">
-        <Mark>Glide</Mark>
-        <Display className="max-w-[12ch]" size="2xl">
-          Your own typeface.
-        </Display>
-      </header>
-
-      <GlidePlayground />
     </SlideContainer>
   );
 }

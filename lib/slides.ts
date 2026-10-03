@@ -4,7 +4,6 @@ export type Palette =
   | "c"
   | "d"
   | "e"
-  | "glide"
   | "stratasync"
   | "blodeui"
   | "stylecapture"
@@ -26,7 +25,6 @@ export const SLIDES = [
     palette: "stratasync",
   },
   { slug: "sync-demo", title: "Apps that just work", palette: "stratasync" },
-  { slug: "glide", title: "Your own typeface", palette: "glide" },
   { slug: "blode-icons", title: "3,754 icons", palette: "e" },
   { slug: "blode-ui", title: "UI you own", palette: "blodeui" },
   { slug: "style-capture", title: "Point at any UI", palette: "stylecapture" },

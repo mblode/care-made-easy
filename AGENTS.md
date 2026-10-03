@@ -23,7 +23,7 @@ There are no tests. CI (`.github/workflows/ci.yml`) runs lint, format check, typ
 
 - `lib/slides.ts`: the slide list (slug, title, palette). The deck outline, metadata, sitemap and OG images all read from it.
 - `app/[slide]/page.tsx`: maps the slide number to a component; `slideComponents` must stay in the same order as `SLIDES`.
-- `components/slides/blode-stack-slides.tsx`: every slide component. The live demos have their own folders: `sync-demo/` (Strata Sync, simulated in memory), `style-capture-demo/` and `glide-playground.tsx`.
+- `components/slides/blode-stack-slides.tsx`: every slide component. The live demos have their own folders: `sync-demo/` (Strata Sync, simulated in memory) and `style-capture-demo/`.
 - `docs/blode-stack-speaker-notes.md`: speaker notes.
 
 To add a slide: add an entry to `SLIDES`, write the component, and add it to `slideComponents` at the same index. Left and right arrows move between slides (`components/slides/slide-navigation.tsx`).
@@ -38,4 +38,4 @@ To add a slide: add an entry to `SLIDES`, write the component, and add it to `sl
 
 ## Verification
 
-A change is proven by `npm run lint && npm run format:check && npm run check-types && npm run build`, then by opening the changed slide in `npm run dev`. There are no tests, and no doctor, verify script or feature map: that is a gap, so visual changes and the live demos (sync, Style Capture, Glide playground) need a look in the browser.
+A change is proven by `npm run lint && npm run format:check && npm run check-types && npm run build`, then by opening the changed slide in `npm run dev`. There are no tests, and no doctor, verify script or feature map: that is a gap, so visual changes and the live demos (sync, Style Capture) need a look in the browser.

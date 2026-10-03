@@ -21,14 +21,13 @@ Read the deck in the browser. Left and right arrow keys move between slides.
 ## What the talk covers
 
 - **The thesis:** the bottleneck moved from writing code to encoding taste, and you can sense carelessness in a product.
-- **The Blode Stack:** Strata Sync, Blode UI, Blode Icons, Glide, Style Capture, Agent Skills, AllMD, BlodeMD, DiffHub, and spotlight testing.
+- **The Blode Stack:** Strata Sync, Blode UI, Blode Icons, Style Capture, Agent Skills, AllMD, BlodeMD, DiffHub, and spotlight testing.
 - **Done Bear:** what it takes to build every layer of a real app on your own open source.
 - **The takeaway:** build to solve your own problems.
 
 ## Live demos in the deck
 
 - **Strata Sync:** a working sync demo, not a screenshot of one.
-- **Glide:** a playground for the variable typeface, adjustable in place.
 - **Style Capture:** point at any UI on the slide and read its styles back.
 
 ## Notes

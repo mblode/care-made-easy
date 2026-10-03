@@ -84,9 +84,9 @@ Computed using oklch L → CIE L\* (multiply by 100) → Y via standard sRGB inv
 
 - **Heading — Editorial New**: **keep**. This face is the deck's signature. Keep it for h1, hero numerals, slide titles, and section headings. It's the single biggest reason the deck doesn't look like a generic Inter-on-white SaaS pitch.
 - **Body — Inter**: **keep, but tighten**. Inter is generic (an "AI slop signal" per the skill rules), but it's the right call here for technical clarity, code adjacency, and screen reading at distance. Specify `font-feature-settings: 'cv11', 'ss01', 'ss03'` to use the Inter stylistic alternates that round off the most-Inter-looking glyphs (single-storey `a`, straight `l`).
-- **Display / glyph — Glide**: **drop unless used in two specific places** (described below). It's loaded today, never used, costs ~80KB. Two acceptable fates:
+- **Display / glyph — local variable font**: **drop unless used in two specific places** (described below). It's loaded today, never used, costs ~80KB. Two acceptable fates:
   - (a) **Drop entirely** — remove from `app/layout.tsx`. -80KB on first load. Cleanest.
-  - (b) **Use as numeric display** — Glide is a strong geometric variable face. Use it for the big step numerals on slide 6/11/12/21 and the slide counter in the nav bar. _Recommendation: drop it._ The deck doesn't need a third voice; Editorial New + Inter + restraint is enough.
+  - (b) **Use as numeric display** — it's a strong geometric variable face. Use it for the big step numerals on slide 6/11/12/21 and the slide counter in the nav bar. _Recommendation: drop it._ The deck doesn't need a third voice; Editorial New + Inter + restraint is enough. (since removed.)
 
 ### Type scale — extend the existing fluid ramp
 
@@ -393,7 +393,7 @@ Vibe: **resolved, generous, scannable**.
 | `components/slides/slide-container.tsx`     | `bg-[#D1D7DC] text-black/80` → `bg-background text-foreground/85`                                                        | 1 line                                                  |
 | `components/slides/slide-navigation.tsx`    | Inline `style={slideNavigationStyle}` → CSS class using `--shadow-floating`, `--slide-radius-pill`, `--surface-elevated` | ~15 lines (delete inline obj, add class to globals.css) |
 | `components/slides/slide-navigation.tsx:77` | `text-black/60` → `text-muted-foreground`                                                                                | 1 line                                                  |
-| `app/layout.tsx`                            | Drop `glide` font import (or keep if (b) chosen)                                                                         | 7 lines removable                                       |
+| `app/layout.tsx`                            | Drop local variable font import (or keep if (b) chosen)                                                                  | 7 lines removable                                       |
 | `app/layout.tsx:59`                         | `theme-color: "#f0f0f0"` → match new bg `#e8e3d8`                                                                        | 1 line                                                  |
 | All 22 slide files                          | `text-gray-600` → `text-muted-foreground` (30 sites)                                                                     | mechanical find/replace                                 |
 | All 22 slide files                          | `text-gray-500` → `text-muted-foreground` (12 sites — same token, contrast now passes because of palette change)         | mechanical find/replace                                 |
@@ -427,7 +427,7 @@ Total swap-in effort: **~45 minutes**. Mostly `sd` / Biome-assisted find/replace
 3. Tokenise nav bar style object. (15 min)
 4. Redesign slide 1. (45 min)
 5. Redesign slide 22. (30 min)
-6. Drop Glide if not adopted. (5 min + verify no broken imports)
+6. Drop the local variable font if not adopted. (5 min + verify no broken imports) — done, since removed.
 
 ---
 
@@ -446,7 +446,7 @@ Total swap-in effort: **~45 minutes**. Mostly `sd` / Biome-assisted find/replace
 - **Editorial New + Söhne / Inter Display / GT America** (replace Inter). Rejected: all three are subscription/commercial faces. Adding any requires either a license cost or self-hosting the foundry's web kit. Inter with stylistic alternates (`cv11`, `ss01`, `ss03`) closes ~70 % of the gap for free.
 - **Editorial New + JetBrains Mono for code**. Considered. Not rejected — recommend revisiting in Phase 4 if any slide adds inline code samples. For now, system mono via Tailwind's `font-mono` is fine.
 - **Drop Editorial New, use a single sans (Söhne or Inter only)**. Rejected — explicitly forbidden by brief, and the right call: Editorial New is the deck's voice.
-- **Use Glide as the heading face**. Rejected: Glide is a strong geometric face but not editorial; pairing it with Inter would push the deck toward "tech startup brand book" generic. Drop Glide.
+- **Use the local variable font as the heading face**. Rejected: it's a strong geometric face but not editorial; pairing it with Inter would push the deck toward "tech startup brand book" generic. Drop it (since done).
 - **Two-weight Editorial New (Light + Regular for hierarchy)**. Considered if Editorial New ships with Light — most cuts of "Editorial New" do (Pangram Pangram). Worth checking the licensed cut's available weights and using Light for sub-headings, Regular for h1. Note as a Phase-4 follow-up.
 
 ### Layouts considered for slide 1
